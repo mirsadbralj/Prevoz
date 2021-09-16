@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vm="clr-namespace:Prevoz.MobileApp.ViewModels" 
+             xmlns:converters="clr-namespace:eProdaja.Mobile.Converters" xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             x:Class="Prevoz.MobileApp.Views.ListVozilaPage">
+    <ContentPage.BindingContext>
+        <vm:VozilaViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Moja vozila" 
+                HorizontalOptions="CenterAndExpand" 
+                   FontSize="Title"/>
+            <ListView ItemsSource="{Binding VozilaList}" ItemTapped="ListView_ItemTapped" >
+                <ListView.ItemTemplate >
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10" Orientation="Horizontal">
+                                <StackLayout>
+                                  <Image Source="{Binding Slika, Converter={StaticResource imgConv}}" HorizontalOptions="End" WidthRequest="200" HeightRequest="170"></Image>
+                                </StackLayout>
+                                <StackLayout>
+                                        <Label Text="{Binding MarkaVozila}"  
+                                          Style="{DynamicResource ListItemTextStyle}" 
+                                         FontSize="14"  />
+                                        <Label Text="{Binding Naziv}" 
+                                          Style="{DynamicResource ListItemDetailTextStyle}"
+                                          FontSize="14" />
+                                        <Label Text="{Binding Boja}" 
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           FontSize="14" />    
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Text="Dodaj novo vozilo" HorizontalOptions="End" Clicked="Button_Clicked"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

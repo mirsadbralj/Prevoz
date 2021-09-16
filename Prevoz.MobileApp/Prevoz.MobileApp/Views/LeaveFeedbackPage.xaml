@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vm="clr-namespace:Prevoz.MobileApp.ViewModels"
+             x:Class="Prevoz.MobileApp.Views.LeaveFeedbackPage">
+
+    <ContentPage.BindingContext>
+        <vm:LeaveFeedbackViewModel></vm:LeaveFeedbackViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Ocijeni aplikaciju"
+                HorizontalOptions="CenterAndExpand" />
+
+            <Picker Title="Ocjena" ItemsSource="{Binding listaOcjena}" SelectedIndex="{Binding Ocjena}"></Picker>
+            <Label Text="Vaša ocjena"></Label>
+
+            <Label Text="Komentar"></Label>
+            <Entry Text="{Binding komentar}"></Entry>
+            <Button Text="Potvrdi" Command="{Binding InsertCommand}"></Button>
+
+            <ListView ItemsSource="{Binding listFeedback}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label Text="{Binding Ocjena}" FontSize="14"></Label>
+                                <Label Text="{Binding Komentar}" FontSize="10"></Label>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+
+       
+    </ContentPage.Content>
+</ContentPage>

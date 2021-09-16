@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vm="clr-namespace:Prevoz.MobileApp.ViewModels"
+             x:Class="Prevoz.MobileApp.Views.PosaljiPorukuPage">
+    
+    
+    <ContentPage.BindingContext>
+        <vm:PosaljiPorukuViewModel/>
+    </ContentPage.BindingContext>
+  
+    <ContentPage.Content >
+        
+        <ScrollView>
+            <StackLayout>
+            <ListView ItemsSource="{Binding listPoruke}">
+                <ListView.ItemTemplate >
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                             <Label Text="{Binding Sadrzaj}" HorizontalOptions="Start" IsVisible="{Binding JaNisamPosiljaoc}" FontSize="14"></Label>
+                                <Label Text="{Binding DatumVrijeme}" HorizontalOptions="Start"  IsVisible="{Binding JaNisamPosiljaoc}" TextColor="White" FontSize="10"></Label>
+
+                                    <Label Text="{Binding Sadrzaj}" HorizontalOptions="End" IsVisible="{Binding JaPosiljaoc}" TextColor="SkyBlue" FontSize="16"></Label>
+                                <Label Text="{Binding DatumVrijeme}" HorizontalOptions="End" IsVisible="{Binding JaPosiljaoc}" TextColor="White" FontSize="10"></Label>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+                <StackLayout Padding="5" Spacing="10">
+                    <Entry x:Name="Text" Text="{Binding Text}" TextChanged="Text_TextChanged"></Entry>
+                </StackLayout>
+                <StackLayout >
+                    <Label x:Name="ErrorText" TextColor="Red" FontSize="13" HorizontalOptions="Start"></Label>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="0" Text="Nazad" WidthRequest="200" HorizontalOptions="StartAndExpand" Clicked="Button_Clicked" ></Button>
+
+                        <Button Grid.Column="1" x:Name="SendButton" Text="Potvrdi" WidthRequest="200"  HorizontalOptions="EndAndExpand" Command="{Binding SendMessageCommand}"></Button>
+                    </Grid>
+                </StackLayout>
+             </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

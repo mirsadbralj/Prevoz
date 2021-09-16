@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vm="clr-namespace:Prevoz.MobileApp.ViewModels"
+             x:Class="Prevoz.MobileApp.Views.OcijeniKorisnikaPage">
+
+    <ContentPage.BindingContext>
+        <vm:OcijeniKorisnikaViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Ocijeni korisnika"
+                HorizontalOptions="CenterAndExpand"/>
+            <Label Text="Korisničko ime:"></Label>
+            <Label Text="{Binding Username}"></Label>
+
+            <Picker Title="Odaberi ocjenu" ItemsSource="{Binding OcjeneList}" SelectedItem = "{Binding OcjenaSelected}"></Picker>
+
+            <Entry Placeholder="Komentar" Text="{Binding Komentar}"></Entry>
+
+            <Button Text="Potvrdi" Command="{Binding SaveRating}"></Button>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

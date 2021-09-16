@@ -1,0 +1,652 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Xamarin.Forms.5.0.0.2012\build\Xamarin.Forms.props" Condition="Exists('..\packages\Xamarin.Forms.5.0.0.2012\build\Xamarin.Forms.props')" />
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E118A902-B35D-4512-9DE2-087A38044E1E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Prevoz.WinUI</RootNamespace>
+    <AssemblyName>Prevoz.WinUI</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Flurl, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Flurl.3.0.1\lib\net461\Flurl.dll</HintPath>
+    </Reference>
+    <Reference Include="Flurl.Http, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Flurl.Http.3.0.1\lib\net461\Flurl.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="GMap.NET.Core, Version=1.7.5.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <HintPath>..\packages\GMap.NET.WindowsForms.1.7.5\lib\net40\GMap.NET.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GMap.NET.WindowsForms, Version=1.7.5.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <HintPath>..\packages\GMap.NET.WindowsForms.1.7.5\lib\net40\GMap.NET.WindowsForms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GMap.NET.WindowsPresentation, Version=2.0.2.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <HintPath>..\packages\GMap.NET.WinPresentation.2.0.2\lib\net46\GMap.NET.WindowsPresentation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MathNet.Numerics, Version=4.15.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MathNet.Numerics.4.15.0\lib\net461\MathNet.Numerics.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Hosting.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Hosting.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Hosting.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Hosting.Server.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Hosting.Server.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Hosting.Server.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Extensions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.Extensions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Features, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.Features.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Features.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Abstractions.5.0.0\lib\net461\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.5.0.0\lib\net461\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileProviders.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.FileProviders.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Physical, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileProviders.Physical.2.2.0\lib\netstandard2.0\Microsoft.Extensions.FileProviders.Physical.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileSystemGlobbing, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileSystemGlobbing.2.2.0\lib\netstandard2.0\Microsoft.Extensions.FileSystemGlobbing.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Hosting.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Hosting.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Hosting.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.5.0.0\lib\net461\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.5.0.0\lib\net461\Microsoft.Extensions.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Net.Http.Headers, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.Headers.2.2.0\lib\netstandard2.0\Microsoft.Net.Http.Headers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="protobuf-net, Version=2.4.0.0, Culture=neutral, PublicKeyToken=257b51d87d2e4d67, processorArchitecture=MSIL">
+      <HintPath>..\packages\protobuf-net.2.4.0\lib\net40\protobuf-net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Stripe.net, Version=39.63.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stripe.net.39.63.0\lib\net461\Stripe.net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.5.0.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlClient, Version=4.6.1.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.8.2\lib\net461\System.Data.SqlClient.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SQLite, Version=1.0.113.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\lib\net46\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.113.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.113.0\lib\net46\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.113.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.113.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security.Principal.Windows, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Principal.Windows.5.0.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Text.Encodings.Web, Version=5.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.5.0.1\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Forms.5.0.0.2012\lib\netstandard2.0\Xamarin.Forms.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Forms.5.0.0.2012\lib\netstandard2.0\Xamarin.Forms.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Xaml, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Forms.5.0.0.2012\lib\netstandard2.0\Xamarin.Forms.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="XamarinFastEntry.Behaviors, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\XamarinFastEntry.Behaviors.1.1.1\lib\netstandard2.0\XamarinFastEntry.Behaviors.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Admin\frmFaq.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\frmFaq.Designer.cs">
+      <DependentUpon>frmFaq.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\frmLoginAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\frmLoginAdmin.Designer.cs">
+      <DependentUpon>frmLoginAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\frmOdgovorAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\frmOdgovorAdd.Designer.cs">
+      <DependentUpon>frmOdgovorAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\frmPost.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\frmPost.Designer.cs">
+      <DependentUpon>frmPost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\frmUpraviteljUloga.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\frmUpraviteljUloga.Designer.cs">
+      <DependentUpon>frmUpraviteljUloga.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPocetnaFormaLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPocetnaFormaLogin.Designer.cs">
+      <DependentUpon>frmPocetnaFormaLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Korisnik\frmFAQ.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Korisnik\frmFAQ.Designer.cs">
+      <DependentUpon>frmFAQ.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Korisnik\frmHistorijaVoznji.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Korisnik\frmHistorijaVoznji.Designer.cs">
+      <DependentUpon>frmHistorijaVoznji.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Korisnik\frmHistorijaVoznjiDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Korisnik\frmHistorijaVoznjiDetails.Designer.cs">
+      <DependentUpon>frmHistorijaVoznjiDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Korisnik\frmKorisnikRegistration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Korisnik\frmKorisnikRegistration.Designer.cs">
+      <DependentUpon>frmKorisnikRegistration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Korisnik\frmLeaveFeedback.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Korisnik\frmLeaveFeedback.Designer.cs">
+      <DependentUpon>frmLeaveFeedback.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApiService.cs" />
+    <Compile Include="frmPocetnaFormaKorisnik.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPocetnaFormaKorisnik.Designer.cs">
+      <DependentUpon>frmPocetnaFormaKorisnik.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPocetnaFormaAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPocetnaFormaAdmin.Designer.cs">
+      <DependentUpon>frmPocetnaFormaAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\frmKorisnici.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\frmKorisnici.Designer.cs">
+      <DependentUpon>frmKorisnici.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\frmKorisniciDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\frmKorisniciDetail.Designer.cs">
+      <DependentUpon>frmKorisniciDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Korisnik\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Korisnik\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Korisnik\frmOcijeniKorisnika.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Korisnik\frmOcijeniKorisnika.Designer.cs">
+      <DependentUpon>frmOcijeniKorisnika.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Korisnik\frmOcjenaDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Korisnik\frmOcjenaDetail.Designer.cs">
+      <DependentUpon>frmOcjenaDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Korisnik\frmOcjene.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Korisnik\frmOcjene.Designer.cs">
+      <DependentUpon>frmOcjene.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Korisnik\frmPosaljiPoruku.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Korisnik\frmPosaljiPoruku.Designer.cs">
+      <DependentUpon>frmPosaljiPoruku.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Korisnik\frmVoziloAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Korisnik\frmVoziloAdd.Designer.cs">
+      <DependentUpon>frmVoziloAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Korisnik\frmVoznjaDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Korisnik\frmVoznjaDetails.Designer.cs">
+      <DependentUpon>frmVoznjaDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Korisnik\frmVoznjaPublish.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Korisnik\frmVoznjaPublish.Designer.cs">
+      <DependentUpon>frmVoznjaPublish.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Korisnik\frmVoznjaSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Korisnik\frmVoznjaSearch.Designer.cs">
+      <DependentUpon>frmVoznjaSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Korisnik\frmKorisnikProfil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Korisnik\frmKorisnikProfil.Designer.cs">
+      <DependentUpon>frmKorisnikProfil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Korisnik\frmZahtjevi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Korisnik\frmZahtjevi.Designer.cs">
+      <DependentUpon>frmZahtjevi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Korisnik\frm_KorisnikInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Korisnik\frm_KorisnikInfo.Designer.cs">
+      <DependentUpon>frm_KorisnikInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Memorija.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\ReportRegistrovaniKorisnici\frmBrojRegistrovanihKorisnikaReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportRegistrovaniKorisnici\frmBrojRegistrovanihKorisnikaReport.Designer.cs">
+      <DependentUpon>frmBrojRegistrovanihKorisnikaReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportRegistrovaniKorisnici\RegistrovaniKorisnici.cs">
+      <DependentUpon>RegistrovaniKorisnici.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportRegistrovaniKorisnici\RegistrovaniKorisnici.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RegistrovaniKorisnici.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportUplateKorisnici\frmUplateKorisnikaReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportUplateKorisnici\frmUplateKorisnikaReport.Designer.cs">
+      <DependentUpon>frmUplateKorisnikaReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportUplateKorisnici\UplateKorisnici.cs">
+      <DependentUpon>UplateKorisnici.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportUplateKorisnici\UplateKorisnici.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UplateKorisnici.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="Admin\frmFaq.resx">
+      <DependentUpon>frmFaq.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\frmLoginAdmin.resx">
+      <DependentUpon>frmLoginAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\frmOdgovorAdd.resx">
+      <DependentUpon>frmOdgovorAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\frmPost.resx">
+      <DependentUpon>frmPost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\frmUpraviteljUloga.resx">
+      <DependentUpon>frmUpraviteljUloga.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPocetnaFormaLogin.resx">
+      <DependentUpon>frmPocetnaFormaLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Korisnik\frmFAQ.resx">
+      <DependentUpon>frmFAQ.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Korisnik\frmHistorijaVoznji.resx">
+      <DependentUpon>frmHistorijaVoznji.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Korisnik\frmHistorijaVoznjiDetails.resx">
+      <DependentUpon>frmHistorijaVoznjiDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Korisnik\frmKorisnikRegistration.resx">
+      <DependentUpon>frmKorisnikRegistration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Korisnik\frmLeaveFeedback.resx">
+      <DependentUpon>frmLeaveFeedback.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPocetnaFormaKorisnik.resx">
+      <DependentUpon>frmPocetnaFormaKorisnik.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPocetnaFormaAdmin.resx">
+      <DependentUpon>frmPocetnaFormaAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\frmKorisnici.resx">
+      <DependentUpon>frmKorisnici.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\frmKorisniciDetail.resx">
+      <DependentUpon>frmKorisniciDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Korisnik\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Korisnik\frmOcijeniKorisnika.resx">
+      <DependentUpon>frmOcijeniKorisnika.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Korisnik\frmOcjenaDetail.resx">
+      <DependentUpon>frmOcjenaDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Korisnik\frmOcjene.resx">
+      <DependentUpon>frmOcjene.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Korisnik\frmPosaljiPoruku.resx">
+      <DependentUpon>frmPosaljiPoruku.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Korisnik\frmVoziloAdd.resx">
+      <DependentUpon>frmVoziloAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Korisnik\frmVoznjaDetails.resx">
+      <DependentUpon>frmVoznjaDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Korisnik\frmVoznjaPublish.resx">
+      <DependentUpon>frmVoznjaPublish.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Korisnik\frmVoznjaSearch.resx">
+      <DependentUpon>frmVoznjaSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Korisnik\frmKorisnikProfil.resx">
+      <DependentUpon>frmKorisnikProfil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Korisnik\frmZahtjevi.resx">
+      <DependentUpon>frmZahtjevi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Korisnik\frm_KorisnikInfo.resx">
+      <DependentUpon>frm_KorisnikInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Reports\ReportRegistrovaniKorisnici\frmBrojRegistrovanihKorisnikaReport.resx">
+      <DependentUpon>frmBrojRegistrovanihKorisnikaReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportRegistrovaniKorisnici\rptBrojRegistrovanihkorisnika.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportUplateKorisnici\frmUplateKorisnikaReport.resx">
+      <DependentUpon>frmUplateKorisnikaReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportUplateKorisnici\rptUplateKorisnici.rdlc" />
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Prevoz.Model.Faq.datasource" />
+    <None Include="Properties\DataSources\Prevoz.Model.Feedback.datasource" />
+    <None Include="Properties\DataSources\Prevoz.Model.Korisnik.datasource" />
+    <None Include="Properties\DataSources\Prevoz.Model.KorisnikDetails.datasource" />
+    <None Include="Properties\DataSources\Prevoz.Model.KorisnikRezervacija.datasource" />
+    <None Include="Properties\DataSources\Prevoz.Model.Lokacija.datasource" />
+    <None Include="Properties\DataSources\Prevoz.Model.ObjectExtension.datasource" />
+    <None Include="Properties\DataSources\Prevoz.Model.Ocjena.datasource" />
+    <None Include="Properties\DataSources\Prevoz.Model.Post.datasource" />
+    <None Include="Properties\DataSources\Prevoz.Model.Vozilo.datasource" />
+    <None Include="Properties\DataSources\Prevoz.Model.Voznja.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Reports\ReportRegistrovaniKorisnici\RegistrovaniKorisnici.xsc">
+      <DependentUpon>RegistrovaniKorisnici.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\ReportRegistrovaniKorisnici\RegistrovaniKorisnici.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RegistrovaniKorisnici.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\ReportRegistrovaniKorisnici\RegistrovaniKorisnici.xss">
+      <DependentUpon>RegistrovaniKorisnici.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\ReportUplateKorisnici\UplateKorisnici.xsc">
+      <DependentUpon>UplateKorisnici.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\ReportUplateKorisnici\UplateKorisnici.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>UplateKorisnici.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\ReportUplateKorisnici\UplateKorisnici.xss">
+      <DependentUpon>UplateKorisnici.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Prevoz\Prevoz.Model.csproj">
+      <Project>{4289934c-cf42-4be1-a557-e8a4174eb1b9}</Project>
+      <Name>Prevoz.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.NETFramework.ReferenceAssemblies.net472.1.0.0\build\Microsoft.NETFramework.ReferenceAssemblies.net472.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.NETFramework.ReferenceAssemblies.net472.1.0.0\build\Microsoft.NETFramework.ReferenceAssemblies.net472.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Forms.5.0.0.2012\build\Xamarin.Forms.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Forms.5.0.0.2012\build\Xamarin.Forms.props'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Forms.5.0.0.2012\build\Xamarin.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Forms.5.0.0.2012\build\Xamarin.Forms.targets'))" />
+  </Target>
+  <Import Project="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="..\packages\Microsoft.NETFramework.ReferenceAssemblies.net472.1.0.0\build\Microsoft.NETFramework.ReferenceAssemblies.net472.targets" Condition="Exists('..\packages\Microsoft.NETFramework.ReferenceAssemblies.net472.1.0.0\build\Microsoft.NETFramework.ReferenceAssemblies.net472.targets')" />
+  <Import Project="..\packages\Xamarin.Forms.5.0.0.2012\build\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.5.0.0.2012\build\Xamarin.Forms.targets')" />
+</Project>

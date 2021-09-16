@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vm="clr-namespace:Prevoz.MobileApp.ViewModels"
+             x:Class="Prevoz.MobileApp.Views.HomePage">
+    <ContentPage.BindingContext>
+        <vm:HomeViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout >
+                <StackLayout Padding="20">
+                <Button Text="Traži vožnju" 
+                            HorizontalOptions="CenterAndExpand" 
+                            VerticalOptions="CenterAndExpand" 
+                            Clicked="Button_Clicked"
+                            HeightRequest="50" 
+                            WidthRequest="150"/>
+                </StackLayout>
+                
+                <StackLayout Padding="20">
+                    <Button Text="Ponudi vožnju"
+                            HorizontalOptions="CenterAndExpand" 
+                            VerticalOptions="CenterAndExpand" 
+                            Clicked="Button_Clicked_1"
+                            HeightRequest="50" 
+                            WidthRequest="150"/>
+                </StackLayout>
+                <Line HeightRequest="2" BackgroundColor="LightGreen" WidthRequest="20000"></Line>
+                <Label Text="Vožnje na relacijama koje ste ranije rezervisali" FontSize="14"></Label>
+                <Line HeightRequest="2" BackgroundColor="LightGreen" WidthRequest="20000"></Line>
+                <StackLayout Padding="20">
+                    <ListView ItemsSource="{Binding listaVoznji}" ItemTapped="ListView_ItemTapped">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout>
+                                        <Label Text="Datum vožnje"></Label>
+                                        <Label Text="{Binding DatumVoznje}"></Label>
+
+                                        <Label Text="Cijena sjedišta"></Label>
+                                        <Label Text="{Binding CijenaSjedista}"></Label>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

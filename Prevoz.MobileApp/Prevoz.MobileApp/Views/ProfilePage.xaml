@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vm="clr-namespace:Prevoz.MobileApp.ViewModels" 
+             xmlns:converters="clr-namespace:eProdaja.Mobile.Converters"
+             x:Class="Prevoz.MobileApp.Views.ProfilePage">
+    <ContentPage.BindingContext>
+        <vm:ProfileViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>                                                         
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="5">
+                <Image Source="{Binding UserImage,Converter={StaticResource imgConv}}" HeightRequest="175" WidthRequest="175"></Image>
+                <Button Text="Dodaj Sliku" Clicked="Button_Clicked" WidthRequest="175" HorizontalOptions="CenterAndExpand"></Button>
+
+                <StackLayout>
+                    <Label Text="Korisničko ime"/>
+                    <Entry x:Name="UserName" Text="{Binding Username.Text}" TextChanged="UserName_TextChanged"></Entry>
+                    <Label x:Name="ErrorUserName" TextColor="Red" FontSize="13"></Label>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text="Ime"/>
+                    <Entry x:Name="Ime" Text="{Binding Ime.Text}" TextChanged="Ime_TextChanged"></Entry>
+                    <Label x:Name="ErrorIme" TextColor="Red" FontSize="13"></Label>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text="Prezime"/>
+                    <Entry x:Name="Prezime" Text="{Binding Prezime.Text}" TextChanged="Prezime_TextChanged"></Entry>
+                    <Label x:Name="ErrorPrezime" TextColor="Red" FontSize="13"></Label>
+
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text="Grad"></Label>
+                    <Entry x:Name="Grad" Text="{Binding Grad}" TextChanged="Grad_TextChanged" ></Entry>
+                    <Label x:Name="ErrorGrad" TextColor="Red" FontSize="13"></Label>
+
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text="Email"/>
+                    <Entry x:Name="Email" Text="{Binding Email.Text}" Keyboard="Email" TextChanged="Email_TextChanged"></Entry>
+                    <Label x:Name="ErrorEmail" TextColor="Red" FontSize="13" ></Label>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text="Telefon"/>
+                    <Entry x:Name="Telefon" Text="{Binding Telefon.Text}" TextChanged="Telefon_TextChanged"></Entry>
+                    <Label x:Name="ErrorTelefon" TextColor="Red" FontSize="13" ></Label>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text="Lozinka"/>
+                    <Entry x:Name="Password" Text="{Binding Password.Text}" TextChanged="Password_TextChanged"></Entry>
+                    <Label x:Name="ErrorPassword" TextColor="Red" FontSize="13" ></Label>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text="Potvrda lozinke"/>
+                    <Entry x:Name="PasswordConfirm" Text="{Binding Potvrda.Text}" TextChanged="PasswordConfirm_TextChanged"></Entry>
+                    <Label x:Name="ErrorPasswordConfirm" TextColor="Red" FontSize="13" ></Label>
+                </StackLayout>
+
+                <Label Text="Datum rođenja"></Label>
+                <DatePicker x:Name="DatumRodjenjaxaml" Date="{Binding Datum}" ></DatePicker>
+
+                <Label x:Name="ErrorLabelPasswordAndConfirm" IsVisible="false" TextColor="Red" FontSize="13"></Label>
+                <Button x:Name="SaveButton" Text="Sačuvaj" HorizontalOptions="End" WidthRequest="100" Command="{Binding SaveCommand}"></Button>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

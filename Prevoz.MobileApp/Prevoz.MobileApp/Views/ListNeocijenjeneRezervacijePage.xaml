@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vm="clr-namespace:Prevoz.MobileApp.ViewModels"
+             x:Class="Prevoz.MobileApp.Views.ListNeocijenjeneRezervacijePage">
+    <ContentPage.BindingContext>
+        <vm:ListNeocijenjeneRezervacijeViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Lista vaših neocijenjenih putnika"
+                HorizontalOptions="CenterAndExpand" />
+            <ListView ItemsSource="{Binding OcijeniPreostaleRezervacijeListKorisnika}"  ItemTapped="ItemVoznjaTapped" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10">
+                                <Label Text="{Binding UserName}"></Label>
+
+                                <Image Source="{Binding Slika}"></Image>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

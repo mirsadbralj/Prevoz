@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vm="clr-namespace:Prevoz.MobileApp.ViewModels"
+             x:Class="Prevoz.MobileApp.Views.ListHistorijaVoznji">
+    <ContentPage.BindingContext>
+        <vm:HistorijaVoznjiViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Label Text="Historija vožnji"
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand" FontSize="14"/>
+                <StackLayout>
+                    <Line HeightRequest="2" BackgroundColor="White" WidthRequest="20000"></Line>
+                    <Label Text="Lista ponuđenih vožnji" FontSize="12" HorizontalOptions="Start"></Label>
+                    <Line HeightRequest="2" BackgroundColor="White" WidthRequest="20000"></Line>
+                    <ListView ItemsSource="{Binding PonudeneVoznjeList}" ItemTapped="ItemVoznjaTapped" >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Padding="10">
+                                        <Label Text="{Binding DatumVoznje}" 
+                                    LineBreakMode="NoWrap" 
+                                    Style="{DynamicResource ListItemTextStyle}" 
+                                    FontSize="16" />
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <StackLayout Padding="20" >
+                        <Line HeightRequest="2" BackgroundColor="LightGreen" WidthRequest="20000"></Line>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Text="Ukupni ostvareni prihodi" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+                            <Label Grid.Column="1" Text="{Binding PrikaziPrihode}" HorizontalOptions="End" VerticalOptions="Center"/>
+                        </Grid>
+                        <Line HeightRequest="2" BackgroundColor="LightGreen" WidthRequest="20000"></Line>
+                    </StackLayout>
+                </StackLayout>
+                <Line HeightRequest="2" BackgroundColor="White" WidthRequest="20000"></Line>
+                <Label Text="Lista rezervisanih vožnji" FontSize="12" HorizontalOptions="Start"></Label>
+                <Line HeightRequest="2" BackgroundColor="White" WidthRequest="20000"></Line>
+                <ListView ItemsSource="{Binding RezervisaneVoznjeList}" ItemTapped="ItemVoznjaTapped" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="10">
+                                    <Label Text="{Binding DatumVoznje}" 
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="16" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <StackLayout Padding="20" >
+                    <Line HeightRequest="2" BackgroundColor="DarkRed" WidthRequest="20000"></Line>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" Text="Ukupni troškovi rezervisanih vožnji" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+                        <Label Grid.Column="1" Text="{Binding PrikaziTroskove}" HorizontalOptions="End" VerticalOptions="Center"/>
+                    </Grid>
+                    <Line HeightRequest="2" BackgroundColor="DarkRed" WidthRequest="20000"></Line>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

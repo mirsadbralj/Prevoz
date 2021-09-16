@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vm="clr-namespace:Prevoz.MobileApp.ViewModels"
+             x:Class="Prevoz.MobileApp.Views.VoznjaDetailsPage">
+    <ContentPage.BindingContext>
+        <vm:VoznjaDetailsViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Label Text="Detalji vožnje" HorizontalOptions="CenterAndExpand" FontSize="Subtitle"/>
+
+                <Label Text="Polazna lokacija" FontAttributes="Bold"></Label>
+                <Label Text="{Binding polaznaLokacija}"></Label>
+                <Line BackgroundColor="White" HeightRequest="1" WidthRequest="2000" HorizontalOptions="Center"></Line>
+                <Label Text="Destinacija" FontAttributes="Bold"></Label>
+                <Label Text="{Binding destinacija}"></Label>
+                <Line BackgroundColor="White" HeightRequest="1" WidthRequest="2000" HorizontalOptions="Center"></Line>
+                <Label Text="Vozač" FontAttributes="Bold"></Label>
+                <Label Text="{Binding username}" >
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GetKorisnikInfoCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                <Line BackgroundColor="White" HeightRequest="1" WidthRequest="2000" HorizontalOptions="Center"></Line>
+                <Label Text="Cijena jednog sjedišta" FontAttributes="Bold"></Label>
+                <Label Text="{Binding cijenaSjedista}"></Label>
+                <Line BackgroundColor="White" HeightRequest="1" WidthRequest="2000" HorizontalOptions="Center"></Line>
+                <Label Text="Preostalo sjedišta" FontAttributes="Bold"></Label>
+                <Label Text="{Binding preostaloSjedista}"></Label>
+                <Line BackgroundColor="White" HeightRequest="1" WidthRequest="2000" HorizontalOptions="Center"></Line>
+                <Label Text="Datum i vrijeme vožnje" FontAttributes="Bold"></Label>
+                <Label Text="{Binding DatumVoznje}"></Label>
+                <Line BackgroundColor="White" HeightRequest="1" WidthRequest="2000" HorizontalOptions="Center"></Line>
+                <Label Text="Status vožnje" FontAttributes="Bold"></Label>
+                <Label Text="{Binding status}"></Label>
+
+                <Label Text="Automatsko odobrenje" FontAttributes="Bold"></Label>
+                <Label Text="{Binding AutomatskoOdobrenje}"></Label>
+
+                <Label Text="Kućni ljubimci" FontAttributes="Bold"></Label>
+                <Label Text="{Binding KucniLjubimci}"></Label>
+
+                <Label Text="Cigarete" FontAttributes="Bold"></Label>
+                <Label Text="{Binding Cigarete}"></Label>
+
+                <Label Text="Detaljnije" FontAttributes="Bold"></Label>
+                <Label Text="{Binding Detaljnije}"></Label>
+
+                <Button Text="Plati i rezerviši" Clicked="Button_Clicked_1"></Button>
+                <Button Text="Samo rezerviši" Clicked="Button_Clicked"></Button>
+
+                <Label Text="Lista vožnji po preporuci drugih korisnika, ispod:"></Label>
+                <StackLayout>
+                    <ListView ItemsSource="{Binding listaPreporucenihVoznji}" ItemTapped="ListView_ItemTapped">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout>
+                                        <Label Text="Datum vožnje"></Label>
+                                        <Label Text="{Binding DatumVoznje}"></Label>
+
+                                        <Label Text="Cijena sjedišta"></Label>
+                                        <Label Text="{Binding CijenaSjedista}"></Label>
+
+                                        <Label Text="Broj slobodnih sjedišta"></Label>
+                                        <Label Text="{Binding BrojSjedista}"></Label>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+
+                <Button x:Name="GoBackButton" Text="Nazad" Clicked="GoBackButton_Clicked"></Button>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

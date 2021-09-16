@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Prevoz.MobileApp.ViewModels" 
+             xmlns:converters="clr-namespace:eProdaja.Mobile.Converters"
+             x:Class="Prevoz.MobileApp.Views.DodajNovoVoziloPage">
+    <ContentPage.BindingContext>
+        <vm:DodajNovoVoziloViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Dodaj novo vozilo" HorizontalOptions="CenterAndExpand" />
+            <Image Source="{Binding SlikaK, Converter={StaticResource imgConv}}" HeightRequest="50" WidthRequest="50" HorizontalOptions="Center"></Image>
+            <Label></Label>
+            <Button Text="Dodaj sliku" Clicked="Button_Clicked_1" Padding="5" ></Button>
+
+            <StackLayout>
+                <Label Text="Naziv automobila"></Label>
+                <Entry x:Name="NazivAutomobila" Text="{Binding nazivAutomobila}" TextChanged="NazivAutomobila_TextChanged"></Entry>
+                <Label x:Name="ErrorNazivAutomobila" TextColor="Red" FontSize="13"> </Label>
+            </StackLayout>
+            <Picker Title="Boja" ItemsSource="{Binding BojaAutomobilaList}" SelectedItem="{Binding BojaAutomobila}"></Picker>
+            <Picker Title="Marka" ItemsSource="{Binding MarkaAutomobilaList}" SelectedItem="{Binding MarkaAutomobila}"></Picker>
+            <Button x:Name="SacuvajVoziloButton" Text="Sačuvaj" Clicked="Button_Clicked"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

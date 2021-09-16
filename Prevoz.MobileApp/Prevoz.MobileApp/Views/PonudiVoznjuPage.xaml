@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vm="clr-namespace:Prevoz.MobileApp.ViewModels"
+             x:Class="Prevoz.MobileApp.Views.PonudiVoznjuPage">
+    <ContentPage.BindingContext>
+        <vm:PonudiVoznjuViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Label Text="Ponudi vožnju" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" FontSize="Subtitle"/>
+
+                <StackLayout>
+                    <Label Text="Polazna lokacija"></Label>
+                    <Entry x:Name="PolaznaLokacija" Text="{Binding PolaznaLokacija}" TextChanged="PolaznaLokacija_TextChanged" Placeholder=""></Entry>
+                    <Label x:Name="ErrorLabelPolaznaLokacija" TextColor="Red" FontSize="12"></Label>
+                </StackLayout>
+
+                <StackLayout>
+                <Label Text="Destinacija"></Label>
+                    <Entry x:Name="Destinacija" Text="{Binding destinacija}" TextChanged="Destinacija_TextChanged"></Entry>
+                    <Label x:Name="ErrorLabelDestinacija" TextColor="Red" FontSize="12"></Label>
+                </StackLayout>
+
+
+                <StackLayout>
+                    <Label Text="Cijena jednog sjedišta (€)"></Label>
+                    <Entry x:Name="CijenaSjedista" Text="{Binding cijenaSjedista}" TextChanged="EntryCijenaSjedista_TextChanged"></Entry>
+                    <Label x:Name="ErrorLabelCijenaSjedista" TextColor="Red" FontSize="12"></Label>
+                </StackLayout>
+
+                <StackLayout>
+                    <Picker x:Name="PickerOdaberiAutomobil" Title="Odaberi automobil" ItemsSource="{Binding VozilaList}" SelectedIndexChanged="PickerOdaberiAutomobil_SelectedIndexChanged" ItemDisplayBinding="{Binding Naziv}" SelectedItem="{Binding voziloSelected}"></Picker>
+                    <Label x:Name="ErrorLabelOdaberiAutomobil" TextColor="Red" FontSize="12"></Label>
+                </StackLayout>
+
+                <StackLayout>
+                    <Picker x:Name="PickerBrojSjedista" Title="Broj sjedišta" ItemsSource="{Binding BrojSjedistaList}" SelectedIndexChanged="PickerBrojSjedista_SelectedIndexChanged"  SelectedItem="{Binding BrojSjedistaSelected}"></Picker>
+                    <Label x:Name="ErrorLabelBrojSjedista" TextColor="Red" FontSize="12"></Label>
+                </StackLayout>
+
+                <StackLayout>
+                <Label Text="Datum vožnje"></Label>
+                <DatePicker Date="{Binding DatumVoznje}" MinimumDate="{Binding MinimumDateTime}"></DatePicker>
+                </StackLayout>
+                
+                <Label Text="Detaljnije infomacije (opcionalno)"></Label>
+                <Entry Text="{Binding Detaljnije}"></Entry>
+
+           
+                <Label Text="Tačno vrijeme vožnje"></Label>
+                <TimePicker Time="{Binding VrijemeVoznje}"></TimePicker>
+
+                <StackLayout>
+                    <Picker x:Name="AutomatskoOdobrenje" Title="Automatsko odobrenje" ItemsSource="{Binding OCAutomatskoOdobrenje}" SelectedIndexChanged="AutomatskoOdobrenje_SelectedIndexChanged" SelectedItem = "{Binding AutomatskoOdobrenje}"></Picker>
+                    <Label x:Name="ErrorLabelAutomatskoOdobrenje" TextColor="Red" FontSize="12"></Label>
+                </StackLayout>
+                <StackLayout>
+                    <Picker x:Name="Cigarete" Title="Cigarete" ItemsSource="{Binding OCCigarete}" SelectedIndexChanged="Cigarete_SelectedIndexChanged" SelectedItem = "{Binding Cigarete}"></Picker>
+                    <Label x:Name="ErrorLabelCigarete" TextColor="Red" FontSize="12"></Label>
+                </StackLayout>
+
+                <StackLayout>
+                    <Picker x:Name="KucniLjubimci" Title="Kucni ljubimci" ItemsSource="{Binding OCKucniLjubimci}" SelectedIndexChanged="KucniLjubimci_SelectedIndexChanged" SelectedItem = "{Binding KucniLjubimci}"></Picker>
+                    <Label x:Name="ErrorLabelKucniLjubimci" TextColor="Red" FontSize="12"></Label>
+                </StackLayout>
+
+                <Label x:Name="ErrorLabelForm" TextColor="Red" FontSize="12" HorizontalOptions="CenterAndExpand"></Label>
+                <StackLayout>
+                <Button x:Name="ButtonObjaviVoznju" Text="Objavi vožnju" Clicked="Button_Clicked"></Button>
+                </StackLayout>
+
+               
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

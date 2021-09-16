@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vm="clr-namespace:Prevoz.MobileApp.ViewModels" 
+             xmlns:converters="clr-namespace:eProdaja.Mobile.Converters"
+             x:Class="Prevoz.MobileApp.Views.KorisnikInfoPage">
+
+    <ContentPage.BindingContext>
+        <vm:KorisnikInfoViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Label Text="Informacije o korisniku"
+                HorizontalOptions="CenterAndExpand" />
+
+            <Image Source="{Binding UserImage, Converter={StaticResource imgConv}}" HeightRequest="100" WidthRequest="100" VerticalOptions="End"></Image>
+            <Label Text="Ime:" FontAttributes="Bold"/>
+            <Label Text="{Binding Ime}"/>
+            <Line BackgroundColor="White" HeightRequest="1" WidthRequest="2000" HorizontalOptions="Center"></Line>
+            
+            <Label Text="Prezime:" FontAttributes="Bold"/>
+            <Label Text="{Binding Prezime}"/>
+            <Line BackgroundColor="White" HeightRequest="1" WidthRequest="2000" HorizontalOptions="Center"></Line>
+
+            <Label Text="Korisničko ime:" FontAttributes="Bold"/>
+            <Label Text="{Binding KorisnickoIme}"/>
+            <Line BackgroundColor="White" HeightRequest="1" WidthRequest="2000" HorizontalOptions="Center"></Line>
+
+            <Label Text="Datum kreiranja:" FontAttributes="Bold"/>
+            <Label Text="{Binding DatumKreiranja}"/>
+            <Line BackgroundColor="White" HeightRequest="1" WidthRequest="2000" HorizontalOptions="Center"></Line>
+
+            <Label Text="Datum rođenja:" FontAttributes="Bold"/>
+            <Label Text="{Binding DatumRodjenja}"/>
+            <Line BackgroundColor="White" HeightRequest="1" WidthRequest="2000" HorizontalOptions="Center"></Line>
+
+            <Label Text="Prosječna ocjena:" FontAttributes="Bold"/>
+            <Label Text="{Binding ProsjecnaOcjena}"/>
+            <Line BackgroundColor="White" HeightRequest="1" WidthRequest="2000" HorizontalOptions="Center"></Line>
+            <Button Text="Pošalji poruku" HorizontalOptions="End" WidthRequest="150" Clicked="Button_Clicked"></Button>
+
+                <StackLayout>
+                    <ListView ItemsSource="{Binding listOcjene}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Padding="10">
+                                        <Label Text="{Binding Ocjena1}" 
+                        LineBreakMode="NoWrap" 
+                        Style="{DynamicResource ListItemTextStyle}" 
+                        FontSize="16" />
+                                        <Label Text="{Binding Komentar}" 
+                        LineBreakMode="NoWrap"
+                        Style="{DynamicResource ListItemDetailTextStyle}"
+                        FontSize="13"/>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </StackLayout>
+         </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

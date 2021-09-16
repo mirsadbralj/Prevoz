@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vm="clr-namespace:Prevoz.MobileApp.ViewModels"
+             x:Class="Prevoz.MobileApp.Views.ZahtjevPage">
+    <ContentPage.BindingContext>
+        <vm:ZahtjeviViewModel></vm:ZahtjeviViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Line HeightRequest="2" BackgroundColor="White" WidthRequest="20000"></Line>
+            <Label Text="Lista aktuelnih zahtjeva"></Label>
+            <Line HeightRequest="2" BackgroundColor="White" WidthRequest="20000"></Line>
+            <StackLayout>
+            <Label Text="Zahtjevi" HorizontalOptions="CenterAndExpand" FontSize="16"/>
+                <ListView ItemsSource="{Binding listaZahtjeva}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <Label Grid.Column="0" Text="{Binding Datum}" HorizontalOptions="Start" />
+                                        <Button Grid.Column="1" Text="Prihvati zahtjev" HorizontalOptions="End" Clicked="Button_Clicked_2"  CommandParameter="{Binding ZahtjevID}" />
+                                        <Button Grid.Column="2" Text="Ukloni zahtjev" HorizontalOptions="End" Clicked="Button_Clicked_1"  CommandParameter="{Binding ZahtjevID}" />
+                                        <Button Grid.Column="3" Text="Više informacija" HorizontalOptions="End" Clicked="Button_Clicked"  CommandParameter="{Binding ZahtjevID}" />
+                                    </Grid>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <Line HeightRequest="2" BackgroundColor="White" WidthRequest="20000"></Line>
+            <Label Text="Lista prihvaćenih zahtjeva"></Label>
+            <Line HeightRequest="3" BackgroundColor="White" WidthRequest="20000"></Line>
+            <StackLayout>
+                <ListView ItemsSource="{Binding listaZahtjevaPrihvaceni}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Grid.Column="0"  Text="{Binding Datum}" HorizontalOptions="Start"></Label>
+                                        <Label Grid.Column="1"  Text="{Binding Status}" HorizontalOptions="Start"></Label>
+                                        <Button Grid.Column="2" Text="Više informacija" HorizontalOptions="End" Clicked="Button_Clicked"  CommandParameter="{Binding ZahtjevID}"/>
+                                    </Grid>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+
+            <Line HeightRequest="2" BackgroundColor="White" WidthRequest="20000"></Line>
+            <Label Text="Lista poništenih zahtjeva"></Label>
+            <Line HeightRequest="2" BackgroundColor="White" WidthRequest="20000"></Line>
+
+            <StackLayout>
+                <ListView ItemsSource="{Binding listaZahtjevaOtkazani}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Grid.Column="0"  Text="{Binding Datum}" HorizontalOptions="Start"></Label>
+                                        <Label Grid.Column="1"  Text="{Binding Status}" HorizontalOptions="Start"></Label>
+                                        <Button Grid.Column="2" Text="Više informacija" HorizontalOptions="End" Clicked="Button_Clicked"  CommandParameter="{Binding ZahtjevID}"/>
+                                    </Grid>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <Line HeightRequest="2" BackgroundColor="White" WidthRequest="20000"></Line>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

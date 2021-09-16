@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:Prevoz.MobileApp.ViewModels"
+             x:Class="Prevoz.MobileApp.Views.RegistracijaPage">
+
+    <ContentPage.BindingContext>
+        <vm:RegistracijaViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Padding="5"> 
+            <Label Text="Registracija" HorizontalOptions="CenterAndExpand" FontSize="Subtitle"/>
+
+            <StackLayout>
+                <Label Text="Username:" HorizontalOptions="CenterAndExpand" FontSize="Body"/>
+                <Entry x:Name="Username" Text="{Binding Username}" Placeholder="Username" TextChanged="Username_TextChanged" ></Entry>
+                <Label x:Name="ErrorLabelUsername" IsVisible="false" TextColor="White" FontSize="13"></Label>
+            </StackLayout>
+
+            <StackLayout>
+                <Label Text="Lozinka" HorizontalOptions="CenterAndExpand" FontSize="Body"/>
+                <Entry x:Name="Password" Text="{Binding Password}" Placeholder="Lozinka" TextChanged="Password_TextChanged"></Entry>
+                <Label x:Name="ErrorLabelPassword" IsVisible="false" TextColor="White" FontSize="13"></Label>
+            </StackLayout>
+ 
+            <StackLayout>
+                <Label Text="Potvrda lozinke:" HorizontalOptions="CenterAndExpand" FontSize="Body"/>
+                <Entry x:Name="PasswordConfirm" Text="{Binding PasswordConfirm}" Placeholder="Potvrda lozinke" Completed="PasswordConfirm_Completed" TextChanged="PasswordConfirm_TextChanged"></Entry>
+                <Label x:Name="ErrorLabelPasswordConfirm" IsVisible="false" TextColor="White" FontSize="13"></Label>
+            </StackLayout>
+            <Label x:Name="ErrorLabelPasswordAndCOnfirm" IsVisible="false" TextColor="Red" FontSize="13"></Label>
+
+            <Button x:Name="ButtonRegistracija" Text="Registracija" Command="{Binding RegistrationCommand}"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
