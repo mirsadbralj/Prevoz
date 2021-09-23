@@ -1,16 +1,18 @@
-1.Desktop
-Username: headadministrator1
-Password: test
+ ## Desktop credentials
 
-Username: admineditor1
-Password: test
+- Username: headadministrator1
+- Password: test
 
-2.Mobile
-Username: Korisnik
-Password: test
+- Username: admineditor1
+- Password: test
 
-Username: Korisnik2
-Password: test
+## Mobile credentials
 
-Username: Korisnik3
-Password: test
+- Username: Korisnik
+- Password: test
+
+- Username: Korisnik2
+- Password: test
+
+- Username: Korisnik3
+- Password: test
