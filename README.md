@@ -1,23 +1,23 @@
  ## Desktop credentials
 
 - Head admin
-Username: headadministrator1
-Password: test
+Username: headadministrator1 <br/>
+Password: test <br/><br/>
 
 - Admin/editor
-Username: admineditor1
-Password: test
+Username: admineditor1<br/>
+Password: test<br/><br/>
 
 ## Mobile credentials
 
 - Korisnik1
-Username: Korisnik
-Password: test
+Username: Korisnik<br/>
+Password: test<br/><br/>
 
 - Korisnik2
-Username: Korisnik2
-Password: test
+Username: Korisnik2<br/>
+Password: test<br/><br/>
 
 -Korisnik3
-Username: Korisnik3
-Password: test
+Username: Korisnik3<br/>
+Password: test<br/><br/>
