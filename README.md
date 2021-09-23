@@ -18,6 +18,6 @@ Password: test<br/><br/>
 Username: Korisnik2<br/>
 Password: test<br/><br/>
 
--Korisnik3 <br/>
+- Korisnik3 <br/>
 Username: Korisnik3<br/>
 Password: test<br/><br/>
