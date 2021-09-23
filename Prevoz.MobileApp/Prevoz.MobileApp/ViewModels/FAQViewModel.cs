@@ -78,11 +78,6 @@ namespace Prevoz.MobileApp.ViewModels
 
             list = list.Where(x => x.Odgovor != "" && x.Odgovor != null).ToList();
 
-            var listaPitanja = list.Select(x => x.Pitanje).Distinct();
-
-            list = list.Where(x => listaPitanja.Contains(x.Pitanje)).ToList();
-
-
             foreach(var item in list)
             {
                 listFaq.Add(item);

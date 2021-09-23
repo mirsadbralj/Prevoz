@@ -24,7 +24,7 @@ namespace Prevoz.WinUI.Admin
 
             List<Model.Faq> _listFaq = new List<Model.Faq>();
 
-            _listFaq = listFaq.Where(x => x.Odgovor == null).ToList();
+            _listFaq = listFaq.Where(x => x.Odgovor == null || x.Odgovor=="").ToList();
            
             dgvFaq.DataSource = _listFaq;
 

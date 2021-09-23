@@ -35,9 +35,10 @@ namespace Prevoz.WinUI
             this.ust_MenuProfilePicture = new System.Windows.Forms.ToolStripMenuItem();
             this.profilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vozilaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ocjeneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.historijaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.zahtjeviZaVožnjuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.čestoPostavljenaPitanjaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ocjeneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.odjavaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
@@ -45,7 +46,6 @@ namespace Prevoz.WinUI
             this.btnAdmin = new System.Windows.Forms.Button();
             this.lblNaslov1 = new System.Windows.Forms.Label();
             this.lblNaslov2 = new System.Windows.Forms.Label();
-            this.zahtjeviZaVožnjuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -107,7 +107,7 @@ namespace Prevoz.WinUI
             this.ust_MenuProfilePicture.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ust_MenuProfilePicture.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.ust_MenuProfilePicture.Name = "ust_MenuProfilePicture";
-            this.ust_MenuProfilePicture.Size = new System.Drawing.Size(122, 55);
+            this.ust_MenuProfilePicture.Size = new System.Drawing.Size(150, 55);
             this.ust_MenuProfilePicture.Tag = "x";
             this.ust_MenuProfilePicture.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             // 
@@ -125,13 +125,6 @@ namespace Prevoz.WinUI
             this.vozilaToolStripMenuItem.Text = "Moja vozila";
             this.vozilaToolStripMenuItem.Click += new System.EventHandler(this.vozilaToolStripMenuItem_Click);
             // 
-            // ocjeneToolStripMenuItem
-            // 
-            this.ocjeneToolStripMenuItem.Name = "ocjeneToolStripMenuItem";
-            this.ocjeneToolStripMenuItem.Size = new System.Drawing.Size(305, 30);
-            this.ocjeneToolStripMenuItem.Text = "Ocjene";
-            this.ocjeneToolStripMenuItem.Click += new System.EventHandler(this.ocjeneToolStripMenuItem_Click);
-            // 
             // historijaToolStripMenuItem
             // 
             this.historijaToolStripMenuItem.Name = "historijaToolStripMenuItem";
@@ -139,12 +132,26 @@ namespace Prevoz.WinUI
             this.historijaToolStripMenuItem.Text = "Historija vožnji";
             this.historijaToolStripMenuItem.Click += new System.EventHandler(this.historijaToolStripMenuItem_Click);
             // 
+            // zahtjeviZaVožnjuToolStripMenuItem
+            // 
+            this.zahtjeviZaVožnjuToolStripMenuItem.Name = "zahtjeviZaVožnjuToolStripMenuItem";
+            this.zahtjeviZaVožnjuToolStripMenuItem.Size = new System.Drawing.Size(305, 30);
+            this.zahtjeviZaVožnjuToolStripMenuItem.Text = "Zahtjevi za vožnju";
+            this.zahtjeviZaVožnjuToolStripMenuItem.Click += new System.EventHandler(this.zahtjeviZaVožnjuToolStripMenuItem_Click);
+            // 
             // čestoPostavljenaPitanjaToolStripMenuItem
             // 
             this.čestoPostavljenaPitanjaToolStripMenuItem.Name = "čestoPostavljenaPitanjaToolStripMenuItem";
             this.čestoPostavljenaPitanjaToolStripMenuItem.Size = new System.Drawing.Size(305, 30);
             this.čestoPostavljenaPitanjaToolStripMenuItem.Text = "Često postavljena pitanja";
             this.čestoPostavljenaPitanjaToolStripMenuItem.Click += new System.EventHandler(this.čestoPostavljenaPitanjaToolStripMenuItem_Click);
+            // 
+            // ocjeneToolStripMenuItem
+            // 
+            this.ocjeneToolStripMenuItem.Name = "ocjeneToolStripMenuItem";
+            this.ocjeneToolStripMenuItem.Size = new System.Drawing.Size(305, 30);
+            this.ocjeneToolStripMenuItem.Text = "Ocjene";
+            this.ocjeneToolStripMenuItem.Click += new System.EventHandler(this.ocjeneToolStripMenuItem_Click);
             // 
             // odjavaToolStripMenuItem
             // 
@@ -230,13 +237,6 @@ namespace Prevoz.WinUI
             this.lblNaslov2.Text = "label2";
             this.lblNaslov2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.lblNaslov2.Visible = false;
-            // 
-            // zahtjeviZaVožnjuToolStripMenuItem
-            // 
-            this.zahtjeviZaVožnjuToolStripMenuItem.Name = "zahtjeviZaVožnjuToolStripMenuItem";
-            this.zahtjeviZaVožnjuToolStripMenuItem.Size = new System.Drawing.Size(305, 30);
-            this.zahtjeviZaVožnjuToolStripMenuItem.Text = "Zahtjevi za vožnju";
-            this.zahtjeviZaVožnjuToolStripMenuItem.Click += new System.EventHandler(this.zahtjeviZaVožnjuToolStripMenuItem_Click);
             // 
             // frmPocetnaFormaKorisnik
             // 

@@ -44,7 +44,6 @@
   <ItemGroup>
     <Folder Include="Migrations\" />
     <Folder Include="Prevoz\Model\" />
-    <Folder Include="Services\FAQ\" />
   </ItemGroup>
 
 

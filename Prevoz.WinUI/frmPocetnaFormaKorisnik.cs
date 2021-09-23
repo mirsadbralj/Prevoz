@@ -159,7 +159,7 @@ namespace Prevoz.WinUI
 
 
             int index = (listPosts.Count() - 1);
-            if (index > 0)
+            if (index >= 0)
             {
                 lblNaslov1.Visible = true;
                 lblNaslov2.Visible = true;

@@ -26,7 +26,6 @@ namespace Prevoz.WinUI.Korisnik
         {
             if (txtPitanje.Text != "")
             {
-                var request = new FaqUpsertRequest();
                 var list = await _apiService.Get<List<Model.Faq>>(null);
                 var korisnik = Memorija.Korisnik;
 
@@ -51,17 +50,21 @@ namespace Prevoz.WinUI.Korisnik
                 if (brojacIStih <= 3)
                 {
                     MessageBox.Show("Hvala na pitanju, odgovor na pitanje možete uskoro potražiti u sekciji (Često postavljne pitanja)");
-                    var result = await _apiService.Insert<Model.Faq>(insert);
+                    await _apiService.Insert<Model.Faq>(insert);
                 }
             }
         }
-
         private async void frmFAQ_Load(object sender, EventArgs e)
         {
-            var search = new FaqUpsertRequest();
-            var list = await _apiService.Get<List<Model.Faq>>(search);
+            var list = await _apiService.Get<List<Model.Faq>>(null);
+            list = list.Where(x => x.Pitanje != null && x.Odgovor != null && x.Odgovor!="").ToList();
 
-            list = list.Where(x => x.Pitanje != null && x.Odgovor != null).ToList();
+            var listpitanja = list.Select(x => x.Pitanje).ToList();
+
+            var listFaqs = list.Select(x => new { x.Pitanje, x.Odgovor }).ToList();
+
+            listFaqs = listFaqs.Distinct().ToList();
+            listpitanja = listpitanja.Distinct().ToList();
             dgvFAQ.DataSource = list;
         }
 
