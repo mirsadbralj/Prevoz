@@ -1,6 +1,6 @@
  ## Desktop credentials
 
-- Head admin
+- Head admin <br/>
 Username: headadministrator1 <br/>
 Password: test <br/><br/>
 
@@ -10,14 +10,14 @@ Password: test<br/><br/>
 
 ## Mobile credentials
 
-- Korisnik1
+- Korisnik1 <br/>
 Username: Korisnik<br/>
 Password: test<br/><br/>
 
-- Korisnik2
+- Korisnik2 <br/>
 Username: Korisnik2<br/>
 Password: test<br/><br/>
 
--Korisnik3
+-Korisnik3 <br/>
 Username: Korisnik3<br/>
 Password: test<br/><br/>
