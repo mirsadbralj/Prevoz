@@ -1,12 +1,8 @@
-﻿using Android.Content.Res;
-using Prevoz.MobileApp.Views;
-using Prevoz.Model;
+﻿using Prevoz.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Globalization;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -20,7 +16,6 @@ namespace Prevoz.MobileApp.ViewModels
         private readonly ApiService _ocjene = new ApiService("ocjena");
         private readonly ApiService _rezervacije = new ApiService("korisnikrezervacija");
         private readonly ApiService _voznje = new ApiService("voznja");
-        Voznja _voznja = new Voznja();
 
         string _Ime = string.Empty;
         string _Prezime = string.Empty;

@@ -16,7 +16,6 @@ namespace Prevoz.MobileApp.ViewModels
 {
     public class ListMojeOcjeneViewModel : ContentPage
     {
-        private readonly ApiService _korisnik = new ApiService("korisnik");
         private readonly ApiService _rezervacije = new ApiService("korisnikrezervacija");
         private readonly ApiService _ocjena = new ApiService("ocjena");
         private readonly ApiService _voznja = new ApiService("voznja");

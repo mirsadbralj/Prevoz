@@ -1,21 +1,14 @@
-﻿using Prevoz.Model.Requests.Ocjena;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using System;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Prevoz.WinUI.Korisnik
 {
     public partial class frmOcjenaDetail : Form
     {
-        ApiService _ocjena = new ApiService("ocjena");
-        ApiService _korisnik = new ApiService("korisnik");
-        ApiService _korisnikDetails = new ApiService("korisnikdetail");
+        private readonly ApiService _ocjena = new ApiService("ocjena");
+        private readonly ApiService _korisnik = new ApiService("korisnik");
+        private readonly ApiService _korisnikDetails = new ApiService("korisnikdetail");
         int _ocjenaId = 0;
 
         int KorisnikID_for_info = 0;

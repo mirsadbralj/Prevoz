@@ -1,12 +1,10 @@
-﻿using Acr.UserDialogs;
-using Prevoz.Model;
+﻿using Prevoz.Model;
 using Prevoz.Model.Requests.Rezervacija;
 using Prevoz.Model.Requests.Vožnja;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Prevoz.MobileApp.ViewModels
@@ -14,7 +12,6 @@ namespace Prevoz.MobileApp.ViewModels
     public class ZahtjeviViewModel
     {
         private readonly ApiService _voznje = new ApiService("voznja");
-        private readonly ApiService _korisnik = new ApiService("korisnik");
         private readonly ApiService _zahtjevi = new ApiService("zahtjevi");
         private readonly ApiService _korisnikRezervacija = new ApiService("korisnikrezervacija");
         public int KorisnikID = -1;

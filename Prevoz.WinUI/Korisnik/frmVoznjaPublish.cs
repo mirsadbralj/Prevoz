@@ -1,7 +1,4 @@
-﻿using Flurl;
-using Flurl.Http;
-using Flurl.Util;
-using Prevoz.Model.Requests.Vožnja;
+﻿using Prevoz.Model.Requests.Vožnja;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,8 +12,6 @@ using Prevoz.Model;
 using Prevoz.Model.Requests.Lokacija;
 using Prevoz.Model.Requests;
 using Prevoz.WinUI.Admin;
-using System.Xml;
-using System.Xml.Linq;
 
 namespace Prevoz.WinUI.Korisnik
 {
@@ -272,19 +267,6 @@ namespace Prevoz.WinUI.Korisnik
                 errorProviderVoznjaPublish.SetError(txtDestLokacija, null);
             }
         }
-        private void txtCijenaSjedista_Validating(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtCijenaSjedista.Text))
-            {
-                errorProviderVoznjaPublish.SetError(txtCijenaSjedista, Properties.Resources.Validation_RequiredField);
-                e.Cancel = true;
-            }
-            else
-            {
-                errorProviderVoznjaPublish.SetError(txtCijenaSjedista, null);
-            }
-        }
-
         private void comboBoxVoziloPicker_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(comboBoxVoziloPicker.Text))
@@ -297,7 +279,6 @@ namespace Prevoz.WinUI.Korisnik
                 errorProviderVoznjaPublish.SetError(comboBoxVoziloPicker, null);
             }
         }
-
         private void cmbBrojSlobodnihSjedista_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(cmbBrojSlobodnihSjedista.Text))

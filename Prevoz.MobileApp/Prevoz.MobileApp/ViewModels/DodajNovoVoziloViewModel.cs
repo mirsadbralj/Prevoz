@@ -14,7 +14,6 @@ namespace Prevoz.MobileApp.ViewModels
 {
     public class DodajNovoVoziloViewModel : BaseViewModel
     {
-        private readonly ApiService _korisnik = new ApiService("korisnik");
         private readonly ApiService _vozila = new ApiService("vozilo");
         public DodajNovoVoziloViewModel()
         {
@@ -46,7 +45,7 @@ namespace Prevoz.MobileApp.ViewModels
             get { return marka; }
             set { SetProperty(ref marka, value); }
         }
-        public async Task LoadBoje() {
+        public void LoadBoje() {
             BojaAutomobilaList.Add("");
             BojaAutomobilaList.Add("Bijela");
             BojaAutomobilaList.Add("Crna");
@@ -56,7 +55,7 @@ namespace Prevoz.MobileApp.ViewModels
             BojaAutomobilaList.Add("Smeđa");
             BojaAutomobilaList.Add("Žuta");
         }
-        public async Task LoadMarkeVozila()
+        public  void LoadMarkeVozila()
         {
             MarkaAutomobilaList.Add(" ");
             MarkaAutomobilaList.Add("Alfa Romeo");
@@ -79,16 +78,10 @@ namespace Prevoz.MobileApp.ViewModels
             MarkaAutomobilaList.Add("Toyota");
             MarkaAutomobilaList.Add("Volkswagen");
         }
-        public static byte[] converterDemo(Image x)
+        public  void Load()
         {
-            ImageConverter _imageConverter = new ImageConverter();
-            byte[] xByte = (byte[])_imageConverter.ConvertTo(x, typeof(byte[]));
-            return xByte;
-        }
-        public async Task Load()
-        {
-            await LoadBoje();
-            await LoadMarkeVozila();
+            LoadBoje();
+            LoadMarkeVozila();
         }
         public async Task Save()
         {           

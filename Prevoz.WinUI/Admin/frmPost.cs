@@ -39,12 +39,6 @@ namespace Prevoz.WinUI.Admin
 
         private async void frmPost_Load(object sender, EventArgs e)
         {
-            var requestKorisnik = new KorisniciSearchRequest()
-            {
-                UserName = ApiService.Username
-            };
-            var korisnik = await _korisnik.Get<List<Model.Korisnik>>(requestKorisnik);
-
             var listPost = await _post.Get<List<Model.Post>>(null);
 
             List<Model.Post> postovi = new List<Model.Post>();

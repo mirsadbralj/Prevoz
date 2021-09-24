@@ -64,7 +64,6 @@ namespace Prevoz.WinUI.Korisnik
         {
             if (ValidateChildren())
             {
-
                 var korisnikC = Memorija.Korisnik;
                 _id = korisnikC.KorisnikId;
 

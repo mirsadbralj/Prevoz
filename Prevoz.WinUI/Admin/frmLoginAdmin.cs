@@ -13,9 +13,8 @@ namespace Prevoz.WinUI.Admin
 {
     public partial class frmLoginAdmin : Form
     {
-        ApiService _service = new ApiService("korisnik");
-        ApiService _uloge = new ApiService("uloge");
-        ApiService _korisnikUloge = new ApiService("korisnikuloge");
+        private readonly ApiService _service = new ApiService("korisnik");
+        private readonly ApiService _korisnikUloge = new ApiService("korisnikuloge");
         public frmLoginAdmin()
         {
             InitializeComponent();

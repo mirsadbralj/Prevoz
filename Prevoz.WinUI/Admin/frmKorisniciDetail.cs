@@ -27,18 +27,17 @@ namespace Prevoz.WinUI.Korisnik
 
         private async void button1_Click(object sender, EventArgs e)
         {
-            // frmWarning frm = new frmWarning();
-            // frm.Show
-            // korisnikD = await _serviceDetail.Delete<Model.KorisnikDetails>(_id);
-            MessageBox.Show("Da li ste sigurni da zelite ukloniti korisnika?");
-            //var korisnikDet = await _serviceDetail.Delete<Model.KorisnikDetails>(_id);
-            var korisnik = await _service.Delete<Model.Korisnik>(_id);
-            txtIme.Text = "";
-            txtPrezime.Text = "";
-            txtTelefon.Text = "";
-            txtEmail.Text = "";
-            txtUserName.Text = "";
-            MessageBox.Show("Korisnik je uspješno uklonjen iz baze podataka.");
+            DialogResult result = MessageBox.Show("Da li ste sigurni da zelite ukloniti korisnika?","" ,MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                var korisnik = await _service.Delete<Model.Korisnik>(_id);
+                txtIme.Text = "";
+                txtPrezime.Text = "";
+                txtTelefon.Text = "";
+                txtEmail.Text = "";
+                txtUserName.Text = "";
+                MessageBox.Show("Korisnik je uspješno uklonjen iz baze podataka.");
+            }
         }
 
         private async void frmKorisniciDetail_Load(object sender, EventArgs e)
@@ -53,13 +52,6 @@ namespace Prevoz.WinUI.Korisnik
                     txtTelefon.Text = korisnikD.Telefon;
                     txtEmail.Text = korisnikD.Email;
                 }
-               
-               //else {
-               //     txtIme.Text = korisnikD.Ime;
-               //     txtPrezime.Text = korisnikD.Prezime;
-               //     txtTelefon.Text = korisnikD.Telefon;
-               //     txtEmail.Text = korisnikD.Email;
-               // }
                 txtUserName.Text = korisnik.UserName;
             }
         }
@@ -78,7 +70,6 @@ namespace Prevoz.WinUI.Korisnik
                 Prezime = txtPrezime.Text,
                 Telefon = txtTelefon.Text,
                 Email = txtEmail.Text
-                //ostali parametri to do
             };
             if (_id.HasValue)
             {
@@ -90,7 +81,7 @@ namespace Prevoz.WinUI.Korisnik
                 await _service.Insert<Model.Korisnik>(request);
                 await _serviceDetail.Insert<Model.KorisnikDetails>(request2);
             }
-            MessageBox.Show("Informacije su uspješno spremljene u bazi podataka.");
+            MessageBox.Show("Informacije su uspješno spremljene.");
         }
     }
 }

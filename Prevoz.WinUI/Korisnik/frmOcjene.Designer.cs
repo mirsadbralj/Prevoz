@@ -36,13 +36,11 @@ namespace Prevoz.WinUI.Korisnik
             this.lbl_ProsjcnaOcjena = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvOcijeniPreostale = new System.Windows.Forms.DataGridView();
-            this.Ocijeni = new System.Windows.Forms.DataGridViewButtonColumn();
             this.DetaljiVoznje = new System.Windows.Forms.DataGridViewButtonColumn();
             this.dgvOcjeniPreostale = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dgvOcijeniPreostaleRezervacije = new System.Windows.Forms.DataGridView();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.OcijeniRezervaciju = new System.Windows.Forms.DataGridViewButtonColumn();
             this.DetaljiRezervacije = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_mojeOcjene)).BeginInit();
@@ -119,7 +117,6 @@ namespace Prevoz.WinUI.Korisnik
             // 
             this.dgvOcijeniPreostale.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOcijeniPreostale.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Ocijeni,
             this.DetaljiVoznje});
             this.dgvOcijeniPreostale.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvOcijeniPreostale.Location = new System.Drawing.Point(3, 16);
@@ -128,14 +125,6 @@ namespace Prevoz.WinUI.Korisnik
             this.dgvOcijeniPreostale.TabIndex = 1;
             this.dgvOcijeniPreostale.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOcijeniPreostale_CellContentClick);
             // 
-            // Ocijeni
-            // 
-            this.Ocijeni.DataPropertyName = "btnOcijeni";
-            this.Ocijeni.HeaderText = "";
-            this.Ocijeni.Name = "Ocijeni";
-            this.Ocijeni.Text = "Ocijeni";
-            this.Ocijeni.UseColumnTextForButtonValue = true;
-            // 
             // DetaljiVoznje
             // 
             this.DetaljiVoznje.DataPropertyName = "btnDetalji";
@@ -143,7 +132,7 @@ namespace Prevoz.WinUI.Korisnik
             this.DetaljiVoznje.Name = "DetaljiVoznje";
             this.DetaljiVoznje.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.DetaljiVoznje.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.DetaljiVoznje.Text = "Detalji vožnje";
+            this.DetaljiVoznje.Text = "Detalji ";
             this.DetaljiVoznje.UseColumnTextForButtonValue = true;
             // 
             // dgvOcjeniPreostale
@@ -170,7 +159,6 @@ namespace Prevoz.WinUI.Korisnik
             // 
             this.dgvOcijeniPreostaleRezervacije.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOcijeniPreostaleRezervacije.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.OcijeniRezervaciju,
             this.DetaljiRezervacije});
             this.dgvOcijeniPreostaleRezervacije.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvOcijeniPreostaleRezervacije.Location = new System.Drawing.Point(3, 16);
@@ -188,14 +176,6 @@ namespace Prevoz.WinUI.Korisnik
             this.dataGridView3.Size = new System.Drawing.Size(341, 205);
             this.dataGridView3.TabIndex = 0;
             // 
-            // OcijeniRezervaciju
-            // 
-            this.OcijeniRezervaciju.DataPropertyName = "btnOcijeniRezervaciju";
-            this.OcijeniRezervaciju.HeaderText = "";
-            this.OcijeniRezervaciju.Name = "OcijeniRezervaciju";
-            this.OcijeniRezervaciju.Text = "Ocijeni";
-            this.OcijeniRezervaciju.UseColumnTextForButtonValue = true;
-            // 
             // DetaljiRezervacije
             // 
             this.DetaljiRezervacije.DataPropertyName = "btnDetaljiRezervacije";
@@ -203,7 +183,7 @@ namespace Prevoz.WinUI.Korisnik
             this.DetaljiRezervacije.Name = "DetaljiRezervacije";
             this.DetaljiRezervacije.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.DetaljiRezervacije.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.DetaljiRezervacije.Text = "Detalji vožnje";
+            this.DetaljiRezervacije.Text = "Detalji ";
             this.DetaljiRezervacije.UseColumnTextForButtonValue = true;
             // 
             // frmOcjene
@@ -245,9 +225,7 @@ namespace Prevoz.WinUI.Korisnik
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView dgvOcijeniPreostaleRezervacije;
         private System.Windows.Forms.DataGridView dataGridView3;
-        private System.Windows.Forms.DataGridViewButtonColumn Ocijeni;
         private System.Windows.Forms.DataGridViewButtonColumn DetaljiVoznje;
-        private System.Windows.Forms.DataGridViewButtonColumn OcijeniRezervaciju;
         private System.Windows.Forms.DataGridViewButtonColumn DetaljiRezervacije;
     }
 }

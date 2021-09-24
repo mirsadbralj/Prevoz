@@ -1,10 +1,6 @@
 ﻿using Prevoz.Model.Requests;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace Prevoz.MobileApp.ViewModels
@@ -12,7 +8,6 @@ namespace Prevoz.MobileApp.ViewModels
     public class RegistracijaViewModel : BaseViewModel
     {
         private readonly ApiService _korisnik = new ApiService("korisnik");
-        private readonly ApiService _korisnikDetail = new ApiService("korisnikdetail");
 
         private string _username = string.Empty;
         private string _password = string.Empty;
@@ -62,7 +57,7 @@ namespace Prevoz.MobileApp.ViewModels
             }
             catch (Exception ex)
             {
-                await Application.Current.MainPage.DisplayAlert("Greška", "Korisnicno ime ili lozinka nisu validni","OK");
+                await Application.Current.MainPage.DisplayAlert("Greška", "Korisničko ime ili lozinka nisu validni "+ ex.Message ,"OK");
             }
         }
     }

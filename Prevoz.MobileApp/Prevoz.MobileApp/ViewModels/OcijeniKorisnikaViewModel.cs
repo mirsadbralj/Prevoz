@@ -1,10 +1,6 @@
 ﻿using Prevoz.Model;
 using Prevoz.Model.Requests;
 using Prevoz.Model.Requests.Ocjena;
-using Prevoz.MobileApp;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -18,7 +14,6 @@ namespace Prevoz.MobileApp.ViewModels
         string username = string.Empty;
         public int EOcjena = new int();
         private readonly ApiService _korisnici = new ApiService("korisnik");
-        private readonly ApiService _rezervacije = new ApiService("korisnikrezervacija");
         private readonly ApiService _ocjena = new ApiService("ocjena");
         public Korisnik _korisnik = new Korisnik();
         public KorisnikRezervacija _rezervacija;
@@ -65,7 +60,6 @@ namespace Prevoz.MobileApp.ViewModels
             _voznja = voznja;
             LoadKorisnika = new Command(async () => await LoadKorisnik());
             SaveRating = new Command(async () => await SaveOcjena());
-           // SaveOcjenaVoznjaCommand = new Command(async () => await SaveOcjenaVoznja());
         }
         public ICommand LoadKorisnika { get; set; }
         public ICommand SaveRating { get; set; }
@@ -117,8 +111,6 @@ namespace Prevoz.MobileApp.ViewModels
                 await _ocjena.Insert<Model.Ocjena>(request2);
             }
         }
-
-
         private async Task SaveOcjenaVoznja() 
         {
             var korisnik = Memorija.Korisnik;

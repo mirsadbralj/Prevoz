@@ -22,8 +22,6 @@ namespace Prevoz.WinUI.Korisnik
         private readonly ApiService _ocjene = new ApiService("ocjena");
         private readonly ApiService _voznje = new ApiService("voznja");
 
-        List<Model.Ocjena> Lista_Ocjena = new List<Model.Ocjena>();
-
         int _KorisnikID = 0;
         public frm_KorisnikInfo(int KorisnikID)
         {

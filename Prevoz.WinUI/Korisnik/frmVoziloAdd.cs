@@ -5,14 +5,8 @@ using Prevoz.Model.Requests.Vožnja;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Data.Common;
-using System.Data.SqlClient;
 using System.Drawing;
-using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Prevoz.WinUI.Korisnik
@@ -24,7 +18,6 @@ namespace Prevoz.WinUI.Korisnik
         private readonly ApiService _voznja = new ApiService("voznja");
         
         private byte[] SlikaK = null;
-        string imageUrl;
         public frmVoziloAdd()
         {
             InitializeComponent();
@@ -38,7 +31,6 @@ namespace Prevoz.WinUI.Korisnik
 
             if (fileOpen.ShowDialog() == DialogResult.OK)
             {
-                imageUrl = fileOpen.FileName;
                 picBoxSLikaProfila.Image = Image.FromFile(fileOpen.FileName);
             }
             fileOpen.Dispose();

@@ -29,8 +29,6 @@ namespace Prevoz.MobileApp.ViewModels
         }
         public ObservableCollection<Model.Korisnik> OcijeniPreostaleRezervacijeListKorisnika { get; set; } = new ObservableCollection<Model.Korisnik>();
 
-        public ICommand GetNeocijenjeneRezervacijeKorisnici { get; set; }
-
         public async Task GetKorisnike()
         {
 

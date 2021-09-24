@@ -137,8 +137,11 @@ namespace Prevoz.WinUI.Korisnik
                     await _zahtjevi.Update<Model.Zahtjevi>(zahtjev.ZahtjevID, zahtjev);
                 }
             }
+            else
+            {
+                MessageBox.Show("Nije moguće rezervisati/prihvatiti vlastitu vožnju");
+            }
         }
-
         private void dataGridViewAktivniZahtjevi_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == dataGridViewAktivniZahtjevi.Columns["Prihvati"].Index && e.RowIndex >= 0)

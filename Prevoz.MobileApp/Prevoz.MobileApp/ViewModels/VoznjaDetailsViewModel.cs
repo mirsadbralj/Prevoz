@@ -1,14 +1,11 @@
 ﻿using Prevoz.MobileApp.Views;
 using Prevoz.Model;
-using Prevoz.Model.Requests;
 using Prevoz.Model.Requests.Rezervacija;
 using Prevoz.Model.Requests.Vožnja;
 using Prevoz.Model.Requests.Zahtjevi;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -215,7 +212,6 @@ namespace Prevoz.MobileApp.ViewModels
             }
             
         }
-
         public async Task GetKorisnikInfo()
         {
             await Application.Current.MainPage.Navigation.PushAsync(new KorisnikInfoPage(_korisnikID));

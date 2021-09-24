@@ -1,12 +1,9 @@
 ﻿using Prevoz.Model;
 using Prevoz.Model.Requests.Rezervacija;
-using Prevoz.Model.Requests.Vožnja;
-using Stripe;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Prevoz.MobileApp.ViewModels
@@ -16,7 +13,6 @@ namespace Prevoz.MobileApp.ViewModels
         private readonly ApiService _rezervacije = new ApiService("korisnikrezervacija");
         private readonly ApiService _voznje = new ApiService("voznja");
         private readonly ApiService _lokacije= new ApiService("lokacija");
-        private readonly ApiService _korisnik = new ApiService("korisnik");
         public HomeViewModel()
         {
         }

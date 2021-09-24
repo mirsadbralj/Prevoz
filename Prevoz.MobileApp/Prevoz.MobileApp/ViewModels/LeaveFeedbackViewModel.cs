@@ -16,7 +16,6 @@ namespace Prevoz.MobileApp.ViewModels
     public class LeaveFeedbackViewModel : BaseViewModel
     {
         private readonly ApiService _feedback = new ApiService("feedback");
-        private readonly ApiService _korisnik = new ApiService("korisnik");
         public ObservableCollection<int> listaOcjena { get; set; } = new ObservableCollection<int>();
         public ObservableCollection<Feedback> listFeedback { get; set; } = new ObservableCollection<Feedback>();
         public LeaveFeedbackViewModel()

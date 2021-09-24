@@ -1,15 +1,8 @@
 ﻿
 using Prevoz.Model.Requests.Vožnja;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Globalization;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Prevoz.WinUI.Korisnik
@@ -25,39 +18,6 @@ namespace Prevoz.WinUI.Korisnik
         {
             InitializeComponent();
             voznjaId = VoznjaId;
-        }
-       
-        private double ConvertToDouble(string s)
-        {
-            char systemSeparator = Thread.CurrentThread.CurrentCulture.NumberFormat.CurrencyDecimalSeparator[0];
-            double result = 0;
-            try
-            {
-                if (s != null)
-                    if (!s.Contains(","))
-                        result = double.Parse(s, CultureInfo.InvariantCulture);
-                    else
-                        result = Convert.ToDouble(s.Replace(".", systemSeparator.ToString()).Replace(",", systemSeparator.ToString()));
-            }
-            catch (Exception e)
-            {
-                try
-                {
-                    result = Convert.ToDouble(s);
-                }
-                catch
-                {
-                    try
-                    {
-                        result = Convert.ToDouble(s.Replace(",", ";").Replace(".", ",").Replace(";", "."));
-                    }
-                    catch
-                    {
-                        throw new Exception("Wrong string-to-double format");
-                    }
-                }
-            }
-            return result;
         }
         private async void frmVoznjaDetails_Load(object sender, EventArgs e)
         {

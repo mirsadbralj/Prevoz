@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Prevoz.MobileApp.ViewModels
 {
     public class KorisnikVoznjeOcjenaViewModel
     {
-        private readonly ApiService _voznje = new ApiService("voznje");
-
         List<Model.Voznja> listaVoznji;
         int _KorisnikID = 0;
 

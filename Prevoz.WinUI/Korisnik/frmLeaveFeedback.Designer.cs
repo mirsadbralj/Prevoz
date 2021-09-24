@@ -87,6 +87,7 @@ namespace Prevoz.WinUI.Admin
             this.comboBoxOcjena.Name = "comboBoxOcjena";
             this.comboBoxOcjena.Size = new System.Drawing.Size(71, 21);
             this.comboBoxOcjena.TabIndex = 4;
+            this.comboBoxOcjena.Validating += new System.ComponentModel.CancelEventHandler(this.comboBoxOcjena_Validating);
             // 
             // frmLeaveFeedback
             // 

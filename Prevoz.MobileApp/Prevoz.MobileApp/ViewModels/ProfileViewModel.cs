@@ -154,9 +154,6 @@ namespace Prevoz.MobileApp.ViewModels
             Username.Text = korisnik.UserName;
             if(lokacija!=null)
             Grad = lokacija.Naziv;
-
-           
-            
             userImage = null;
         }
 

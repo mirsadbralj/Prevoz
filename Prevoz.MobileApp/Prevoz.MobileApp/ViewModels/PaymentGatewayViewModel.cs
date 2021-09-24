@@ -1,5 +1,4 @@
 ﻿using Acr.UserDialogs;
-using Prevoz.MobileApp.Services;
 using Prevoz.Model;
 using Prevoz.Model.Requests;
 using Prevoz.Model.Requests.Rezervacija;

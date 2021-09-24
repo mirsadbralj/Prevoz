@@ -18,7 +18,6 @@ namespace Prevoz.MobileApp.ViewModels
         private readonly ApiService _vozila = new ApiService("vozilo");
         private readonly ApiService _voznja = new ApiService("voznja");
         private readonly ApiService _korisnik = new ApiService("korisnik");
-        private readonly ApiService _rezervacija = new ApiService("korisnikrezervacija");
         int ID = 0;
         public VozilaViewModel()
         {

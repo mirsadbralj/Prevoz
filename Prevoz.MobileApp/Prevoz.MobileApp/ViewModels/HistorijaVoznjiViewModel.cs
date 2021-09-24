@@ -1,12 +1,9 @@
 ﻿using Prevoz.Model;
-using Prevoz.Model.Requests;
 using Prevoz.Model.Requests.Rezervacija;
-using Prevoz.MobileApp;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -17,7 +14,6 @@ namespace Prevoz.MobileApp.ViewModels
     public class HistorijaVoznjiViewModel:BaseViewModel
     {
         private readonly ApiService _voznje = new ApiService("voznja");
-        private readonly ApiService _korisnik = new ApiService("korisnik");
         private readonly ApiService _rezervacija = new ApiService("korisnikrezervacija");
         public HistorijaVoznjiViewModel()
         {

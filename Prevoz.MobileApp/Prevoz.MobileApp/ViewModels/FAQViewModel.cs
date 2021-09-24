@@ -38,12 +38,10 @@ namespace Prevoz.MobileApp.ViewModels
         public ICommand FaqListCommand { get; set; }
         public async Task FaqList()
         {
-           
             var korisnik = Memorija.Korisnik;
 
             var FAQ = await _Faq.Get<List<Faq>>(null);
             
-            var request = new FaqUpsertRequest();
             var insert = new FaqUpsertRequest()
             {
                 KorisnikId = korisnik.KorisnikId,

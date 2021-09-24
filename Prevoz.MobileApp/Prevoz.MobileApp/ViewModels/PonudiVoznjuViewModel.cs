@@ -17,7 +17,6 @@ namespace Prevoz.MobileApp.ViewModels
 {
     public class PonudiVoznjuViewModel : BaseViewModel
     {
-        private readonly ApiService _korisnici = new ApiService("korisnik");
         private readonly ApiService _feedbacks = new ApiService("feedback");
         private readonly ApiService _vozilo = new ApiService("vozilo");
         private readonly ApiService _lokacija = new ApiService("lokacija");
@@ -43,7 +42,7 @@ namespace Prevoz.MobileApp.ViewModels
         public DateTime _MinDatetime = DateTime.Now;
 
         public TimeSpan Time = new TimeSpan();
-        public async Task SetOCS()
+        public void SetOCS()
         {
             OCAutomatskoOdobrenje.Add("DA");
             OCAutomatskoOdobrenje.Add("NE");

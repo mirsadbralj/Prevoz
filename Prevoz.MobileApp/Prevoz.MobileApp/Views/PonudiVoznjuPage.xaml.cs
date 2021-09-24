@@ -28,7 +28,7 @@ namespace Prevoz.MobileApp.Views
         {
             base.OnAppearing();
             await model.PonudiVoznju();
-            await model.SetOCS();
+            model.SetOCS();
 
             ButtonObjaviVoznju.IsEnabled = false;
             ErrorLabelCijenaSjedista.IsVisible = false;

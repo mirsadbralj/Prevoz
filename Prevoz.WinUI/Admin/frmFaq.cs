@@ -1,18 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Prevoz.WinUI.Admin
 {
     public partial class frmFaq : Form
     {
-        ApiService _faq = new ApiService("faq");
+        private readonly ApiService _faq = new ApiService("faq");
         public frmFaq()
         {
             InitializeComponent();

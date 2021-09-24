@@ -1,26 +1,12 @@
-﻿using Flurl.Http;
-using Flurl;
-using Prevoz.Model.Requests.Vožnja;
+﻿using Prevoz.Model.Requests.Vožnja;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using GMap.NET;
-using GMap.NET.WindowsForms;
-using GMap.NET.WindowsForms.Markers;
-using GMap.NET.MapProviders;
 using Prevoz.Model.Requests.Lokacija;
 using Prevoz.Model;
-using System.Diagnostics;
-using System.Net;
-using System.IO;
-using Prevoz.Model.Requests;
-using Prevoz.Model.Requests.Vozilo;
 using Prevoz.Model.Requests.Rezervacija;
 using Prevoz.Model.Requests.Zahtjevi;
 
@@ -29,10 +15,8 @@ namespace Prevoz.WinUI.Korisnik
     public partial class frmVoznjaSearch : Form
     {
         private readonly ApiService _voznja = new ApiService("voznja");
-        private readonly ApiService _korisnikDetails = new ApiService("korisnikdetail");
         private readonly ApiService _korisnik = new ApiService("korisnik");
         private readonly ApiService _korisnikRezervacija = new ApiService("korisnikrezervacija");
-        private readonly ApiService _kreditnaKartica = new ApiService("korisnikrezervacija");
         private readonly ApiService _lokacija = new ApiService("lokacija");
         private readonly ApiService _zahtjevi = new ApiService("zahtjevi");
 

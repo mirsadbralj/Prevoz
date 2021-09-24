@@ -1,13 +1,7 @@
 ﻿using Flurl.Http;
-using Prevoz.MobileApp.Views;
-using Prevoz.Model;
 using Prevoz.Model.Requests;
-using Prevoz.MobileApp;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace Prevoz.MobileApp.ViewModels
@@ -37,8 +31,8 @@ namespace Prevoz.MobileApp.ViewModels
         async Task Login()
         {
             IsBusy = true;
-            ApiService.Username = _username;
-            ApiService.Password = _password;
+            ApiService.Username = Username;
+            ApiService.Password = Password;
             try
             {
                 var requestK = new KorisniciSearchRequest()
@@ -51,8 +45,7 @@ namespace Prevoz.MobileApp.ViewModels
             }
              catch (FlurlHttpException ex)
             {
-               // await Application.Current.MainPage.DisplayAlert(ex.InnerException.ToString(), ex.Message, ex.GetBaseException().Message);
-               // await Application.Current.MainPage.DisplayAlert("Greška", "Niste autentificirani", "OK");
+                await Application.Current.MainPage.DisplayAlert(ex.InnerException.ToString(), ex.Message, ex.GetBaseException().Message);
             }
         }
       

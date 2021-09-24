@@ -1,18 +1,9 @@
-﻿using Prevoz.Model.Requests;
-using Prevoz.Model.Requests.Rezervacija;
+﻿using Prevoz.Model.Requests.Rezervacija;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Flurl;
-using Flurl.Http;
 using Prevoz.Model.Requests.Vožnja;
-using Prevoz.Model.Requests.Lokacija;
 
 namespace Prevoz.WinUI.Korisnik
 {
@@ -122,11 +113,6 @@ namespace Prevoz.WinUI.Korisnik
         private async void frmHistorijaVoznji_Load(object sender, EventArgs e)
         {
             var korisnik = Memorija.Korisnik;
-
-            var requestVoznjaKID = new VoznjaSearchRequest()
-            {
-                KorisnikId = korisnik.KorisnikId
-            };
             var voznje = await _voznja.Get<List<Model.Voznja>>(null); 
 
             var rezervacijerequest = new KorisnikRezervacijaSearchRequest() { KorisnikId = korisnik.KorisnikId };

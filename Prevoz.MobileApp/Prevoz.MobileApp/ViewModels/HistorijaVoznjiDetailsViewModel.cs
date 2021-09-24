@@ -1,12 +1,10 @@
 ﻿using Prevoz.Model;
-using Prevoz.Model.Requests.Lokacija;
 using Prevoz.Model.Requests.Rezervacija;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -32,18 +30,6 @@ namespace Prevoz.MobileApp.ViewModels
         public HistorijaVoznjiDetailsViewModel()
         {
             
-        }
-        public byte[] Slika
-        {
-            get { return userImage; }
-            set
-            {
-                if (value != userImage)
-                {
-                    userImage = value;
-                    OnPropertyChanged("UserImage");
-                }
-            }
         }
         public string Vozilo
         {
@@ -149,37 +135,5 @@ namespace Prevoz.MobileApp.ViewModels
             else
                 Status = "Završeno";
         } 
-        private double ConvertToDouble(string s)
-        {
-            char systemSeparator = Thread.CurrentThread.CurrentCulture.NumberFormat.CurrencyDecimalSeparator[0];
-            double result = 0;
-            try
-            {
-                if (s != null)
-                    if (!s.Contains(","))
-                        result = double.Parse(s, CultureInfo.InvariantCulture);
-                    else
-                        result = Convert.ToDouble(s.Replace(".", systemSeparator.ToString()).Replace(",", systemSeparator.ToString()));
-            }
-            catch (Exception e)
-            {
-                try
-                {
-                    result = Convert.ToDouble(s);
-                }
-                catch
-                {
-                    try
-                    {
-                        result = Convert.ToDouble(s.Replace(",", ";").Replace(".", ",").Replace(";", "."));
-                    }
-                    catch
-                    {
-                        throw new Exception("Wrong string-to-double format");
-                    }
-                }
-            }
-            return result;
-        }
     }
 }

@@ -24,7 +24,7 @@ namespace Prevoz.WinUI.Korisnik
         
         private async void btnPosalji_Click(object sender, EventArgs e)
         {
-            if (txtPitanje.Text != "")
+            if (ValidateChildren())
             {
                 var list = await _apiService.Get<List<Model.Faq>>(null);
                 var korisnik = Memorija.Korisnik;

@@ -29,12 +29,15 @@ namespace Prevoz.WinUI.Korisnik
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblUsername = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnPotvrdi = new System.Windows.Forms.Button();
             this.picBoxSlikaProfila = new System.Windows.Forms.PictureBox();
             this.cmbOcjena = new System.Windows.Forms.ComboBox();
+            this.errorProviderOcjena = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.picBoxSlikaProfila)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderOcjena)).BeginInit();
             this.SuspendLayout();
             // 
             // lblUsername
@@ -82,10 +85,15 @@ namespace Prevoz.WinUI.Korisnik
             // cmbOcjena
             // 
             this.cmbOcjena.FormattingEnabled = true;
-            this.cmbOcjena.Location = new System.Drawing.Point(205, 159);
+            this.cmbOcjena.Location = new System.Drawing.Point(214, 159);
             this.cmbOcjena.Name = "cmbOcjena";
             this.cmbOcjena.Size = new System.Drawing.Size(81, 21);
             this.cmbOcjena.TabIndex = 6;
+            this.cmbOcjena.Validating += new System.ComponentModel.CancelEventHandler(this.cmbOcjena_Validating);
+            // 
+            // errorProviderOcjena
+            // 
+            this.errorProviderOcjena.ContainerControl = this;
             // 
             // frmOcijeniKorisnika
             // 
@@ -101,6 +109,7 @@ namespace Prevoz.WinUI.Korisnik
             this.Text = "frmOcijeniKorisnika";
             this.Load += new System.EventHandler(this.frmOcijeniKorisnika_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picBoxSlikaProfila)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderOcjena)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -113,5 +122,6 @@ namespace Prevoz.WinUI.Korisnik
         private System.Windows.Forms.Button btnPotvrdi;
         private System.Windows.Forms.PictureBox picBoxSlikaProfila;
         private System.Windows.Forms.ComboBox cmbOcjena;
+        private System.Windows.Forms.ErrorProvider errorProviderOcjena;
     }
 }

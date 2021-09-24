@@ -16,17 +16,21 @@ namespace Prevoz.WinUI.Korisnik
 {
     public partial class frmOcijeniKorisnika : Form
     {
-        ApiService _korisnik = new ApiService("korisnik");
-        ApiService _voznja = new ApiService("voznja");
-        ApiService _rezervacije = new ApiService("korisnikrezervacija");
-        ApiService _ocjena = new ApiService("ocjena");
-        SqlConnection con = new SqlConnection("Server =.; Database=Prevoz;Trusted_Connection=True;MultipleActiveResultSets=true");
-
-        Model.KorisnikRezervacija _rezervacija = new Model.KorisnikRezervacija();
+        private readonly ApiService _korisnik = new ApiService("korisnik");
+        private readonly ApiService _ocjena = new ApiService("ocjena");
+        
+        private Model.KorisnikRezervacija _rezervacija ;
+        private Model.Voznja _voznja = new Model.Voznja();
         int _KorisnikId;
         public frmOcijeniKorisnika(Model.KorisnikRezervacija rezervacija, int KorisnikId)
         {
             _rezervacija = rezervacija;
+            _KorisnikId = KorisnikId;
+            InitializeComponent();
+        }
+        public frmOcijeniKorisnika(Model.Voznja voznja, int KorisnikId)
+        {
+            _voznja = voznja;
             _KorisnikId = KorisnikId;
             InitializeComponent();
         }
@@ -61,21 +65,30 @@ namespace Prevoz.WinUI.Korisnik
 
         private async void btnPotvrdi_Click(object sender, EventArgs e)
         {
-            if (cmbOcjena.SelectedItem.ToString() == " ") {
-                MessageBox.Show("Niste unijeli ocjenu.","",MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
-                cmbOcjena.BackColor = Color.Red;
-                    }
-            else
-            {
+            if (ValidateChildren()) 
+            { 
                 var korisnik = Memorija.Korisnik;
-                var request = new OcjenaUpsertRequest()
-                {
-                    RezervacijaId = _rezervacija.RezervacijaId,
-                    KorisnikId = korisnik.KorisnikId,
-                    VoznjaId = null,
-                    Ocjena1 = Convert.ToInt32(cmbOcjena.SelectedItem)
-                };
-                await _ocjena.Insert<Model.Korisnik>(request);
+                if (_rezervacija != null && _rezervacija.RezervacijaId > 0) {
+                    var request = new OcjenaUpsertRequest()
+                    {
+                        RezervacijaId = _rezervacija.RezervacijaId,
+                        KorisnikId = korisnik.KorisnikId,
+                        VoznjaId = null,
+                        Ocjena1 = Convert.ToInt32(cmbOcjena.SelectedItem)
+                    };
+                    await _ocjena.Insert<Model.Ocjena>(request);
+                }
+                else {
+                    var request = new OcjenaUpsertRequest()
+                    {
+                        RezervacijaId = null,
+                        KorisnikId = korisnik.KorisnikId,
+                        VoznjaId = _voznja.VoznjaId,
+                        Ocjena1 = Convert.ToInt32(cmbOcjena.SelectedItem)
+                    };
+                    await _ocjena.Insert<Model.Ocjena>(request);
+                }
+                MessageBox.Show("Vaša ocjena je spremljena", "", MessageBoxButtons.OK);
             }
         }
 
@@ -93,6 +106,15 @@ namespace Prevoz.WinUI.Korisnik
         private void lblUsername_MouseLeave(object sender, EventArgs e)
         {
             lblUsername.BackColor = default;
+        }
+        private void cmbOcjena_Validating(object sender, CancelEventArgs e)
+        {
+            if (cmbOcjena.SelectedIndex == 0 || cmbOcjena.SelectedItem == null)
+            {
+                errorProviderOcjena.SetError(cmbOcjena, Properties.Resources.Validation_RequiredField);
+            }
+            else
+                errorProviderOcjena.SetError(cmbOcjena, null);
         }
     }
 }

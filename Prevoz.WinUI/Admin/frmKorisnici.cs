@@ -19,7 +19,6 @@ namespace Prevoz.WinUI.Korisnik
     {
 
         private readonly ApiService _korisnici = new ApiService("korisnik");
-        private readonly ApiService _Uloge = new ApiService("uloge");
         private readonly ApiService _KorisnikUloge = new ApiService("korisnikuloge");
         public frmKorisnici()
         {
@@ -33,21 +32,17 @@ namespace Prevoz.WinUI.Korisnik
                 UserName = txtPretraga.Text 
             };
             var result = await _korisnici.Get<List<Model.Korisnik>>(search);
-            dgvKorisnici.AutoGenerateColumns = false;
+            result = result.Where(x => x.KorisnikId != Memorija.Korisnik.KorisnikId).ToList();
 
+            dgvKorisnici.AutoGenerateColumns = false;
             dgvKorisnici.DataSource = result;
         }
-
-
         private void dgvKorisnici_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             var id = dgvKorisnici.SelectedRows[0].Cells[0].Value;
-
             frmKorisniciDetail frm = new frmKorisniciDetail(int.Parse(id.ToString()));
-
             frm.Show();
         }
-
         private async void dgvKorisnici_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == dgvKorisnici.Columns["btnAddAdmin"].Index && e.RowIndex >= 0)
@@ -66,14 +61,11 @@ namespace Prevoz.WinUI.Korisnik
 
                 KorisnikUloge kU = null;
                 kU = Ulogakorisnika.Where(x => x.KorisnikId == KorisnikID).First();
+
                 if (kU.KorisnikId <= 0 || kU==null)
                     await _KorisnikUloge.Insert<Model.KorisnikUloge>(KorisnikUlogaRequest);
                 else
                   await _KorisnikUloge.Update<Model.KorisnikUloge>(KorisnikID, KorisnikUlogaRequest);
-
-                //provjeri koji je id uloge za admina i stavi sve one koji nisu samo admin
-                //frmHistorijaVoznjiDetails frm = new frmHistorijaVoznjiDetails(VoznjaId, KorisnikId);
-                //frm.Show();
             }
         }
     }

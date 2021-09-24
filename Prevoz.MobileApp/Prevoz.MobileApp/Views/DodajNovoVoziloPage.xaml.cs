@@ -21,10 +21,10 @@ namespace Prevoz.MobileApp.Views
             InitializeComponent();
             BindingContext = model = new DodajNovoVoziloViewModel();
         }
-        protected async override void OnAppearing()
+        protected override void OnAppearing()
         {
             base.OnAppearing();
-            await model.Load();
+            model.Load();
             ErrorNazivAutomobila.IsVisible = false;
         }
         private async void Button_Clicked(object sender, EventArgs e)

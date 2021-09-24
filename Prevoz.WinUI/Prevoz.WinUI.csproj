@@ -342,6 +342,18 @@
     <Compile Include="Admin\frmKorisniciDetail.Designer.cs">
       <DependentUpon>frmKorisniciDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="Korisnik\frmListaNeocijenjenihRezervacijaKorisnika.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Korisnik\frmListaNeocijenjenihRezervacijaKorisnika.Designer.cs">
+      <DependentUpon>frmListaNeocijenjenihRezervacijaKorisnika.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Korisnik\frmListaNeocijenjenihVoznjiKorisnika.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Korisnik\frmListaNeocijenjenihVoznjiKorisnika.Designer.cs">
+      <DependentUpon>frmListaNeocijenjenihVoznjiKorisnika.cs</DependentUpon>
+    </Compile>
     <Compile Include="Korisnik\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -490,6 +502,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\frmKorisniciDetail.resx">
       <DependentUpon>frmKorisniciDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Korisnik\frmListaNeocijenjenihRezervacijaKorisnika.resx">
+      <DependentUpon>frmListaNeocijenjenihRezervacijaKorisnika.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Korisnik\frmListaNeocijenjenihVoznjiKorisnika.resx">
+      <DependentUpon>frmListaNeocijenjenihVoznjiKorisnika.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Korisnik\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>

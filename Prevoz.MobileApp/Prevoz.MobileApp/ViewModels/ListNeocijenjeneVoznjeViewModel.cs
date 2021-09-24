@@ -1,17 +1,9 @@
 ﻿using Prevoz.Model;
-using Prevoz.Model.Requests;
-using Prevoz.Model.Requests.Ocjena;
 using Prevoz.Model.Requests.Rezervacija;
-using Prevoz.Model.Requests.Vožnja;
-using Prevoz.MobileApp;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Input;
-using Xamarin.Forms;
 
 namespace Prevoz.MobileApp.ViewModels
 {
@@ -21,23 +13,13 @@ namespace Prevoz.MobileApp.ViewModels
         private readonly ApiService _rezervacije = new ApiService("korisnikrezervacija");
         private readonly ApiService _ocjena = new ApiService("ocjena");
         private readonly ApiService _voznja = new ApiService("voznja");
-        private string _username = string.Empty;
-
         public ListNeocijenjeneVoznjeViewModel()
         {
-        }
-
-        public string username
-        {
-            get { return _username; }
-            set { SetProperty(ref _username, value); }
         }
         public List<Voznja> NeocijenjeneVoznje { get; set; } = new List<Voznja>();
 
         public ObservableCollection<Korisnik> OcijeniPreostaleVoznjeListKorisnika { get; set; } = new ObservableCollection<Korisnik>();
 
-        public ICommand GetNeocijenjeneRezervacijeKorisnici { get; set; }
-        public ICommand GetKorisnikInfo { get; set; }
         public async Task GetKorisnike()
         {
             OcijeniPreostaleVoznjeListKorisnika.Clear();
@@ -73,9 +55,7 @@ namespace Prevoz.MobileApp.ViewModels
                 Korisnik korisnik = await _korisnik.GetById<Model.Korisnik>(item.KorisnikId);
                 korisnici.Add(korisnik);
             }
-
             NeocijenjeneVoznje = listaVoznji;
-
             List<Korisnik> korisniciUnikatni = new List<Korisnik>();
 
             foreach(var item in korisnici)

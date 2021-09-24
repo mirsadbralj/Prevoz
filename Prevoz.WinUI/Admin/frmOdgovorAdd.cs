@@ -14,8 +14,8 @@ namespace Prevoz.WinUI.Admin
 {
     public partial class frmOdgovorAdd : Form
     {
-        ApiService _Faq = new ApiService("faq");
-        ApiService _korisnik = new ApiService("korisnik");
+        private readonly ApiService _Faq = new ApiService("faq");
+        private readonly ApiService _korisnik = new ApiService("korisnik");
         string _pitanje = "";
         int _FaqId = 0;
         public frmOdgovorAdd(string pitanje, int FaqId)

@@ -17,15 +17,16 @@ namespace Prevoz.WinUI.Korisnik
 {
     public partial class frmOcjene : Form
     {
-        ApiService _korisnik = new ApiService("korisnik");
-        ApiService _voznja = new ApiService("voznja");
-        ApiService _ocjena = new ApiService("ocjena");
-        ApiService _rezervacije = new ApiService("korisnikrezervacija");
+        private readonly ApiService _korisnik = new ApiService("korisnik");
+        private readonly ApiService _voznja = new ApiService("voznja");
+        private readonly ApiService _ocjena = new ApiService("ocjena");
+        private readonly ApiService _rezervacije = new ApiService("korisnikrezervacija");
         int KorisnikId = 0;
         int IdKorisnikDet = 0;
         List<Model.KorisnikRezervacija> listaNeocijenjenihRezervacija = new List<Model.KorisnikRezervacija>();
-        List<Model.Voznja> listaNeocijenjenihVoznji = new List<Model.Voznja>();
         List<Model.Ocjena> _listaOcjenaZaIzracunavanjeProsjeka = new List<Model.Ocjena>();
+        List<Model.Voznja> NeocijenjeneVoznje = new List<Model.Voznja>();
+        List<Model.KorisnikRezervacija> NeocijenjeneRezervacije = new List<Model.KorisnikRezervacija>();
         public frmOcjene()
         {
             InitializeComponent();
@@ -41,28 +42,29 @@ namespace Prevoz.WinUI.Korisnik
 
         private void FormatdgvOcijeniPreostaleRezervacije()
         {
-            dgvOcijeniPreostaleRezervacije.Columns[0].DisplayIndex = 8;
             dgvOcijeniPreostaleRezervacije.Columns[1].DisplayIndex = 7;
-            dgvOcijeniPreostaleRezervacije.Columns[2].Visible = false;
+            dgvOcijeniPreostaleRezervacije.Columns["Slika"].Visible = false;
+            dgvOcijeniPreostaleRezervacije.Columns["KorisnikId"].Visible = false;
             dgvOcijeniPreostaleRezervacije.Columns[4].Visible = false;
             dgvOcijeniPreostaleRezervacije.Columns[5].Visible = false;
             dgvOcijeniPreostaleRezervacije.Columns[6].Visible = false;
             dgvOcijeniPreostaleRezervacije.Columns[7].Visible = false;
-            dgvOcijeniPreostaleRezervacije.Columns[8].Visible = false;
+            dgvOcijeniPreostaleRezervacije.Columns["DetaljiRezervacije"].DisplayIndex = 7;
         }
 
         private void FormatDgvOcijeniPreostaleVoznje()
         {
-            dgvOcijeniPreostale.Columns[2].Visible = false;
-            dgvOcijeniPreostale.Columns[4].Visible = false;
-            dgvOcijeniPreostale.Columns[5].Visible = false;
-            dgvOcijeniPreostale.Columns[6].Visible = false;
-            dgvOcijeniPreostale.Columns[7].Visible = false;
-            dgvOcijeniPreostale.Columns[8].Visible = false;
-            dgvOcijeniPreostale.Columns[0].DisplayIndex = 8;
-            dgvOcijeniPreostale.Columns[1].DisplayIndex = 7;
+            if (dgvOcijeniPreostale.Columns.Contains("KorisnikId"))
+            {
+                dgvOcijeniPreostale.Columns["Slika"].Visible = false;
+                dgvOcijeniPreostale.Columns["KorisnikId"].Visible = false;
+                dgvOcijeniPreostale.Columns["PasswordHash"].Visible = false;
+                dgvOcijeniPreostale.Columns["PasswordSalt"].Visible = false;
+                dgvOcijeniPreostale.Columns["CreatedAt"].Visible = false;
+                dgvOcijeniPreostale.Columns["ModifiedAt"].Visible = false;
+                dgvOcijeniPreostale.Columns["DetaljiVoznje"].DisplayIndex = 3;
+            }
         }
-
         private decimal GetProsjek(List<Model.Ocjena> ocjene)
         {
             decimal suma = 0;
@@ -119,84 +121,42 @@ namespace Prevoz.WinUI.Korisnik
             lbl_ProsjcnaOcjena.Text = ocjena.ToString("N", setPrecision);
             FormatDataGridView();
         }
-
-        private List<Model.Korisnik> GetVlasnikeVoznji(List<Model.Voznja> listaVoznji, List<Model.Korisnik> listaKorisnika)
+        private async void Set_dgv_ListaPreostalihNeocijenjenihVoznji(List<Model.Ocjena> ocjene, List<Model.KorisnikRezervacija> listaRezervacija, List<Model.Voznja> listaVoznji)
         {
-            bool duplicate = false;
-            List<Model.Voznja> listaVoznjiWithoutDuplicates = new List<Model.Voznja>();
-            List<Model.Korisnik> _listaKorisnika = new List<Model.Korisnik>();
-            listaVoznjiWithoutDuplicates.Add(listaVoznji[0]);
+            var MojaListaRezervacija = listaRezervacija.Where(x => x.KorisnikId == Memorija.Korisnik.KorisnikId);
 
-            for (int i = 0; i < listaVoznji.Count(); i++)
+            var MojeOcjeneZaVoznje = ocjene.Where(x => x.VoznjaId != null && x.KorisnikId == Memorija.Korisnik.KorisnikId);
+
+            var MojeOcjeneVoznjeIDs = MojeOcjeneZaVoznje.Select(x => x.VoznjaId).ToList();
+
+            MojaListaRezervacija = MojaListaRezervacija.Where(x => !MojeOcjeneVoznjeIDs.Contains(x.VoznjaId)).ToList();
+
+            var NeocijenjeneVoznjeIDs = MojaListaRezervacija.Select(x => x.VoznjaId).ToList();
+
+            listaVoznji = listaVoznji.Where(x => NeocijenjeneVoznjeIDs.Contains(x.VoznjaId)).ToList();
+
+            List<Model.Korisnik> korisnici = new List<Model.Korisnik>();
+            foreach (var item in listaVoznji)
             {
-                duplicate = false;
-                for (int j = 0; j < listaVoznjiWithoutDuplicates.Count(); j++)
-                {
-                    if (listaVoznji[i].KorisnikId == listaVoznjiWithoutDuplicates[j].KorisnikId)
-                    {
-                        duplicate = true;
-                    }
-                }
-                if (duplicate == false)
-                    listaVoznjiWithoutDuplicates.Add(listaVoznji[i]);
+                Model.Korisnik korisnik = await _korisnik.GetById<Model.Korisnik>(item.KorisnikId);
+                korisnici.Add(korisnik);
             }
-            for (int i = 0; i < listaKorisnika.Count(); i++)
+
+            NeocijenjeneVoznje = listaVoznji;
+
+            List<Model.Korisnik> korisniciUnikatni = new List<Model.Korisnik>();
+
+            foreach (var item in korisnici)
             {
-                for (int j = 0; j < listaVoznjiWithoutDuplicates.Count(); j++)
-                {
-                    if (listaKorisnika[i].KorisnikId == listaVoznjiWithoutDuplicates[j].KorisnikId )
-                    {
-                        _listaKorisnika.Add(listaKorisnika[i]);
-                    }
-                }
+                if (korisniciUnikatni.Any(x => x.KorisnikId == item.KorisnikId))
+                    continue;
+
+                korisniciUnikatni.Add(item);
             }
-            return _listaKorisnika;
-        }
-        private List<Model.KorisnikRezervacija> CleanDuplicates(List<Model.KorisnikRezervacija> _listaRezervacija)
-        {
-            var KorisnikIds = _listaRezervacija.Select(x => x.KorisnikId);
-
-            _listaRezervacija = _listaRezervacija.Where(x => KorisnikIds.Contains(x.KorisnikId)).Distinct().ToList();
-
-            return _listaRezervacija;
-        }
-        private async void Set_dgv_ListaPreostalihNeocijenjenihVoznji(List<Model.Ocjena> ocjene, List<Model.KorisnikRezervacija> listaRezervacija, Model.Korisnik korisnik)
-        {
-            List<Model.KorisnikRezervacija> _listaRezervacija = new List<Model.KorisnikRezervacija>();
-            List<Model.Voznja> _listaVoznji = new List<Model.Voznja>();
-            List<Model.Korisnik> _listaKorisnika = new List<Model.Korisnik>();
-            bool ocijenio = false;
-            for (int i = 0; i < listaRezervacija.Count(); i++)
-            {
-                ocijenio = false;
-                for (int j = 0; j < ocjene.Count(); j++)
-                {
-                    if (ocjene[j].RezervacijaId == listaRezervacija[i].RezervacijaId && ocjene[j].KorisnikId == korisnik.KorisnikId)
-                    {
-                        ocijenio = true;
-                    }
-                }
-                if (ocijenio == false)
-                {
-                    _listaRezervacija.Add(listaRezervacija[i]);
-                }
-            }
-            dgvOcijeniPreostale.DataSource = _listaRezervacija;
-
-            _listaRezervacija = CleanDuplicates(_listaRezervacija);
-
-            for (int i = 0; i < _listaRezervacija.Count(); i++)
-            {
-                int VoznjaId = _listaRezervacija[i].VoznjaId;
-                _listaVoznji.Add(await _voznja.GetById<Model.Voznja>(VoznjaId));
-            }
-            _listaKorisnika = await _korisnik.Get<List<Model.Korisnik>>(null);
-            _listaKorisnika = GetVlasnikeVoznji(_listaVoznji, _listaKorisnika);
-            listaNeocijenjenihVoznji = _listaVoznji;
-            dgvOcijeniPreostale.DataSource = _listaKorisnika;
+            
+            dgvOcijeniPreostale.DataSource = korisniciUnikatni;
             FormatDgvOcijeniPreostaleVoznje();
         }
-
         private async void Set_dgv_listaPreostalihNeocijenjenihRezervacija(List<Model.Ocjena> ocjene, List<Model.Voznja> listaVoznji, List<Model.KorisnikRezervacija> listaRezervacija, Model.Korisnik korisnik)
         {
             List<Model.Korisnik> _listaKorisnika = new List<Model.Korisnik>();
@@ -232,6 +192,8 @@ namespace Prevoz.WinUI.Korisnik
                 _listarezervacijeTemp = _listarezervacijeTemp.Where(x => !RezervacijeIDSOcjene.Contains(x.RezervacijaId)).ToList();
                 _listarezervacijeTemp = _listarezervacijeTemp.Where(x => x.KorisnikId != Memorija.Korisnik.KorisnikId).ToList();
 
+                NeocijenjeneRezervacije = _listarezervacijeTemp;
+
                 var NeocijenjeniKorisnikIDs = _listarezervacijeTemp.Select(x => x.KorisnikId).Distinct().ToList();
 
                 NeocijenjeniKorisnikIDs = NeocijenjeniKorisnikIDs.Where(x => !OcijenjeniKorisniciIDs.Contains(x)).ToList();
@@ -259,11 +221,12 @@ namespace Prevoz.WinUI.Korisnik
             var VoznjaRequest = new VoznjaSearchRequest() { KorisnikId = korisnik.KorisnikId, DatumVoznje=DateTime.MinValue};
             var listaVoznji = await _voznja.Get<List<Model.Voznja>>(VoznjaRequest);
 
-            var OcjeneRequest = new OcjenaSearchRequest() { };
+
+            var listaSvihVoznji = await _voznja.Get<List<Model.Voznja>>(null);
             var ocjene = await _ocjena.Get<List<Model.Ocjena>>(null);
 
             if(listaRezervacija.Count() > 0)
-            Set_dgv_ListaPreostalihNeocijenjenihVoznji(ocjene, listaRezervacija, korisnik);
+            Set_dgv_ListaPreostalihNeocijenjenihVoznji(ocjene, listaRezervacija, listaSvihVoznji);
 
             if (listaVoznji.Count() > 0)
             Set_dgv_listaPreostalihNeocijenjenihRezervacija(ocjene, listaVoznji, listaRezervacijaFull, korisnik);
@@ -275,7 +238,6 @@ namespace Prevoz.WinUI.Korisnik
             if (lbl_ProsjcnaOcjena.Text == "label2")
                 lbl_ProsjcnaOcjena.Text = "Još niste ocijenjeni.";
         }
-
         private void dgv_mojeOcjene_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if(e.ColumnIndex==dgv_mojeOcjene.Columns["Detalji"].Index && e.RowIndex >= 0 )
@@ -296,24 +258,17 @@ namespace Prevoz.WinUI.Korisnik
                 {
                     KorisnikId = (int)dgvOcijeniPreostaleRezervacije.Rows[e.RowIndex].Cells["KorisnikId"].Value;
                     int VoznjaId = 0;
-                    for (int i = 0; i < listaNeocijenjenihRezervacija.Count(); i++)
-                    {
-                        if (listaNeocijenjenihRezervacija[i].KorisnikId == KorisnikId)
-                            VoznjaId = listaNeocijenjenihRezervacija[i].VoznjaId;
-                    }
-                    frmHistorijaVoznjiDetails frm = new frmHistorijaVoznjiDetails(VoznjaId, KorisnikId);
-                    frm.Show();
-                }
-            }
 
-            else if(e.ColumnIndex == dgvOcijeniPreostaleRezervacije.Columns["OcijeniRezervaciju"].Index && e.RowIndex >= 0)
-            {
-                if (dgvOcijeniPreostaleRezervacije.Columns.Contains("KorisnikId"))
-                {
-                    KorisnikId = (int)dgvOcijeniPreostaleRezervacije.Rows[e.RowIndex].Cells["KorisnikId"].Value;
-                    var rezervacija = listaNeocijenjenihRezervacija.Where(x => x.KorisnikId == KorisnikId).ToList();
-                    frmOcijeniKorisnika frm = new frmOcijeniKorisnika(rezervacija[0], KorisnikId);
+                    List<Model.KorisnikRezervacija> listaRezervacija = new List<Model.KorisnikRezervacija>();
+                    foreach(var item in NeocijenjeneRezervacije)
+                    {
+                        if (item.KorisnikId == KorisnikId)
+                            listaRezervacija.Add(item);
+                    }
+
+                    frmListaNeocijenjenihRezervacijaKorisnika frm = new frmListaNeocijenjenihRezervacijaKorisnika(KorisnikId, listaRezervacija);
                     frm.Show();
+                   
                 }
             }
         }
@@ -325,21 +280,14 @@ namespace Prevoz.WinUI.Korisnik
                 if (dgvOcijeniPreostale.Rows.Count >= 1 && dgvOcijeniPreostale.Columns.Contains("KorisnikId"))
                 {
                     KorisnikId = (int)dgvOcijeniPreostale.Rows[e.RowIndex].Cells["KorisnikId"].Value;
-                    int VoznjaId = 0;
-                 
-                    VoznjaId = listaNeocijenjenihVoznji[e.RowIndex].VoznjaId;
 
-                    frmHistorijaVoznjiDetails frm = new frmHistorijaVoznjiDetails(VoznjaId, KorisnikId);
-                    frm.Show();
-                }
-            }
-            else if (e.ColumnIndex == dgvOcijeniPreostale.Columns["Ocijeni"].Index && e.RowIndex >= 0 && dgvOcijeniPreostale.Columns.Contains("Ocijeni"))
-            {
-                if (dgvOcijeniPreostale.Columns.Contains("KorisnikId"))
-                {
-                    KorisnikId = (int)dgvOcijeniPreostale.Rows[e.RowIndex].Cells["KorisnikId"].Value;
-                    var rezervacija = listaNeocijenjenihRezervacija[e.RowIndex];
-                    frmOcijeniKorisnika frm = new frmOcijeniKorisnika(rezervacija, KorisnikId);
+                    List<Model.Voznja> listaVoznji = new List<Model.Voznja>();
+                    foreach (var item in NeocijenjeneVoznje)
+                    {
+                        if (item.KorisnikId == KorisnikId)
+                            listaVoznji.Add(item);
+                    }
+                    frmListaNeocijenjenihVoznjiKorisnika frm = new frmListaNeocijenjenihVoznjiKorisnika(KorisnikId, listaVoznji);
                     frm.Show();
                 }
             }

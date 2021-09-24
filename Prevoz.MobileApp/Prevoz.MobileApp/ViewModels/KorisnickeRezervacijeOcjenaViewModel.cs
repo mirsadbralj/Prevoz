@@ -11,7 +11,6 @@ namespace Prevoz.MobileApp.ViewModels
 {
     public class KorisnickeRezervacijeOcjenaViewModel : BaseViewModel
     {
-        private readonly ApiService _rezervacije = new ApiService("korisnikrezervacija");
         int KorisnikID = 0;
         List<KorisnikRezervacija> rezervacije = new List<KorisnikRezervacija>();
         public ObservableCollection<KorisnikRezervacija> listaRezervacija { get; set; } = new ObservableCollection<KorisnikRezervacija>();
