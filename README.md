@@ -4,7 +4,7 @@
 Username: headadministrator1 <br/>
 Password: test <br/><br/>
 
-- Admin/editor
+- Admin/editor <br/>
 Username: admineditor1<br/>
 Password: test<br/><br/>
 
