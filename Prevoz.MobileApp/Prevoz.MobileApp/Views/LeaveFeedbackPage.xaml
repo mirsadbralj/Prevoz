@@ -12,13 +12,15 @@
             <Label Text="Ocijeni aplikaciju"
                 HorizontalOptions="CenterAndExpand" />
 
-            <Picker Title="Ocjena" ItemsSource="{Binding listaOcjena}" SelectedIndex="{Binding Ocjena}"></Picker>
-            <Label Text="Vaša ocjena"></Label>
-
+            <StackLayout>
+            <Picker x:Name="Ocjena" Title="Ocjena" ItemsSource="{Binding listaOcjena}" SelectedIndex="{Binding Ocjena}" SelectedIndexChanged="Ocjena_SelectedIndexChanged"></Picker>
+            <Label x:Name="OcjenaLabelError" TextColor="Red" FontSize="13"></Label>
+            </StackLayout>
             <Label Text="Komentar"></Label>
             <Entry Text="{Binding komentar}"></Entry>
-            <Button Text="Potvrdi" Command="{Binding InsertCommand}"></Button>
-
+            <StackLayout>
+            <Button x:Name="ButtonPotvrdi" Text="Potvrdi" Command="{Binding InsertCommand}"></Button>
+            </StackLayout>
             <ListView ItemsSource="{Binding listFeedback}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -31,8 +33,12 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-        </StackLayout>
 
-       
+            <Button x:Name="Back_Button" BorderRadius="0"  Text="Nazad" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" Clicked="Back_Button_Clicked"/>
+        </StackLayout>
+        
+        
+
+
     </ContentPage.Content>
 </ContentPage>

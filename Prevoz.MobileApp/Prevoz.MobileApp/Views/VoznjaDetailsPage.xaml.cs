@@ -48,14 +48,14 @@ namespace Prevoz.MobileApp.Views
                 var res = await DisplayAlert("", "Želite li ocjeniti korištenje aplikacije?", "DA", "NE");
                 if (res)
                 {
-                    await Navigation.PushAsync(new LeaveFeedbackPage());
+                    await Navigation.PushModalAsync(new LeaveFeedbackPage());
                 }
             }
         }
         private async void Button_Clicked_1(object sender, EventArgs e)
         {
             int voznjaId = model.voznjaId;
-            await Navigation.PushAsync(new PaymentGatewayPage(voznjaId));
+            await Navigation.PushModalAsync(new PaymentGatewayPage(voznjaId));
         }
         private async void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {

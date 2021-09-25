@@ -57,6 +57,7 @@
             </Grid>
             <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="End" >
                 <Button x:Name="Submit_Button" BorderRadius="0"  Text="Plati" Command="{Binding SubmitCommand}" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand"/>
+                <Button x:Name="Back_Button" BorderRadius="0"  Text="Nazad" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" Clicked="Back_Button_Clicked"/>
             </StackLayout>
         </StackLayout>
     </ContentView>

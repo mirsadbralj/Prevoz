@@ -47,6 +47,8 @@ namespace Prevoz.MobileApp.ViewModels
         int VoznjaId = 0;
         public Voznja voznja = new Voznja();
         public UplateUpsertRequest Uplata = new UplateUpsertRequest();
+        string SecretApiKey = "sk_test_51JSjRAFzqt6OnFqZD8Tx7bpoqemWqOtxJSZxmecjZaUumDgu8FKB3knuZSawaym4bXaAS06eqNr1P4twugN3sHrV000KSOkre0";
+        string PublishableApiKey = "pk_test_51JSjRAFzqt6OnFqZAQBbgCEnBM8K6noiE2NfXPuDOTsdKGLdtmDQeqb56WSEJEPoTa1DIXovKqyuHlaE44nbB6VC00Tu4Jp4yG";
 
         #endregion Variable
 
@@ -195,7 +197,7 @@ namespace Prevoz.MobileApp.ViewModels
 
             try
             {
-                StripeConfiguration.SetApiKey("sk_test_51JSjRAFzqt6OnFqZD8Tx7bpoqemWqOtxJSZxmecjZaUumDgu8FKB3knuZSawaym4bXaAS06eqNr1P4twugN3sHrV000KSOkre0");
+                StripeConfiguration.SetApiKey(PublishableApiKey);
                 var service = new ChargeService();
 
                 if (_lokacijaKorisnika == null)
@@ -232,7 +234,7 @@ namespace Prevoz.MobileApp.ViewModels
             {
                 var korisnik = Memorija.Korisnik;
                 GetVoznjaInfo();
-                StripeConfiguration.SetApiKey("sk_test_51JSjRAFzqt6OnFqZD8Tx7bpoqemWqOtxJSZxmecjZaUumDgu8FKB3knuZSawaym4bXaAS06eqNr1P4twugN3sHrV000KSOkre0");
+                StripeConfiguration.SetApiKey(SecretApiKey);
                 if (IsValidEmail(LogkorisnikDetails.Email)==false)
                 {
                     LogkorisnikDetails.Email = "sample@gmail.com";

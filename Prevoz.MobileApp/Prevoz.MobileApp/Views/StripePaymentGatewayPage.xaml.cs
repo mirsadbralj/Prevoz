@@ -160,5 +160,10 @@ namespace Prevoz.MobileApp.Views
             string text = str.Remove(l - 1, 1);
             return text;
         }
+
+        private void Back_Button_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PopModalAsync();
+        }
     }
 }

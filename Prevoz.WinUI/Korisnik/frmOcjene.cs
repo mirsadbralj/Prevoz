@@ -257,7 +257,6 @@ namespace Prevoz.WinUI.Korisnik
                 if (dgvOcijeniPreostaleRezervacije.Rows.Count >= 1 && dgvOcijeniPreostaleRezervacije.Columns.Contains("KorisnikId"))
                 {
                     KorisnikId = (int)dgvOcijeniPreostaleRezervacije.Rows[e.RowIndex].Cells["KorisnikId"].Value;
-                    int VoznjaId = 0;
 
                     List<Model.KorisnikRezervacija> listaRezervacija = new List<Model.KorisnikRezervacija>();
                     foreach(var item in NeocijenjeneRezervacije)
