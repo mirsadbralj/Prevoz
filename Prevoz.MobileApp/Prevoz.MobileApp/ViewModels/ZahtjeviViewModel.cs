@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace Prevoz.MobileApp.ViewModels
 {
@@ -53,6 +54,8 @@ namespace Prevoz.MobileApp.ViewModels
             var zahtjev = await _zahtjevi.GetById<Zahtjevi>(zahtjevID);
             zahtjev.Status = "Otkazano";
             await _zahtjevi.Update<Model.Zahtjevi>(zahtjevID, zahtjev);
+            await Application.Current.MainPage.DisplayAlert("Zahtjev je poništen","","OK");
+            await GetZahtjeve();
         }
         public async void OdobriZahtjev(int zahtjevID)
         {
@@ -99,12 +102,20 @@ namespace Prevoz.MobileApp.ViewModels
 
                     zahtjev.Status = "Odobreno";
                     await _zahtjevi.Update<Model.Zahtjevi>(zahtjev.ZahtjevID, zahtjev);
+                    await Application.Current.MainPage.DisplayAlert("Zahtjev je odobren.", "", "OK");
+                    await GetZahtjeve();
                 }
                 else 
                 {
                     zahtjev.Status = "Otkazano";
                     await _zahtjevi.Update<Model.Zahtjevi>(zahtjev.ZahtjevID, zahtjev);
+                    await Application.Current.MainPage.DisplayAlert("Zahtjev je otkazan automatski jer broj sjedišta je popunjen.", "", "OK");
+                    await GetZahtjeve();
                 }
+            }
+            else
+            {
+                await Application.Current.MainPage.DisplayAlert("Nije moguće odobriti zahtjev za vožnju sopstvenu vožnju","","OK");
             }
         }
     }

@@ -96,6 +96,9 @@ namespace Prevoz.MobileApp.ViewModels
                 Slika = SlikaK
             };
             await _vozila.Insert<Model.Vozilo>(request);
+
+            await Application.Current.MainPage.DisplayAlert("Novo vozilo sačuvano", "", "OK");
+            await Application.Current.MainPage.Navigation.PopAsync();
         }
     }
 }

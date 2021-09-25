@@ -15,7 +15,6 @@ namespace Prevoz.MobileApp.ViewModels
 {
     public class PosaljiPorukuViewModel : BaseViewModel
     {
-        private readonly ApiService _korisnik = new ApiService("korisnik");
         private readonly ApiService _poruka = new ApiService("poruka");
         string TekstPoruke = string.Empty;
         int KorisnikId = 0;
@@ -37,7 +36,6 @@ namespace Prevoz.MobileApp.ViewModels
         }
         public ICommand SendMessageCommand { get; set; }
         public ICommand GetConversationCommand { get; set; }
-
         public async Task PosaljiPoruku()
         {
             var korisnik = Memorija.Korisnik;
@@ -49,9 +47,13 @@ namespace Prevoz.MobileApp.ViewModels
                 DatumVrijeme = DateTime.Now
             };
             await _poruka.Insert<Model.Poruka>(RequestPoruka);
+
+            await GetConversation();
+            Text = string.Empty;
         }
         public async Task GetConversation()
         {
+            listPoruke.Clear();
             var korisnik = Memorija.Korisnik;
             var requestPoruke = new PorukaSearchRequest()
             {

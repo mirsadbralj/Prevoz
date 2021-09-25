@@ -51,7 +51,7 @@ namespace Prevoz.MobileApp
                 {
                     await Application.Current.MainPage.DisplayAlert("Greška", "Niste autentificirani", "OK");
                 }
-                throw;
+                throw ex;
             }
         }
         public async Task<T> GetById<T>(object Id)

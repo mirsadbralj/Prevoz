@@ -72,21 +72,52 @@ namespace Prevoz.MobileApp.ViewModels
                 {
                     var lokacija = await _lokacija.GetById<Model.Lokacija>(korisnikD.Lokacija);
 
-                    if (Grad != lokacija.Naziv)
+                    
+                    var LokacijaRequest = new LokacijaUpsertRequest()
                     {
-                        var LokacijaRequest = new LokacijaUpsertRequest()
-                        {
-                            Naziv = Grad
-                        };
-                        await _lokacija.Update<Model.Lokacija>(lokacija.LokacijaId, LokacijaRequest);
+                        Naziv = Grad
+                    };
+                       
+                    await _lokacija.Update<Model.Lokacija>(lokacija.LokacijaId, LokacijaRequest);
+
+                    var KorisnikUpdateRequest = new KorisniciUpsertRequests()
+                    {
+                        UserName = Username.Text,
+                        Password = Password.Text,
+                        PasswordConfirmation = Potvrda.Text,
+                        Slika = UserImage
+                    };
+                    var KorisnikDetailsUpdateRequest = new KorisnikDetail_UpsertRequest()
+                    {
+                        KorisnikId = korisnik.KorisnikId,
+                        Ime = Ime.Text,
+                        Prezime = Prezime.Text,
+                        Email = Email.Text,
+                        Lokacija = lokacija.LokacijaId,
+                        Telefon = Telefon.Text,
+                        DatumRođenja = Datum
+                    };
+                    var checkDetail = await _korisnikDetail.GetById<Model.KorisnikDetails>(korisnik.KorisnikId);
+
+                    if (Password.Text != null && (Password.Text == Potvrda.Text) || Username.Text != korisnik.UserName || userImage != null)
+                        await _korisnik.Update<Model.Korisnik>(korisnik.KorisnikId, KorisnikUpdateRequest);
+
+                    if (checkDetail != null && checkDetail.KorisnikId > 0)
+                    {
+                        await _korisnikDetail.Update<Model.KorisnikDetails>(korisnik.KorisnikId, KorisnikDetailsUpdateRequest);
                     }
+                    else
+                        await _korisnikDetail.Insert<Model.KorisnikDetails>(KorisnikDetailsUpdateRequest);
+                    
+
                 }
+                await Application.Current.MainPage.DisplayAlert("Podaci uspješno spremljeni", "", "OK");
             }
             else
             {
                 var LokacijaRequest = new LokacijaUpsertRequest()
                 {
-                    Naziv=Grad
+                    Naziv = Grad
                 };
                 lokacija2 = await _lokacija.Insert<Model.Lokacija>(lokacija2);
 
@@ -118,6 +149,8 @@ namespace Prevoz.MobileApp.ViewModels
                 }
                 else
                     await _korisnikDetail.Insert<Model.KorisnikDetails>(KorisnikDetailsUpdateRequest);
+
+                await Application.Current.MainPage.DisplayAlert("Podaci uspješno spremljeni", "", "OK");
             }
            
         }

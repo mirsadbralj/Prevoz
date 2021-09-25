@@ -29,7 +29,7 @@ namespace Prevoz.MobileApp.Views
             if (Text.Text.Length == 0)
             {
                 ErrorText.IsVisible = true;
-                ErrorText.Text = "Poruka je prazna!?";
+                ErrorText.Text = "Nije moguće poslati praznu poruku.";
                 EnableSendButon();
             }
             else

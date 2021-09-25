@@ -14,11 +14,17 @@
             <Label Text="Korisničko ime:"></Label>
             <Label Text="{Binding Username}"></Label>
 
-            <Picker Title="Odaberi ocjenu" ItemsSource="{Binding OcjeneList}" SelectedItem = "{Binding OcjenaSelected}"></Picker>
+            <StackLayout>
+                <Picker x:Name="OcjenaSelected" Title="Odaberi ocjenu" ItemsSource="{Binding OcjeneList}" SelectedItem = "{Binding OcjenaSelected}" SelectedIndexChanged="OcjenaSelected_SelectedIndexChanged"></Picker>
+                <Label x:Name="ErrorlabelOcjenaSelected" TextColor="Red"  FontSize="13" ></Label>
+            </StackLayout>
 
-            <Entry Placeholder="Komentar" Text="{Binding Komentar}"></Entry>
+            <StackLayout>
+                 <Entry x:Name="Komentar"  Placeholder="Komentar" Text="{Binding Komentar}" TextChanged="Komentar_TextChanged"></Entry>
+                <Label x:Name="Errorlabelkomentar" FontSize="13" TextColor="Red"></Label>
+            </StackLayout>
 
-            <Button Text="Potvrdi" Command="{Binding SaveRating}"></Button>
+            <Button x:Name="ButtonPotvrdi" Text="Potvrdi" Command="{Binding SaveRating}"></Button>
 
         </StackLayout>
     </ContentPage.Content>

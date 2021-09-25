@@ -74,42 +74,25 @@ namespace Prevoz.MobileApp.ViewModels
         private async Task SaveOcjena()
         {
             var korisnik = Memorija.Korisnik;
-            bool UserV = false;
             if (_rezervacija == null) 
             {
                 await SaveOcjenaVoznja();
                 return;
 
             }
-
-            if (_rezervacija.KorisnikId == korisnik.KorisnikId)
+            
+            var requestOcjena = new OcjenaUpsertRequest()
             {
-                UserV = true;
-            }
-            if (UserV)
-            {
-                var requestOcjena = new OcjenaUpsertRequest()
-                {
-                    VoznjaId = null,
-                    KorisnikId = korisnik.KorisnikId,
-                    RezervacijaId = _rezervacija.RezervacijaId,
-                    Ocjena1 = OcjenaSelected,
-                    Komentar = Komentar
-                };
-                await _ocjena.Insert<Model.Ocjena>(requestOcjena);
-            }
-            else 
-            { 
-                var request2 = new OcjenaUpsertRequest()
-                {
-                    RezervacijaId = null,
-                    KorisnikId = korisnik.KorisnikId,
-                    VoznjaId = _rezervacija.VoznjaId,
-                    Ocjena1 = OcjenaSelected,
-                    Komentar = Komentar
-                };
-                await _ocjena.Insert<Model.Ocjena>(request2);
-            }
+                VoznjaId = null,
+                KorisnikId = korisnik.KorisnikId,
+                RezervacijaId = _rezervacija.RezervacijaId,
+                Ocjena1 = OcjenaSelected,
+                Komentar = Komentar
+            };
+            await _ocjena.Insert<Model.Ocjena>(requestOcjena);
+            await Application.Current.MainPage.DisplayAlert("Ocjena uspješno sačuvana", "", "OK");
+            await Application.Current.MainPage.Navigation.PopAsync();
+            await Application.Current.MainPage.Navigation.PopAsync();
         }
         private async Task SaveOcjenaVoznja() 
         {
@@ -124,6 +107,9 @@ namespace Prevoz.MobileApp.ViewModels
                 Komentar = Komentar
             };
             await _ocjena.Insert<Model.Ocjena>(requestOcjena);
+            await Application.Current.MainPage.DisplayAlert("Ocjena uspješno sačuvana", "", "OK");
+            await Application.Current.MainPage.Navigation.PopAsync();
+            await Application.Current.MainPage.Navigation.PopAsync();
         }
     }
 }

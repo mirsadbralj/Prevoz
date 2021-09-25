@@ -45,7 +45,7 @@ namespace Prevoz.MobileApp.ViewModels
             }
              catch (FlurlHttpException ex)
             {
-                await Application.Current.MainPage.DisplayAlert(ex.InnerException.ToString(), ex.Message, ex.GetBaseException().Message);
+               
             }
         }
       
