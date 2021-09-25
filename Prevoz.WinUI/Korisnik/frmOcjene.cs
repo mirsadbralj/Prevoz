@@ -247,6 +247,8 @@ namespace Prevoz.WinUI.Korisnik
                     int ocjena = (int)dgv_mojeOcjene.Rows[e.RowIndex].Cells["OcjenaId"].Value;
                     frmOcjenaDetail frm = new frmOcjenaDetail(ocjena);
                     frm.Show();
+
+                    this.Close();
                 }
             }
         }
@@ -267,6 +269,8 @@ namespace Prevoz.WinUI.Korisnik
 
                     frmListaNeocijenjenihRezervacijaKorisnika frm = new frmListaNeocijenjenihRezervacijaKorisnika(KorisnikId, listaRezervacija);
                     frm.Show();
+
+                    this.Close();
                    
                 }
             }
@@ -288,6 +292,8 @@ namespace Prevoz.WinUI.Korisnik
                     }
                     frmListaNeocijenjenihVoznjiKorisnika frm = new frmListaNeocijenjenihVoznjiKorisnika(KorisnikId, listaVoznji);
                     frm.Show();
+
+                    this.Close();
                 }
             }
         }

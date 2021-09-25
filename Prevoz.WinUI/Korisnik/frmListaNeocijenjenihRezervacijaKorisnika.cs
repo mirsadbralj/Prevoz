@@ -52,6 +52,9 @@ namespace Prevoz.WinUI.Korisnik
 
                     frmOcijeniKorisnika frm = new frmOcijeniKorisnika(rezervacija, korisnikID);
                     frm.Show();
+
+
+                    this.Close();
                 }
             }
             else if (e.ColumnIndex == dataGridViewListaNeocijenjenihRezervacija.Columns["DetaljiVoznje"].Index && e.RowIndex >= 0)
@@ -61,9 +64,11 @@ namespace Prevoz.WinUI.Korisnik
                     int korisnikID = (int)dataGridViewListaNeocijenjenihRezervacija.Rows[e.RowIndex].Cells["KorisnikId"].Value;
 
                     int voznjaId = (int)dataGridViewListaNeocijenjenihRezervacija.Rows[e.RowIndex].Cells["VoznjaId"].Value;
-
+                    
                     frmHistorijaVoznjiDetails frm = new frmHistorijaVoznjiDetails(voznjaId, korisnikID);
                     frm.Show();
+
+                    this.Close();
                 }
             }
         }
