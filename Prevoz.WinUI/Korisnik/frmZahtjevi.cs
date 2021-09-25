@@ -79,11 +79,34 @@ namespace Prevoz.WinUI.Korisnik
                 dataGridViewOtkazaniZahtjevi.Columns["Vise"].DisplayIndex = 5;
             }
         }
+        private async void RefreshForm()
+        {
+            var voznjeRequest = new VoznjaSearchRequest()
+            {
+                KorisnikId = Memorija.Korisnik.KorisnikId
+            };
+            var listaVoznji = await _voznje.Get<List<Model.Voznja>>(voznjeRequest);
+            var VoznjeIDs = listaVoznji.Select(x => x.VoznjaId);
+            var listazahtjeva = await _zahtjevi.Get<List<Zahtjevi>>(null);
+
+            listazahtjeva = listazahtjeva.Where(x => VoznjeIDs.Contains(x.VoznjaID)).ToList();
+
+            var listazahtjevaprihvaceni = listazahtjeva.Where(x => x.Status == "Odobreno").ToList();
+            var listazahtjevaotkazani = listazahtjeva.Where(x => x.Status == "Otkazano").ToList();
+            listazahtjeva = listazahtjeva.Where(x => x.Status != "Odobreno" && x.Status != "Otkazano").ToList();
+
+            dataGridViewPrihvaceniZahtjevi.DataSource = listazahtjevaprihvaceni;
+            dataGridViewOtkazaniZahtjevi.DataSource = listazahtjevaotkazani;
+            dataGridViewAktivniZahtjevi.DataSource = listazahtjeva;
+        }
         public async void PonistiZahtjev(int zahtjevID)
         {
             var zahtjev = await _zahtjevi.GetById<Zahtjevi>(zahtjevID);
             zahtjev.Status = "Otkazano";
             await _zahtjevi.Update<Model.Zahtjevi>(zahtjevID, zahtjev);
+
+            MessageBox.Show("Zahtjev je poništen");
+            RefreshForm();
         }
         public async void OdobriZahtjev(int zahtjevID)
         {
@@ -130,11 +153,15 @@ namespace Prevoz.WinUI.Korisnik
 
                     zahtjev.Status = "Odobreno";
                     await _zahtjevi.Update<Model.Zahtjevi>(zahtjev.ZahtjevID, zahtjev);
+                    MessageBox.Show("Zahtjev je odobren");
+                    RefreshForm();
                 }
                 else
                 {
                     zahtjev.Status = "Otkazano";
                     await _zahtjevi.Update<Model.Zahtjevi>(zahtjev.ZahtjevID, zahtjev);
+                    MessageBox.Show("Zahtjev je otkazan jer su sva sjedišta zauzeta.");
+                    RefreshForm();
                 }
             }
             else

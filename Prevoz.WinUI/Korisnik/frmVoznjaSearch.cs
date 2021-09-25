@@ -143,6 +143,7 @@ namespace Prevoz.WinUI.Korisnik
                     Status = null
                 };
                 await _zahtjevi.Insert<Model.Zahtjevi>(zahtjevRequest);
+                this.Close();
             }
             else
             {
@@ -170,6 +171,7 @@ namespace Prevoz.WinUI.Korisnik
 
                 await _voznja.Update<Model.Voznja>(voznjaId, UpdateRequestVoznja);
                 MessageBox.Show("Voznja uspjesno rezervisana.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             }
             
         }

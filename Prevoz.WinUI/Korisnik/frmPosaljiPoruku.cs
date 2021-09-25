@@ -47,6 +47,24 @@ namespace Prevoz.WinUI.Korisnik
             if (dgv_listaPoruka.Columns.Contains("JaNisamPosiljaoc"))
                 dgv_listaPoruka.Columns["JaNisamPosiljaoc"].Visible = false;
         }
+
+        private async void RefreshMessages()
+        {
+            var korisnik = Memorija.Korisnik;
+            var requestPoruke = new PorukaSearchRequest()
+            {
+                PosiljaocID = korisnik.KorisnikId,
+                PrimaocID = KorisnikId
+            };
+            var poruke = await _poruka.Get<List<Model.Poruka>>(requestPoruke);
+            foreach (var poruka in poruke)
+            {
+                poruka.JaPosiljaoc = korisnik.KorisnikId == poruka.PosiljaocID;
+                listPoruke.Add(poruka);
+            }
+
+            dgv_listaPoruka.DataSource = listPoruke;
+        }
         private async void btnPosaljiPoruku_Click(object sender, EventArgs e)
         {
             var korisnik = Memorija.Korisnik;
@@ -58,6 +76,12 @@ namespace Prevoz.WinUI.Korisnik
                 DatumVrijeme = DateTime.Now
             };
             await _poruka.Insert<Model.Poruka>(RequestPoruka);
+
+            RefreshMessages();
+
+            txtTekstPoruke.Text = "";
+
+            MessageBox.Show("Poruka poslana");
         }
     }
 }

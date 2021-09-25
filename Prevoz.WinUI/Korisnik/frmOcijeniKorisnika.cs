@@ -36,7 +36,6 @@ namespace Prevoz.WinUI.Korisnik
         }
         private void LoadcmbOcjena()
         {
-            cmbOcjena.Items.Add(" ");
             cmbOcjena.Items.Add("1");
             cmbOcjena.Items.Add("2");
             cmbOcjena.Items.Add("3");
@@ -65,8 +64,8 @@ namespace Prevoz.WinUI.Korisnik
 
         private async void btnPotvrdi_Click(object sender, EventArgs e)
         {
-            if (ValidateChildren()) 
-            { 
+            if (ValidateChildren())
+            {
                 var korisnik = Memorija.Korisnik;
                 if (_rezervacija != null && _rezervacija.RezervacijaId > 0) {
                     var request = new OcjenaUpsertRequest()
@@ -78,7 +77,8 @@ namespace Prevoz.WinUI.Korisnik
                     };
                     await _ocjena.Insert<Model.Ocjena>(request);
                 }
-                else {
+                else 
+                {
                     var request = new OcjenaUpsertRequest()
                     {
                         RezervacijaId = null,
@@ -89,6 +89,8 @@ namespace Prevoz.WinUI.Korisnik
                     await _ocjena.Insert<Model.Ocjena>(request);
                 }
                 MessageBox.Show("Vaša ocjena je spremljena", "", MessageBoxButtons.OK);
+
+                this.Close();
             }
         }
 
@@ -109,12 +111,16 @@ namespace Prevoz.WinUI.Korisnik
         }
         private void cmbOcjena_Validating(object sender, CancelEventArgs e)
         {
-            if (cmbOcjena.SelectedIndex == 0 || cmbOcjena.SelectedItem == null)
+            if (cmbOcjena.SelectedItem == null)
             {
-                errorProviderOcjena.SetError(cmbOcjena, Properties.Resources.Validation_RequiredField);
+                errorProviderOcjenaKomentar.SetError(cmbOcjena, Properties.Resources.Validation_RequiredField);
+                e.Cancel = true;
             }
             else
-                errorProviderOcjena.SetError(cmbOcjena, null);
+            {
+                errorProviderOcjenaKomentar.SetError(cmbOcjena, null);
+            }
         }
+
     }
 }
