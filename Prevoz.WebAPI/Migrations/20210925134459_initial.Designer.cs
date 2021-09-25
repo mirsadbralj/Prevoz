@@ -10,8 +10,8 @@ using Prevoz.WebAPI.Database;
 namespace Prevoz.WebAPI.Migrations
 {
     [DbContext(typeof(PrevozContext))]
-    [Migration("20210916210224_Initial")]
-    partial class Initial
+    [Migration("20210925134459_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -160,7 +160,7 @@ namespace Prevoz.WebAPI.Migrations
                             ModifiedAt = new DateTime(2021, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             PasswordHash = "Hkygp3aJFIgOMtbHckDaXN5HYBA=",
                             PasswordSalt = "DMUTs++b9XRsy8TQxXWtzw==",
-                            UserName = "headadministrator1"
+                            UserName = "admineditor1"
                         },
                         new
                         {
@@ -196,7 +196,7 @@ namespace Prevoz.WebAPI.Migrations
                             ModifiedAt = new DateTime(2021, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             PasswordHash = "Hkygp3aJFIgOMtbHckDaXN5HYBA=",
                             PasswordSalt = "DMUTs++b9XRsy8TQxXWtzw==",
-                            UserName = "admineditor1"
+                            UserName = "headadministrator1"
                         });
                 });
 
@@ -327,7 +327,7 @@ namespace Prevoz.WebAPI.Migrations
                         {
                             RezervacijaId = 1,
                             BrojSjedista = 1,
-                            DatumRezervacije = new DateTime(2020, 9, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DatumRezervacije = new DateTime(2021, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             KorisnikId = 4,
                             UkupnoPlaceno = 5m,
                             VoznjaId = 1
@@ -336,7 +336,7 @@ namespace Prevoz.WebAPI.Migrations
                         {
                             RezervacijaId = 2,
                             BrojSjedista = 1,
-                            DatumRezervacije = new DateTime(2020, 9, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DatumRezervacije = new DateTime(2021, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             KorisnikId = 3,
                             UkupnoPlaceno = 6m,
                             VoznjaId = 2
@@ -345,7 +345,7 @@ namespace Prevoz.WebAPI.Migrations
                         {
                             RezervacijaId = 3,
                             BrojSjedista = 1,
-                            DatumRezervacije = new DateTime(2020, 9, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DatumRezervacije = new DateTime(2021, 9, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             KorisnikId = 3,
                             UkupnoPlaceno = 7m,
                             VoznjaId = 7
@@ -354,7 +354,7 @@ namespace Prevoz.WebAPI.Migrations
                         {
                             RezervacijaId = 4,
                             BrojSjedista = 1,
-                            DatumRezervacije = new DateTime(2020, 9, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DatumRezervacije = new DateTime(2021, 9, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             KorisnikId = 2,
                             UkupnoPlaceno = 8m,
                             VoznjaId = 8
@@ -363,7 +363,7 @@ namespace Prevoz.WebAPI.Migrations
                         {
                             RezervacijaId = 5,
                             BrojSjedista = 1,
-                            DatumRezervacije = new DateTime(2020, 9, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DatumRezervacije = new DateTime(2021, 9, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             KorisnikId = 2,
                             UkupnoPlaceno = 11m,
                             VoznjaId = 9
@@ -372,7 +372,7 @@ namespace Prevoz.WebAPI.Migrations
                         {
                             RezervacijaId = 6,
                             BrojSjedista = 1,
-                            DatumRezervacije = new DateTime(2020, 9, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DatumRezervacije = new DateTime(2021, 9, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             KorisnikId = 2,
                             UkupnoPlaceno = 22m,
                             VoznjaId = 10
@@ -381,7 +381,7 @@ namespace Prevoz.WebAPI.Migrations
                         {
                             RezervacijaId = 7,
                             BrojSjedista = 1,
-                            DatumRezervacije = new DateTime(2020, 9, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DatumRezervacije = new DateTime(2021, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             KorisnikId = 3,
                             UkupnoPlaceno = 8m,
                             VoznjaId = 8
@@ -390,7 +390,7 @@ namespace Prevoz.WebAPI.Migrations
                         {
                             RezervacijaId = 8,
                             BrojSjedista = 1,
-                            DatumRezervacije = new DateTime(2020, 9, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DatumRezervacije = new DateTime(2021, 9, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             KorisnikId = 3,
                             UkupnoPlaceno = 11m,
                             VoznjaId = 9
@@ -399,7 +399,7 @@ namespace Prevoz.WebAPI.Migrations
                         {
                             RezervacijaId = 9,
                             BrojSjedista = 1,
-                            DatumRezervacije = new DateTime(2020, 9, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DatumRezervacije = new DateTime(2021, 9, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             KorisnikId = 2,
                             UkupnoPlaceno = 6m,
                             VoznjaId = 12
@@ -408,7 +408,7 @@ namespace Prevoz.WebAPI.Migrations
                         {
                             RezervacijaId = 10,
                             BrojSjedista = 1,
-                            DatumRezervacije = new DateTime(2020, 9, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DatumRezervacije = new DateTime(2021, 9, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             KorisnikId = 3,
                             UkupnoPlaceno = 5m,
                             VoznjaId = 1
@@ -417,7 +417,7 @@ namespace Prevoz.WebAPI.Migrations
                         {
                             RezervacijaId = 11,
                             BrojSjedista = 1,
-                            DatumRezervacije = new DateTime(2020, 9, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DatumRezervacije = new DateTime(2021, 9, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             KorisnikId = 3,
                             UkupnoPlaceno = 6m,
                             VoznjaId = 12
@@ -426,7 +426,7 @@ namespace Prevoz.WebAPI.Migrations
                         {
                             RezervacijaId = 12,
                             BrojSjedista = 1,
-                            DatumRezervacije = new DateTime(2020, 9, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DatumRezervacije = new DateTime(2021, 9, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             KorisnikId = 3,
                             UkupnoPlaceno = 10m,
                             VoznjaId = 13
@@ -435,7 +435,7 @@ namespace Prevoz.WebAPI.Migrations
                         {
                             RezervacijaId = 13,
                             BrojSjedista = 1,
-                            DatumRezervacije = new DateTime(2020, 9, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DatumRezervacije = new DateTime(2021, 9, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             KorisnikId = 3,
                             UkupnoPlaceno = 7m,
                             VoznjaId = 1
@@ -444,7 +444,7 @@ namespace Prevoz.WebAPI.Migrations
                         {
                             RezervacijaId = 14,
                             BrojSjedista = 1,
-                            DatumRezervacije = new DateTime(2020, 9, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DatumRezervacije = new DateTime(2021, 9, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             KorisnikId = 2,
                             UkupnoPlaceno = 5m,
                             VoznjaId = 2
@@ -453,7 +453,7 @@ namespace Prevoz.WebAPI.Migrations
                         {
                             RezervacijaId = 15,
                             BrojSjedista = 1,
-                            DatumRezervacije = new DateTime(2020, 9, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DatumRezervacije = new DateTime(2021, 9, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             KorisnikId = 4,
                             UkupnoPlaceno = 5m,
                             VoznjaId = 15
@@ -462,7 +462,7 @@ namespace Prevoz.WebAPI.Migrations
                         {
                             RezervacijaId = 16,
                             BrojSjedista = 1,
-                            DatumRezervacije = new DateTime(2020, 9, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DatumRezervacije = new DateTime(2021, 9, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             KorisnikId = 3,
                             UkupnoPlaceno = 5m,
                             VoznjaId = 15
@@ -471,7 +471,7 @@ namespace Prevoz.WebAPI.Migrations
                         {
                             RezervacijaId = 17,
                             BrojSjedista = 1,
-                            DatumRezervacije = new DateTime(2020, 9, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DatumRezervacije = new DateTime(2021, 9, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             KorisnikId = 4,
                             UkupnoPlaceno = 5m,
                             VoznjaId = 15
@@ -480,7 +480,7 @@ namespace Prevoz.WebAPI.Migrations
                         {
                             RezervacijaId = 18,
                             BrojSjedista = 1,
-                            DatumRezervacije = new DateTime(2020, 9, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DatumRezervacije = new DateTime(2021, 9, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             KorisnikId = 3,
                             UkupnoPlaceno = 7m,
                             VoznjaId = 13
@@ -489,7 +489,7 @@ namespace Prevoz.WebAPI.Migrations
                         {
                             RezervacijaId = 19,
                             BrojSjedista = 1,
-                            DatumRezervacije = new DateTime(2020, 9, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DatumRezervacije = new DateTime(2021, 9, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             KorisnikId = 2,
                             UkupnoPlaceno = 10m,
                             VoznjaId = 4
@@ -498,7 +498,7 @@ namespace Prevoz.WebAPI.Migrations
                         {
                             RezervacijaId = 20,
                             BrojSjedista = 1,
-                            DatumRezervacije = new DateTime(2020, 9, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DatumRezervacije = new DateTime(2021, 9, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             KorisnikId = 4,
                             UkupnoPlaceno = 15m,
                             VoznjaId = 6
@@ -723,6 +723,14 @@ namespace Prevoz.WebAPI.Migrations
                         new
                         {
                             OcjenaId = 2,
+                            Komentar = "Preporučujem.",
+                            KorisnikId = 3,
+                            Ocjena1 = 5,
+                            VoznjaId = 1
+                        },
+                        new
+                        {
+                            OcjenaId = 3,
                             Komentar = "Preporučujem kao saputnika.",
                             KorisnikId = 2,
                             Ocjena1 = 5,
@@ -730,15 +738,23 @@ namespace Prevoz.WebAPI.Migrations
                         },
                         new
                         {
-                            OcjenaId = 3,
+                            OcjenaId = 4,
+                            Komentar = "Vrlo dobro",
+                            KorisnikId = 3,
+                            Ocjena1 = 4,
+                            RezervacijaId = 1
+                        },
+                        new
+                        {
+                            OcjenaId = 5,
                             Komentar = "Odlična osoba, dobar saputnik, preporučujem.",
                             KorisnikId = 3,
-                            Ocjena1 = 5,
+                            Ocjena1 = 4,
                             RezervacijaId = 14
                         },
                         new
                         {
-                            OcjenaId = 4,
+                            OcjenaId = 6,
                             Komentar = "Odličan vozač",
                             KorisnikId = 4,
                             Ocjena1 = 5,
@@ -746,11 +762,59 @@ namespace Prevoz.WebAPI.Migrations
                         },
                         new
                         {
-                            OcjenaId = 6,
+                            OcjenaId = 7,
+                            Komentar = "Odličan vozač",
+                            KorisnikId = 2,
+                            Ocjena1 = 5,
+                            VoznjaId = 2
+                        },
+                        new
+                        {
+                            OcjenaId = 8,
                             Komentar = "Ugodna vožnja",
                             KorisnikId = 2,
                             Ocjena1 = 5,
                             VoznjaId = 12
+                        },
+                        new
+                        {
+                            OcjenaId = 9,
+                            Komentar = "OK.",
+                            KorisnikId = 3,
+                            Ocjena1 = 3,
+                            VoznjaId = 12
+                        },
+                        new
+                        {
+                            OcjenaId = 10,
+                            Komentar = "OK.",
+                            KorisnikId = 3,
+                            Ocjena1 = 4,
+                            VoznjaId = 3
+                        },
+                        new
+                        {
+                            OcjenaId = 11,
+                            Komentar = "OK.",
+                            KorisnikId = 4,
+                            Ocjena1 = 4,
+                            VoznjaId = 3
+                        },
+                        new
+                        {
+                            OcjenaId = 12,
+                            Komentar = "Super.",
+                            KorisnikId = 4,
+                            Ocjena1 = 5,
+                            VoznjaId = 4
+                        },
+                        new
+                        {
+                            OcjenaId = 13,
+                            Komentar = "Super vožnja.",
+                            KorisnikId = 2,
+                            Ocjena1 = 5,
+                            VoznjaId = 4
                         });
                 });
 
@@ -1043,7 +1107,7 @@ namespace Prevoz.WebAPI.Migrations
                             VoznjaId = 1,
                             BrojSjedista = 3,
                             CijenaSjedista = 5m,
-                            DatumVoznje = new DateTime(2020, 9, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DatumVoznje = new DateTime(2021, 9, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EndId = 2,
                             KorisnikId = 2,
                             StartId = 1,
@@ -1055,7 +1119,7 @@ namespace Prevoz.WebAPI.Migrations
                             VoznjaId = 2,
                             BrojSjedista = 3,
                             CijenaSjedista = 6m,
-                            DatumVoznje = new DateTime(2020, 9, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DatumVoznje = new DateTime(2021, 9, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EndId = 2,
                             KorisnikId = 3,
                             StartId = 1,
@@ -1067,7 +1131,7 @@ namespace Prevoz.WebAPI.Migrations
                             VoznjaId = 3,
                             BrojSjedista = 3,
                             CijenaSjedista = 7m,
-                            DatumVoznje = new DateTime(2020, 9, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DatumVoznje = new DateTime(2021, 9, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EndId = 2,
                             KorisnikId = 2,
                             StartId = 2,
@@ -1079,10 +1143,10 @@ namespace Prevoz.WebAPI.Migrations
                             VoznjaId = 4,
                             BrojSjedista = 3,
                             CijenaSjedista = 10m,
-                            DatumVoznje = new DateTime(2020, 9, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DatumVoznje = new DateTime(2021, 9, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EndId = 2,
                             KorisnikId = 3,
-                            StartId = 3,
+                            StartId = 1,
                             Status = true,
                             VoziloId = 3
                         },
@@ -1091,10 +1155,10 @@ namespace Prevoz.WebAPI.Migrations
                             VoznjaId = 5,
                             BrojSjedista = 3,
                             CijenaSjedista = 12m,
-                            DatumVoznje = new DateTime(2020, 9, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DatumVoznje = new DateTime(2021, 9, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EndId = 8,
                             KorisnikId = 3,
-                            StartId = 4,
+                            StartId = 1,
                             Status = true,
                             VoziloId = 3
                         },
@@ -1103,10 +1167,10 @@ namespace Prevoz.WebAPI.Migrations
                             VoznjaId = 6,
                             BrojSjedista = 3,
                             CijenaSjedista = 15m,
-                            DatumVoznje = new DateTime(2020, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DatumVoznje = new DateTime(2021, 9, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EndId = 8,
                             KorisnikId = 3,
-                            StartId = 5,
+                            StartId = 1,
                             Status = true,
                             VoziloId = 3
                         },
@@ -1115,10 +1179,10 @@ namespace Prevoz.WebAPI.Migrations
                             VoznjaId = 7,
                             BrojSjedista = 3,
                             CijenaSjedista = 7m,
-                            DatumVoznje = new DateTime(2020, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            EndId = 8,
+                            DatumVoznje = new DateTime(2021, 9, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndId = 3,
                             KorisnikId = 4,
-                            StartId = 6,
+                            StartId = 2,
                             Status = true,
                             VoziloId = 4
                         },
@@ -1127,10 +1191,10 @@ namespace Prevoz.WebAPI.Migrations
                             VoznjaId = 8,
                             BrojSjedista = 3,
                             CijenaSjedista = 8m,
-                            DatumVoznje = new DateTime(2020, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            EndId = 1,
+                            DatumVoznje = new DateTime(2021, 9, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndId = 3,
                             KorisnikId = 4,
-                            StartId = 7,
+                            StartId = 2,
                             Status = true,
                             VoziloId = 4
                         },
@@ -1139,10 +1203,10 @@ namespace Prevoz.WebAPI.Migrations
                             VoznjaId = 9,
                             BrojSjedista = 3,
                             CijenaSjedista = 11m,
-                            DatumVoznje = new DateTime(2020, 9, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            EndId = 1,
+                            DatumVoznje = new DateTime(2021, 9, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndId = 4,
                             KorisnikId = 4,
-                            StartId = 8,
+                            StartId = 3,
                             Status = true,
                             VoziloId = 4
                         },
@@ -1151,10 +1215,10 @@ namespace Prevoz.WebAPI.Migrations
                             VoznjaId = 10,
                             BrojSjedista = 3,
                             CijenaSjedista = 22m,
-                            DatumVoznje = new DateTime(2020, 9, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            EndId = 1,
+                            DatumVoznje = new DateTime(2021, 9, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndId = 6,
                             KorisnikId = 2,
-                            StartId = 4,
+                            StartId = 5,
                             Status = true,
                             VoziloId = 2
                         },
@@ -1163,7 +1227,7 @@ namespace Prevoz.WebAPI.Migrations
                             VoznjaId = 11,
                             BrojSjedista = 3,
                             CijenaSjedista = 10m,
-                            DatumVoznje = new DateTime(2020, 9, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DatumVoznje = new DateTime(2021, 9, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EndId = 6,
                             KorisnikId = 2,
                             StartId = 5,
@@ -1175,7 +1239,7 @@ namespace Prevoz.WebAPI.Migrations
                             VoznjaId = 12,
                             BrojSjedista = 3,
                             CijenaSjedista = 6m,
-                            DatumVoznje = new DateTime(2020, 9, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DatumVoznje = new DateTime(2021, 9, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EndId = 9,
                             KorisnikId = 4,
                             StartId = 5,
@@ -1187,10 +1251,10 @@ namespace Prevoz.WebAPI.Migrations
                             VoznjaId = 13,
                             BrojSjedista = 3,
                             CijenaSjedista = 10m,
-                            DatumVoznje = new DateTime(2020, 9, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            EndId = 1,
+                            DatumVoznje = new DateTime(2021, 9, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndId = 6,
                             KorisnikId = 4,
-                            StartId = 10,
+                            StartId = 2,
                             Status = true,
                             VoziloId = 3
                         },
@@ -1199,10 +1263,10 @@ namespace Prevoz.WebAPI.Migrations
                             VoznjaId = 14,
                             BrojSjedista = 3,
                             CijenaSjedista = 10m,
-                            DatumVoznje = new DateTime(2020, 9, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            EndId = 10,
+                            DatumVoznje = new DateTime(2021, 9, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndId = 9,
                             KorisnikId = 3,
-                            StartId = 9,
+                            StartId = 1,
                             Status = true,
                             VoziloId = 3
                         },
@@ -1211,7 +1275,7 @@ namespace Prevoz.WebAPI.Migrations
                             VoznjaId = 15,
                             BrojSjedista = 3,
                             CijenaSjedista = 5m,
-                            DatumVoznje = new DateTime(2020, 9, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DatumVoznje = new DateTime(2021, 9, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EndId = 2,
                             KorisnikId = 2,
                             StartId = 1,
@@ -1256,70 +1320,70 @@ namespace Prevoz.WebAPI.Migrations
                         new
                         {
                             ZahtjevId = 1,
-                            Datum = new DateTime(2020, 9, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Datum = new DateTime(2021, 9, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             KorisnikId = 2,
                             VoznjaId = 13
                         },
                         new
                         {
                             ZahtjevId = 2,
-                            Datum = new DateTime(2020, 9, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Datum = new DateTime(2021, 9, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             KorisnikId = 2,
                             VoznjaId = 7
                         },
                         new
                         {
                             ZahtjevId = 3,
-                            Datum = new DateTime(2021, 9, 16, 23, 2, 23, 944, DateTimeKind.Local).AddTicks(6044),
+                            Datum = new DateTime(2021, 9, 25, 15, 44, 59, 160, DateTimeKind.Local).AddTicks(2610),
                             KorisnikId = 2,
                             VoznjaId = 12
                         },
                         new
                         {
                             ZahtjevId = 4,
-                            Datum = new DateTime(2020, 9, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Datum = new DateTime(2021, 9, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             KorisnikId = 3,
                             VoznjaId = 5
                         },
                         new
                         {
                             ZahtjevId = 5,
-                            Datum = new DateTime(2020, 9, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Datum = new DateTime(2021, 9, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             KorisnikId = 2,
                             VoznjaId = 6
                         },
                         new
                         {
                             ZahtjevId = 6,
-                            Datum = new DateTime(2020, 9, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Datum = new DateTime(2021, 9, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             KorisnikId = 2,
                             VoznjaId = 1
                         },
                         new
                         {
                             ZahtjevId = 7,
-                            Datum = new DateTime(2020, 9, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Datum = new DateTime(2021, 9, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             KorisnikId = 4,
                             VoznjaId = 10
                         },
                         new
                         {
                             ZahtjevId = 8,
-                            Datum = new DateTime(2020, 9, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Datum = new DateTime(2021, 9, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             KorisnikId = 4,
                             VoznjaId = 11
                         },
                         new
                         {
                             ZahtjevId = 9,
-                            Datum = new DateTime(2020, 9, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Datum = new DateTime(2021, 9, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             KorisnikId = 4,
                             VoznjaId = 14
                         },
                         new
                         {
                             ZahtjevId = 10,
-                            Datum = new DateTime(2020, 9, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Datum = new DateTime(2021, 9, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             KorisnikId = 4,
                             VoznjaId = 15
                         });

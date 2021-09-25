@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Prevoz.WebAPI.Migrations
 {
-    public partial class Initial : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -390,11 +390,11 @@ namespace Prevoz.WebAPI.Migrations
                 columns: new[] { "KorisnikID", "CreatedAt", "ModifiedAT", "PasswordHash", "PasswordSalt", "Slika", "UserName" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2021, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Hkygp3aJFIgOMtbHckDaXN5HYBA=", "DMUTs++b9XRsy8TQxXWtzw==", null, "headadministrator1" },
+                    { 1, new DateTime(2021, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Hkygp3aJFIgOMtbHckDaXN5HYBA=", "DMUTs++b9XRsy8TQxXWtzw==", null, "admineditor1" },
                     { 2, new DateTime(2021, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Hkygp3aJFIgOMtbHckDaXN5HYBA=", "DMUTs++b9XRsy8TQxXWtzw==", null, "Korisnik" },
                     { 3, new DateTime(2021, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Hkygp3aJFIgOMtbHckDaXN5HYBA=", "DMUTs++b9XRsy8TQxXWtzw==", null, "Korisnik2" },
                     { 4, new DateTime(2021, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Hkygp3aJFIgOMtbHckDaXN5HYBA=", "DMUTs++b9XRsy8TQxXWtzw==", null, "Korisnik3" },
-                    { 5, new DateTime(2021, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Hkygp3aJFIgOMtbHckDaXN5HYBA=", "DMUTs++b9XRsy8TQxXWtzw==", null, "admineditor1" }
+                    { 5, new DateTime(2021, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Hkygp3aJFIgOMtbHckDaXN5HYBA=", "DMUTs++b9XRsy8TQxXWtzw==", null, "headadministrator1" }
                 });
 
             migrationBuilder.InsertData(
@@ -488,21 +488,21 @@ namespace Prevoz.WebAPI.Migrations
                 columns: new[] { "VoznjaID", "AutomatskoOdobrenje", "BrojSjedista", "Cigarete", "CijenaSjedista", "DatumVoznje", "Detaljnije", "EndID", "KorisnikID", "KucniLJubimci", "StartID", "STATUS", "VoziloID" },
                 values: new object[,]
                 {
-                    { 1, null, 3, null, 5m, new DateTime(2020, 9, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 2, 2, null, 1, true, 2 },
-                    { 3, null, 3, null, 7m, new DateTime(2020, 9, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 2, 2, null, 2, true, 2 },
-                    { 10, null, 3, null, 22m, new DateTime(2020, 9, 23, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 1, 2, null, 4, true, 2 },
-                    { 11, null, 3, null, 10m, new DateTime(2020, 9, 23, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 6, 2, null, 5, true, 2 },
-                    { 15, null, 3, null, 5m, new DateTime(2020, 9, 26, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 2, 2, null, 1, true, 2 },
-                    { 2, null, 3, null, 6m, new DateTime(2020, 9, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 2, 3, null, 1, true, 3 },
-                    { 4, null, 3, null, 10m, new DateTime(2020, 9, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 2, 3, null, 3, true, 3 },
-                    { 5, null, 3, null, 12m, new DateTime(2020, 9, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 8, 3, null, 4, true, 3 },
-                    { 6, null, 3, null, 15m, new DateTime(2020, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 8, 3, null, 5, true, 3 },
-                    { 12, null, 3, null, 6m, new DateTime(2020, 9, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 9, 4, null, 5, true, 3 },
-                    { 13, null, 3, null, 10m, new DateTime(2020, 9, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 1, 4, null, 10, true, 3 },
-                    { 14, null, 3, null, 10m, new DateTime(2020, 9, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 10, 3, null, 9, true, 3 },
-                    { 7, null, 3, null, 7m, new DateTime(2020, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 8, 4, null, 6, true, 4 },
-                    { 8, null, 3, null, 8m, new DateTime(2020, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 1, 4, null, 7, true, 4 },
-                    { 9, null, 3, null, 11m, new DateTime(2020, 9, 23, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 1, 4, null, 8, true, 4 }
+                    { 1, null, 3, null, 5m, new DateTime(2021, 9, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 2, 2, null, 1, true, 2 },
+                    { 3, null, 3, null, 7m, new DateTime(2021, 9, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 2, 2, null, 2, true, 2 },
+                    { 10, null, 3, null, 22m, new DateTime(2021, 9, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 6, 2, null, 5, true, 2 },
+                    { 11, null, 3, null, 10m, new DateTime(2021, 9, 29, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 6, 2, null, 5, true, 2 },
+                    { 15, null, 3, null, 5m, new DateTime(2021, 9, 29, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 2, 2, null, 1, true, 2 },
+                    { 2, null, 3, null, 6m, new DateTime(2021, 9, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 2, 3, null, 1, true, 3 },
+                    { 4, null, 3, null, 10m, new DateTime(2021, 9, 26, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 2, 3, null, 1, true, 3 },
+                    { 5, null, 3, null, 12m, new DateTime(2021, 9, 26, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 8, 3, null, 1, true, 3 },
+                    { 6, null, 3, null, 15m, new DateTime(2021, 9, 26, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 8, 3, null, 1, true, 3 },
+                    { 12, null, 3, null, 6m, new DateTime(2021, 9, 29, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 9, 4, null, 5, true, 3 },
+                    { 13, null, 3, null, 10m, new DateTime(2021, 9, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 6, 4, null, 2, true, 3 },
+                    { 14, null, 3, null, 10m, new DateTime(2021, 9, 26, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 9, 3, null, 1, true, 3 },
+                    { 7, null, 3, null, 7m, new DateTime(2021, 9, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 3, 4, null, 2, true, 4 },
+                    { 8, null, 3, null, 8m, new DateTime(2021, 9, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 3, 4, null, 2, true, 4 },
+                    { 9, null, 3, null, 11m, new DateTime(2021, 9, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 4, 4, null, 3, true, 4 }
                 });
 
             migrationBuilder.InsertData(
@@ -510,26 +510,26 @@ namespace Prevoz.WebAPI.Migrations
                 columns: new[] { "RezervacijaID", "BrojSjedista", "DatumRezervacije", "KorisnikID", "UkupnoPlaceno", "VoznjaID" },
                 values: new object[,]
                 {
-                    { 1, 1, new DateTime(2020, 9, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, 5m, 1 },
-                    { 7, 1, new DateTime(2020, 9, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, 8m, 8 },
-                    { 4, 1, new DateTime(2020, 9, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 8m, 8 },
-                    { 3, 1, new DateTime(2020, 9, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, 7m, 7 },
-                    { 18, 1, new DateTime(2020, 9, 13, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, 7m, 13 },
-                    { 12, 1, new DateTime(2020, 9, 16, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, 10m, 13 },
-                    { 11, 1, new DateTime(2020, 9, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, 6m, 12 },
-                    { 9, 1, new DateTime(2020, 9, 13, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 6m, 12 },
-                    { 20, 1, new DateTime(2020, 9, 16, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, 15m, 6 },
-                    { 5, 1, new DateTime(2020, 9, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 11m, 9 },
-                    { 19, 1, new DateTime(2020, 9, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 10m, 4 },
-                    { 14, 1, new DateTime(2020, 9, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 5m, 2 },
-                    { 8, 1, new DateTime(2020, 9, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, 11m, 9 },
-                    { 17, 1, new DateTime(2020, 9, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, 5m, 15 },
-                    { 16, 1, new DateTime(2020, 9, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, 5m, 15 },
-                    { 15, 1, new DateTime(2020, 9, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, 5m, 15 },
-                    { 10, 1, new DateTime(2020, 9, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, 5m, 1 },
-                    { 13, 1, new DateTime(2020, 9, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, 7m, 1 },
-                    { 2, 1, new DateTime(2020, 9, 16, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, 6m, 2 },
-                    { 6, 1, new DateTime(2020, 9, 16, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 22m, 10 }
+                    { 1, 1, new DateTime(2021, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, 5m, 1 },
+                    { 7, 1, new DateTime(2021, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, 8m, 8 },
+                    { 4, 1, new DateTime(2021, 9, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 8m, 8 },
+                    { 3, 1, new DateTime(2021, 9, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, 7m, 7 },
+                    { 18, 1, new DateTime(2021, 9, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, 7m, 13 },
+                    { 12, 1, new DateTime(2021, 9, 16, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, 10m, 13 },
+                    { 11, 1, new DateTime(2021, 9, 16, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, 6m, 12 },
+                    { 9, 1, new DateTime(2021, 9, 24, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 6m, 12 },
+                    { 20, 1, new DateTime(2021, 9, 16, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, 15m, 6 },
+                    { 5, 1, new DateTime(2021, 9, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 11m, 9 },
+                    { 14, 1, new DateTime(2021, 9, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 5m, 2 },
+                    { 2, 1, new DateTime(2021, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, 6m, 2 },
+                    { 17, 1, new DateTime(2021, 9, 16, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, 5m, 15 },
+                    { 19, 1, new DateTime(2021, 9, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 10m, 4 },
+                    { 8, 1, new DateTime(2021, 9, 23, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, 11m, 9 },
+                    { 15, 1, new DateTime(2021, 9, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, 5m, 15 },
+                    { 10, 1, new DateTime(2021, 9, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, 5m, 1 },
+                    { 13, 1, new DateTime(2021, 9, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, 7m, 1 },
+                    { 16, 1, new DateTime(2021, 9, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, 5m, 15 },
+                    { 6, 1, new DateTime(2021, 9, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 22m, 10 }
                 });
 
             migrationBuilder.InsertData(
@@ -537,9 +537,16 @@ namespace Prevoz.WebAPI.Migrations
                 columns: new[] { "OcjenaID", "Komentar", "KorisnikID", "Ocjena", "RezervacijaID", "VoznjaID" },
                 values: new object[,]
                 {
-                    { 4, "Odličan vozač", 4, 5, null, 2 },
-                    { 6, "Ugodna vožnja", 2, 5, null, 12 },
-                    { 1, "Ugodna vožnja, preporuke.", 4, 5, null, 1 }
+                    { 1, "Ugodna vožnja, preporuke.", 4, 5, null, 1 },
+                    { 2, "Preporučujem.", 3, 5, null, 1 },
+                    { 9, "OK.", 3, 3, null, 12 },
+                    { 8, "Ugodna vožnja", 2, 5, null, 12 },
+                    { 11, "OK.", 4, 4, null, 3 },
+                    { 10, "OK.", 3, 4, null, 3 },
+                    { 13, "Super vožnja.", 2, 5, null, 4 },
+                    { 12, "Super.", 4, 5, null, 4 },
+                    { 7, "Odličan vozač", 2, 5, null, 2 },
+                    { 6, "Odličan vozač", 4, 5, null, 2 }
                 });
 
             migrationBuilder.InsertData(
@@ -547,27 +554,32 @@ namespace Prevoz.WebAPI.Migrations
                 columns: new[] { "ZahtjevID", "Datum", "KorisnikID", "Status", "VoznjaID" },
                 values: new object[,]
                 {
-                    { 10, new DateTime(2020, 9, 16, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, null, 15 },
-                    { 2, new DateTime(2020, 9, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, null, 7 },
-                    { 9, new DateTime(2020, 9, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, null, 14 },
-                    { 3, new DateTime(2021, 9, 16, 23, 2, 23, 944, DateTimeKind.Local).AddTicks(6044), 2, null, 12 },
-                    { 6, new DateTime(2020, 9, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, null, 1 },
-                    { 7, new DateTime(2020, 9, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, null, 10 },
-                    { 8, new DateTime(2020, 9, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, null, 11 },
-                    { 5, new DateTime(2020, 9, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, null, 6 },
-                    { 1, new DateTime(2020, 9, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, null, 13 },
-                    { 4, new DateTime(2020, 9, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, null, 5 }
+                    { 4, new DateTime(2021, 9, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, null, 5 },
+                    { 3, new DateTime(2021, 9, 25, 15, 44, 59, 160, DateTimeKind.Local).AddTicks(2610), 2, null, 12 },
+                    { 6, new DateTime(2021, 9, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, null, 1 },
+                    { 7, new DateTime(2021, 9, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, null, 10 },
+                    { 1, new DateTime(2021, 9, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, null, 13 },
+                    { 9, new DateTime(2021, 9, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, null, 14 },
+                    { 2, new DateTime(2021, 9, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, null, 7 },
+                    { 8, new DateTime(2021, 9, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, null, 11 },
+                    { 5, new DateTime(2021, 9, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, null, 6 },
+                    { 10, new DateTime(2021, 9, 16, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, null, 15 }
                 });
 
             migrationBuilder.InsertData(
                 table: "Ocjena",
                 columns: new[] { "OcjenaID", "Komentar", "KorisnikID", "Ocjena", "RezervacijaID", "VoznjaID" },
-                values: new object[] { 2, "Preporučujem kao saputnika.", 2, 5, 10, null });
+                values: new object[] { 4, "Vrlo dobro", 3, 4, 1, null });
 
             migrationBuilder.InsertData(
                 table: "Ocjena",
                 columns: new[] { "OcjenaID", "Komentar", "KorisnikID", "Ocjena", "RezervacijaID", "VoznjaID" },
-                values: new object[] { 3, "Odlična osoba, dobar saputnik, preporučujem.", 3, 5, 14, null });
+                values: new object[] { 3, "Preporučujem kao saputnika.", 2, 5, 10, null });
+
+            migrationBuilder.InsertData(
+                table: "Ocjena",
+                columns: new[] { "OcjenaID", "Komentar", "KorisnikID", "Ocjena", "RezervacijaID", "VoznjaID" },
+                values: new object[] { 5, "Odlična osoba, dobar saputnik, preporučujem.", 3, 4, 14, null });
 
             migrationBuilder.CreateIndex(
                 name: "IX_FAQ_KorisnikID",
