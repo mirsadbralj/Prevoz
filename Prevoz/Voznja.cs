@@ -19,5 +19,7 @@ namespace Prevoz.Model
         public string KucniLJubimci { get; set; }
         public string Detaljnije { get; set; }
         public DateTime DatumVoznje { get; set; }
+        public string PolaznaLokacija { get; set; }
+        public string Destinacija { get; set; }
     }
 }

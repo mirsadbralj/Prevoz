@@ -12,5 +12,6 @@ namespace Prevoz.Model
         public int? RezervacijaId { get; set; }
         public int Ocjena1 { get; set; }
         public string Komentar { get; set; }
+        public string KorisnickoIme { get; set; }
     }
 }

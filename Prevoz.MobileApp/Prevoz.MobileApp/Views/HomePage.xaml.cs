@@ -35,6 +35,12 @@ namespace Prevoz.MobileApp.Views
         {
             base.OnAppearing();
             await model.GetRezervacije();
+
+
+            if (model.listaVoznji.Count == 0)
+            {
+                VoznjeLabelZamjena.IsVisible = true;
+            }
         }
 
         private void ListView_ItemTapped(object sender, ItemTappedEventArgs e)

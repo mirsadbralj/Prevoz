@@ -38,15 +38,20 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                <StackLayout>
-                                    <Label Text="Datum vožnje"></Label>
-                                    <Label Text="{Binding DatumVoznje}"></Label>
-                                    
-                                    <Label Text="Cijena sjedišta"></Label>
-                                    <Label Text="{Binding CijenaSjedista}"></Label>
+                                <StackLayout Padding="20">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
 
-                                    <Label Text="Broj slobodnih sjedišta"></Label>
-                                    <Label Text="{Binding BrojSjedista}"></Label>
+                                        <Label Grid.Column="0" Text="{Binding PolaznaLokacija}" HorizontalOptions="End" VerticalOptions="Center"></Label>
+                                        <Label Grid.Column="1" Text="->" HorizontalOptions="Center" VerticalOptions="Center" ></Label>
+                                        <Label Grid.Column="2" Text="{Binding Destinacija}" HorizontalOptions="Start" VerticalOptions="Center"></Label>
+
+                                        <Label Grid.Column="3" Text="Datum vožnje" HorizontalOptions="End" VerticalOptions="Center" ></Label>
+                                        <Label Grid.Column="4" Text="{Binding DatumVoznje}" HorizontalOptions="Center" VerticalOptions="Center" ></Label>
+                                    </Grid>
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>

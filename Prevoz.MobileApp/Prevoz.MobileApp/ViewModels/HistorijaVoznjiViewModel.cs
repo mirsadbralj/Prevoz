@@ -15,6 +15,7 @@ namespace Prevoz.MobileApp.ViewModels
     {
         private readonly ApiService _voznje = new ApiService("voznja");
         private readonly ApiService _rezervacija = new ApiService("korisnikrezervacija");
+        private readonly ApiService _lokacije = new ApiService("lokacija");
         public HistorijaVoznjiViewModel()
         {
             InitCommand = new Command(async () => await Init());
@@ -96,6 +97,8 @@ namespace Prevoz.MobileApp.ViewModels
 
             var voznje = await _voznje.Get<List<Model.Voznja>>(null);
 
+            var lokacije = await _lokacije.Get<List<Model.Lokacija>>(null);
+
             var rezervacijerequest = new KorisnikRezervacijaSearchRequest() { KorisnikId = korisnik.KorisnikId };
 
             var rezervacije = await _rezervacija.Get<List<Model.KorisnikRezervacija>>(rezervacijerequest);
@@ -104,17 +107,22 @@ namespace Prevoz.MobileApp.ViewModels
             List<Model.Voznja> _listaVoznji = new List<Model.Voznja>();
 
             if (voznje.Count() > 0)
-                _listaPonudenihVoznji = GetHistorijaPonudenihVoznji(voznje, korisnik.KorisnikId);
+                _listaPonudenihVoznji = voznje.Where(x => x.KorisnikId == korisnik.KorisnikId).ToList();
 
             if (voznje.Count() > 0 && rezervacije.Count > 0)
                 _listaVoznji = GetHistorijaRezervisanihVoznji(voznje, rezervacije, korisnik);
 
             foreach (var voznja in _listaPonudenihVoznji)
             {
+                voznja.PolaznaLokacija = lokacije.Where(x => x.LokacijaId == voznja.StartId).Select(x => x.Naziv).FirstOrDefault();
+                voznja.Destinacija = lokacije.Where(x => x.LokacijaId == voznja.EndId).Select(x => x.Naziv).FirstOrDefault();
                 PonudeneVoznjeList.Add(voznja);
             }
+
             foreach (var voznja in _listaVoznji)
             {
+                voznja.PolaznaLokacija = lokacije.Where(x => x.LokacijaId == voznja.StartId).Select(x => x.Naziv).FirstOrDefault();
+                voznja.Destinacija = lokacije.Where(x => x.LokacijaId == voznja.EndId).Select(x => x.Naziv).FirstOrDefault();
                 RezervisaneVoznjeList.Add(voznja);
             }
         }
@@ -133,18 +141,6 @@ namespace Prevoz.MobileApp.ViewModels
             }
             _listaVoznji = CleanDuplicates(_listaVoznji);
 
-            return _listaVoznji;
-        }
-        private List<Model.Voznja> GetHistorijaPonudenihVoznji(List<Model.Voznja> listaVoznji, int KorisnikId)
-        {
-            List<Model.Voznja> _listaVoznji = new List<Model.Voznja>();
-            for (int i = 0; i < listaVoznji.Count(); i++)
-            {
-                if (listaVoznji[i].KorisnikId == KorisnikId)
-                {
-                    _listaVoznji.Add(listaVoznji[i]);
-                }
-            }
             return _listaVoznji;
         }
         private List<Model.Voznja> CleanDuplicates(List<Model.Voznja> listaVoznji)

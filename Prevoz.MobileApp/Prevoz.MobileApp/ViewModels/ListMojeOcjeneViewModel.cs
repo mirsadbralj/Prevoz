@@ -19,6 +19,7 @@ namespace Prevoz.MobileApp.ViewModels
         private readonly ApiService _rezervacije = new ApiService("korisnikrezervacija");
         private readonly ApiService _ocjena = new ApiService("ocjena");
         private readonly ApiService _voznja = new ApiService("voznja");
+        private readonly ApiService _korisnici = new ApiService("korisnik");
         public ListMojeOcjeneViewModel()
         {
             
@@ -45,7 +46,7 @@ namespace Prevoz.MobileApp.ViewModels
             if (listaRezervacija.Count > 0 || listaVoznji.Count > 0)
                 Set_MojeOcjene_List(ocjene, listaVoznji, listaRezervacija, korisnik);
         }
-        private void Set_MojeOcjene_List(List<Model.Ocjena> ocjene, List<Model.Voznja> listaVoznji, List<Model.KorisnikRezervacija> listaRezervacija, Model.Korisnik _korisnik)
+        private async void Set_MojeOcjene_List(List<Model.Ocjena> ocjene, List<Model.Voznja> listaVoznji, List<Model.KorisnikRezervacija> listaRezervacija, Model.Korisnik _korisnik)
         {
             List<Model.KorisnikRezervacija> _listaRezervacija = new List<Model.KorisnikRezervacija>();
             List<Model.Ocjena> _listaOcjena = new List<Model.Ocjena>();
@@ -83,7 +84,11 @@ namespace Prevoz.MobileApp.ViewModels
                 ocjena = 0;
 
             foreach (var item in _listaOcjena)
+            {
+                var korisickoIme = await _korisnici.GetById<Model.Korisnik>(item.KorisnikId);
+                item.KorisnickoIme = korisickoIme.UserName;
                 MojeOcjeneLista.Add(item);
+            }
         }
         private decimal GetProsjek(List<Model.Ocjena> ocjene)
         {

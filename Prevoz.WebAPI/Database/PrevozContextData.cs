@@ -68,21 +68,21 @@ namespace Prevoz.WebAPI.Database
                 new KorisnikDetails { KorisnikId = 5, Ime = "admineditor", Prezime = "admineditor", DatumRođenja = new DateTime(2000, 2, 1), Email = "admineditor@edu.fit.ba", Lokacija = 2, Telefon = "246790212" }
                 );
             modelBuilder.Entity<Voznja>().HasData(
-                new Voznja { VoznjaId = 1, KorisnikId = 2, StartId = 1, EndId = 2, VoziloId = 2, CijenaSjedista = 5, BrojSjedista = 3, Status = true, DatumVoznje = new DateTime(2021, 9, 25) },
-                new Voznja { VoznjaId = 2, KorisnikId = 3, StartId = 1, EndId = 2, VoziloId = 3, CijenaSjedista = 6, BrojSjedista = 3, Status = true, DatumVoznje = new DateTime(2021, 9, 25) },
-                new Voznja { VoznjaId = 3, KorisnikId = 2, StartId = 2, EndId = 2, VoziloId = 2, CijenaSjedista = 7, BrojSjedista = 3, Status = true, DatumVoznje = new DateTime(2021, 9, 25) },
-                new Voznja { VoznjaId = 4, KorisnikId = 3, StartId = 1, EndId = 2, VoziloId = 3, CijenaSjedista = 10, BrojSjedista = 3, Status = true, DatumVoznje = new DateTime(2021, 9, 26) },
-                new Voznja { VoznjaId = 5, KorisnikId = 3, StartId = 1, EndId = 8, VoziloId = 3, CijenaSjedista = 12, BrojSjedista = 3, Status = true, DatumVoznje = new DateTime(2021, 9, 26) },
-                new Voznja { VoznjaId = 6, KorisnikId = 3, StartId = 1, EndId = 8, VoziloId = 3, CijenaSjedista = 15, BrojSjedista = 3, Status = true, DatumVoznje = new DateTime(2021, 9, 26) },
-                new Voznja { VoznjaId = 7, KorisnikId = 4, StartId = 2, EndId = 3, VoziloId = 4, CijenaSjedista = 7, BrojSjedista = 3, Status = true, DatumVoznje = new DateTime(2021, 9, 27) },
-                new Voznja { VoznjaId = 8, KorisnikId = 4, StartId = 2, EndId = 3, VoziloId = 4, CijenaSjedista = 8, BrojSjedista = 3, Status = true, DatumVoznje = new DateTime(2021, 9, 27) },
-                new Voznja { VoznjaId = 9, KorisnikId = 4, StartId = 3, EndId = 4, VoziloId = 4, CijenaSjedista = 11, BrojSjedista = 3, Status = true, DatumVoznje = new DateTime(2021, 9, 28) },
-                new Voznja { VoznjaId = 10, KorisnikId = 2, StartId = 5, EndId = 6, VoziloId = 2, CijenaSjedista = 22, BrojSjedista = 3, Status = true, DatumVoznje = new DateTime(2021, 9, 28) },
-                new Voznja { VoznjaId = 11, KorisnikId = 2, StartId = 5, EndId = 6, VoziloId = 2, CijenaSjedista = 10, BrojSjedista = 3, Status = true, DatumVoznje = new DateTime(2021, 9, 29) },
-                new Voznja { VoznjaId = 12, KorisnikId = 4, StartId = 5, EndId = 9, VoziloId = 3, CijenaSjedista = 6, BrojSjedista = 3, Status = true, DatumVoznje = new DateTime(2021, 9, 29) },
-                new Voznja { VoznjaId = 13, KorisnikId = 4, StartId = 2, EndId = 6, VoziloId = 3, CijenaSjedista = 10, BrojSjedista = 3, Status = true, DatumVoznje = new DateTime(2021, 9, 27) },
-                new Voznja { VoznjaId = 14, KorisnikId = 3, StartId = 1, EndId = 9, VoziloId = 3, CijenaSjedista = 10, BrojSjedista = 3, Status = true, DatumVoznje = new DateTime(2021, 9, 26) },
-                new Voznja { VoznjaId = 15, KorisnikId = 2, StartId = 1, EndId = 2, VoziloId = 2, CijenaSjedista = 5, BrojSjedista = 3, Status = true, DatumVoznje = new DateTime(2021, 9, 29) }
+                new Voznja { VoznjaId = 1, KorisnikId = 2, StartId = 1, EndId = 2, VoziloId = 2, CijenaSjedista = 5, BrojSjedista = 3, Status = true, DatumVoznje = new DateTime(2021, 12, 25) },
+                new Voznja { VoznjaId = 2, KorisnikId = 3, StartId = 1, EndId = 2, VoziloId = 3, CijenaSjedista = 6, BrojSjedista = 3, Status = true, DatumVoznje = new DateTime(2021, 12, 25) },
+                new Voznja { VoznjaId = 3, KorisnikId = 2, StartId = 2, EndId = 2, VoziloId = 2, CijenaSjedista = 7, BrojSjedista = 3, Status = true, DatumVoznje = new DateTime(2021, 12, 25) },
+                new Voznja { VoznjaId = 4, KorisnikId = 3, StartId = 1, EndId = 2, VoziloId = 3, CijenaSjedista = 10, BrojSjedista = 3, Status = true, DatumVoznje = new DateTime(2021, 12, 26) },
+                new Voznja { VoznjaId = 5, KorisnikId = 3, StartId = 1, EndId = 8, VoziloId = 3, CijenaSjedista = 12, BrojSjedista = 3, Status = true, DatumVoznje = new DateTime(2021, 12, 26) },
+                new Voznja { VoznjaId = 6, KorisnikId = 3, StartId = 1, EndId = 8, VoziloId = 3, CijenaSjedista = 15, BrojSjedista = 3, Status = true, DatumVoznje = new DateTime(2021, 11, 26) },
+                new Voznja { VoznjaId = 7, KorisnikId = 4, StartId = 2, EndId = 3, VoziloId = 4, CijenaSjedista = 7, BrojSjedista = 3, Status = true, DatumVoznje = new DateTime(2021, 12, 27) },
+                new Voznja { VoznjaId = 8, KorisnikId = 4, StartId = 2, EndId = 3, VoziloId = 4, CijenaSjedista = 8, BrojSjedista = 3, Status = true, DatumVoznje = new DateTime(2021, 12, 27) },
+                new Voznja { VoznjaId = 9, KorisnikId = 4, StartId = 3, EndId = 4, VoziloId = 4, CijenaSjedista = 11, BrojSjedista = 3, Status = true, DatumVoznje = new DateTime(2021, 11, 28) },
+                new Voznja { VoznjaId = 10, KorisnikId = 2, StartId = 5, EndId = 6, VoziloId = 2, CijenaSjedista = 22, BrojSjedista = 3, Status = true, DatumVoznje = new DateTime(2021, 12, 28) },
+                new Voznja { VoznjaId = 11, KorisnikId = 2, StartId = 5, EndId = 6, VoziloId = 2, CijenaSjedista = 10, BrojSjedista = 3, Status = true, DatumVoznje = new DateTime(2021, 10, 29) },
+                new Voznja { VoznjaId = 12, KorisnikId = 4, StartId = 5, EndId = 9, VoziloId = 3, CijenaSjedista = 6, BrojSjedista = 3, Status = true, DatumVoznje = new DateTime(2021, 10, 29) },
+                new Voznja { VoznjaId = 13, KorisnikId = 4, StartId = 2, EndId = 6, VoziloId = 3, CijenaSjedista = 10, BrojSjedista = 3, Status = true, DatumVoznje = new DateTime(2021, 10, 27) },
+                new Voznja { VoznjaId = 14, KorisnikId = 3, StartId = 1, EndId = 9, VoziloId = 3, CijenaSjedista = 10, BrojSjedista = 3, Status = true, DatumVoznje = new DateTime(2021, 10, 26) },
+                new Voznja { VoznjaId = 15, KorisnikId = 2, StartId = 1, EndId = 2, VoziloId = 2, CijenaSjedista = 5, BrojSjedista = 3, Status = true, DatumVoznje = new DateTime(2021, 11, 29) }
                 );
             modelBuilder.Entity<KorisnikRezervacija>().HasData(
                 new KorisnikRezervacija { RezervacijaId = 1, BrojSjedista = 1, KorisnikId = 4, VoznjaId = 1, UkupnoPlaceno = 5, DatumRezervacije = new DateTime(2021, 9, 22) },

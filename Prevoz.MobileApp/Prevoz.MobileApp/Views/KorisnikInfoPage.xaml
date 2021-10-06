@@ -53,14 +53,9 @@
                             <DataTemplate>
                                 <ViewCell>
                                     <StackLayout Padding="10">
-                                        <Label Text="{Binding Ocjena1}" 
-                        LineBreakMode="NoWrap" 
-                        Style="{DynamicResource ListItemTextStyle}" 
-                        FontSize="16" />
-                                        <Label Text="{Binding Komentar}" 
-                        LineBreakMode="NoWrap"
-                        Style="{DynamicResource ListItemDetailTextStyle}"
-                        FontSize="13"/>
+                                        <Label Text="{Binding KorisnickoIme}"></Label>
+                                        <Label Text="{Binding Ocjena1}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="16" />
+                                        <Label Text="{Binding Komentar}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13"/>
                                     </StackLayout>
                                 </ViewCell>
                             </DataTemplate>

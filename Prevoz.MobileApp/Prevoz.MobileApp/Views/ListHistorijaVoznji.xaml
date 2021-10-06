@@ -21,10 +21,17 @@
                             <DataTemplate>
                                 <ViewCell>
                                     <StackLayout Padding="10">
-                                        <Label Text="{Binding DatumVoznje}" 
-                                    LineBreakMode="NoWrap" 
-                                    Style="{DynamicResource ListItemTextStyle}" 
-                                    FontSize="16" />
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="Auto" />
+                                            </Grid.ColumnDefinitions>
+                                            <Label Grid.Column="0" Text="{Binding PolaznaLokacija}" HorizontalOptions="CenterAndExpand"></Label>
+                                            <Label Grid.Column="1" Text="->" HorizontalOptions="CenterAndExpand"></Label>
+                                            <Label Grid.Column="2" Text="{Binding Destinacija}" HorizontalOptions="CenterAndExpand"></Label>
+
+                                            <Label Grid.Column="3" Text="{Binding DatumVoznje}" HorizontalOptions="CenterAndExpand" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="16" />
+                                        </Grid>
                                     </StackLayout>
                                 </ViewCell>
                             </DataTemplate>
@@ -51,10 +58,17 @@
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout Padding="10">
-                                    <Label Text="{Binding DatumVoznje}" 
-                                LineBreakMode="NoWrap" 
-                                Style="{DynamicResource ListItemTextStyle}" 
-                                FontSize="16" />
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0" Text="{Binding PolaznaLokacija}" HorizontalOptions="CenterAndExpand"></Label>
+                                    <Label Grid.Column="1" Text="->" HorizontalOptions="CenterAndExpand"></Label>
+                                    <Label Grid.Column="2" Text="{Binding Destinacija}" HorizontalOptions="CenterAndExpand"></Label>
+
+                                    <Label Grid.Column="3" Text="{Binding DatumVoznje}" HorizontalOptions="CenterAndExpand" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="16" />
+                                </Grid>
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>

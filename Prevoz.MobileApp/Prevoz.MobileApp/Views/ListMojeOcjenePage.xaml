@@ -15,11 +15,11 @@
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Padding="10">
-                                <Label Text="Ocjena"></Label>
-                                <Label Text="{Binding Ocjena1}"></Label>
+                                <Label Text="{Binding KorisnickoIme}" FontSize="16"></Label>
+
+                                <Label Text="{Binding Ocjena1}" FontSize="14"></Label>
                                 
-                                <Label Text="Komentar"></Label>
-                                <Label Text="{Binding Komentar}"></Label>
+                                <Label Text="{Binding Komentar}" FontSize="12"></Label>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

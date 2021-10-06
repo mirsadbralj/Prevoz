@@ -70,9 +70,9 @@ namespace Prevoz.WinUI.Korisnik
 
         private void txtPitanje_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtPitanje.Text))
+            if (string.IsNullOrWhiteSpace(txtPitanje.Text) && txtPitanje.Text.Length < 10)
             {
-                errorProviderFaq.SetError(txtPitanje, "Polje je obavezno i minimalno 5 karaktera je potrebno unijeti");
+                errorProviderFaq.SetError(txtPitanje, "Polje je obavezno i minimalno 10 karaktera je potrebno unijeti");
                 e.Cancel = true;
             }
             else

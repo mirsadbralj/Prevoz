@@ -1,11 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             xmlns:vm="clr-namespace:Prevoz.MobileApp.ViewModels"
+             xmlns:vm="clr-namespace:Prevoz.MobileApp.ViewModels" 
+             xmlns:converters="clr-namespace:eProdaja.Mobile.Converters"
              x:Class="Prevoz.MobileApp.Views.ListNeocijenjeneRezervacijePage">
     <ContentPage.BindingContext>
         <vm:ListNeocijenjeneRezervacijeViewModel/>
     </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Lista vaših neocijenjenih putnika"
@@ -15,9 +23,8 @@
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Padding="10">
-                                <Label Text="{Binding UserName}"></Label>
-
-                                <Image Source="{Binding Slika}"></Image>
+                                <Image Grid.Column="0" Source="{Binding Slika, Converter={StaticResource imgConv}}" HeightRequest="55" WidthRequest="45" HorizontalOptions="StartAndExpand"></Image>
+                                    <Label Grid.Column="1" Text="{Binding UserName}" FontSize="16" HorizontalOptions="StartAndExpand"/>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

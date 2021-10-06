@@ -20,24 +20,45 @@
 
                 <Label Text="Detalji vožnje" FontSize="Title" HorizontalOptions="CenterAndExpand"/>
 
-                <Label Text="Vozač:" FontSize="Subtitle"/>
+                <Grid HorizontalOptions="CenterAndExpand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Text="{Binding LokacijaStart}" FontSize="Subtitle" HorizontalOptions="CenterAndExpand"></Label>
 
-                <Label Text="{Binding Vozac}"/>
+                    <Label Grid.Column="1" Text="->" FontSize="Subtitle" HorizontalOptions="CenterAndExpand"></Label>
 
-                <Label Text="Vozilo:" FontSize="Subtitle"/>
+                    <Label Grid.Column="2" Text="{Binding LokacijaDest}" FontSize="Subtitle" HorizontalOptions="CenterAndExpand"></Label>
+                </Grid>
+     
+                <Grid HorizontalOptions="CenterAndExpand" >
+                    <Grid.RowDefinitions >
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                        
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" Text="Vozač" FontSize="Subtitle"  HorizontalOptions="CenterAndExpand"/>
+                    <Label Grid.Row="0" Grid.Column="1" Text="->" FontSize="Subtitle" HorizontalOptions="CenterAndExpand"></Label>
+                    <Label Grid.Row="0"  Grid.Column="2" Text="{Binding Vozac}" FontSize="Subtitle"  HorizontalOptions="CenterAndExpand"/>
 
-                <Label Text="{Binding Vozilo}" />
+                    <Label Grid.Row="1" Grid.Column="0" Text="Vozilo" FontSize="Subtitle"  HorizontalOptions="CenterAndExpand"/>
+                    <Label Grid.Row="1" Grid.Column="1" Text="->" FontSize="Subtitle" HorizontalOptions="CenterAndExpand"></Label>
+                    <Label Grid.Row="1"  Grid.Column="2" Text="{Binding Vozilo}" FontSize="Subtitle"  HorizontalOptions="CenterAndExpand"/>
 
-                <Label Text="Datum vožnje:" FontSize="Subtitle"/>
+                    <Label Grid.Row="2" Grid.Column="0" Text="Datum vožnje" FontSize="Subtitle"  HorizontalOptions="CenterAndExpand"/>
+                    <Label Grid.Row="2" Grid.Column="1" Text="->" FontSize="Subtitle" HorizontalOptions="CenterAndExpand"></Label>
+                    <Label Grid.Row="2"  Grid.Column="2" Text="{Binding DatumVoznje}" FontSize="Subtitle"  HorizontalOptions="CenterAndExpand"/>
+                </Grid>
+                
 
-                <Label Text="{Binding DatumVoznje}" />
-
-                <Label Text="{Binding LokacijaStart}"/>
-
-                <Label Text="{Binding LokacijaDest}"/>
 
                 <BoxView HeightRequest="1" Color="#FFFFFF" />
-                <Label Text="Putnici" FontSize="Medium" HorizontalOptions="CenterAndExpand"/>
+                <Label Text="Putnici" FontSize="Subtitle" HorizontalOptions="CenterAndExpand"/>
                 <BoxView HeightRequest="1" Color="#FFFFFF" />
                 <StackLayout>
                     <ListView ItemsSource="{Binding listaPutnika}">

@@ -56,6 +56,7 @@ namespace Prevoz.MobileApp.ViewModels
                 await Application.Current.MainPage.DisplayAlert("Greška", "Datum ne može biti stariji od danas", "OK");
             else
             {
+                var lokacije = await _lokacija.Get<List<Model.Lokacija>>(null);
                 var StartLocationRequest = new LokacijaSearchRequest()
                 {
                     Latitude = null,
@@ -104,6 +105,8 @@ namespace Prevoz.MobileApp.ViewModels
                     listaVoznjiWDDateTime = listaVoznjiWD.Where(x => x.DatumVoznje.Date == DatumVoznje.Date && x.BrojSjedista > 0);
                     foreach (var item in listaVoznjiWDDateTime)
                     {
+                        item.PolaznaLokacija = lokacije.Where(x => x.LokacijaId == item.StartId).Select(x => x.Naziv).FirstOrDefault();
+                        item.Destinacija = lokacije.Where(x => x.LokacijaId == item.EndId).Select(x => x.Naziv).FirstOrDefault();
                         ListaDostupnihVoznji.Add(item);
                     }
                 }

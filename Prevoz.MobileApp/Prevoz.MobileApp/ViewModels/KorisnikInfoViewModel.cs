@@ -125,6 +125,8 @@ namespace Prevoz.MobileApp.ViewModels
                 {
                     if (ocjene[j].RezervacijaId == listaRezervacija[i].RezervacijaId && listaRezervacija[i].KorisnikId == _KorisnikID)
                     {
+                        var korisnickoime = await _korisnik.GetById<Model.Korisnik>(ocjene[j].KorisnikId);
+                        ocjene[j].KorisnickoIme = korisnickoime.UserName;
                         listOcjene.Add(ocjene[j]);
                         _listaOcjena.Add(ocjene[j]);
                         _listaRezervacija.Add(listaRezervacija[i]);
@@ -137,6 +139,8 @@ namespace Prevoz.MobileApp.ViewModels
                 {
                     if (ocjene[j].VoznjaId == listaVoznji[i].VoznjaId && listaVoznji[i].KorisnikId == _KorisnikID)
                     {
+                        var korisnickoime = await _korisnik.GetById<Model.Korisnik>(ocjene[j].KorisnikId);
+                        ocjene[j].KorisnickoIme = korisnickoime.UserName;
                         listOcjene.Add(ocjene[j]);
                         _listaVoznji.Add(listaVoznji[i]);
                         _listaOcjena.Add(ocjene[j]);

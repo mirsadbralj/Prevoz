@@ -26,9 +26,12 @@
                             HeightRequest="50" 
                             WidthRequest="150"/>
                 </StackLayout>
-                <Line HeightRequest="2" BackgroundColor="LightGreen" WidthRequest="20000"></Line>
-                <Label Text="Vožnje na relacijama koje ste ranije rezervisali" FontSize="14"></Label>
-                <Line HeightRequest="2" BackgroundColor="LightGreen" WidthRequest="20000"></Line>
+                
+                <Line HeightRequest="2" BackgroundColor="White" WidthRequest="20000"></Line>
+                <Label Text="Vožnje na relacijama koje ste ranije rezervisali" FontSize="14" HorizontalOptions="CenterAndExpand"></Label>
+                <Line HeightRequest="2" BackgroundColor="White" WidthRequest="20000"></Line>
+                <Label x:Name="VoznjeLabelZamjena"  Text="Trenutno nema ponuđenih vožnji na relacijama koje ste koristili ranije" FontSize="14" IsVisible="false" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
+
                 <StackLayout Padding="20">
                     <ListView ItemsSource="{Binding listaVoznji}" ItemTapped="ListView_ItemTapped">
                         <ListView.ItemTemplate>
