@@ -9,35 +9,53 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                <Label Text="Historija vožnji"
-                    VerticalOptions="CenterAndExpand" 
-                    HorizontalOptions="CenterAndExpand" FontSize="14"/>
                 <StackLayout>
                     <Line HeightRequest="2" BackgroundColor="White" WidthRequest="20000"></Line>
-                    <Label Text="Lista ponuđenih vožnji" FontSize="12" HorizontalOptions="Start"></Label>
+                    <Label Text="LISTA PONUĐENIH VOŽNJI" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"></Label>
                     <Line HeightRequest="2" BackgroundColor="White" WidthRequest="20000"></Line>
+                    <StackLayout Padding="10">
+                        <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Grid.Row="0" Grid.Column="0" Text="POLAZNA LOKACIJA" HorizontalOptions="CenterAndExpand" FontAttributes="Bold"/>
+                        <Label Grid.Row="0" Grid.Column="1"  HorizontalOptions="CenterAndExpand"></Label>
+                        <Label Grid.Row="0" Grid.Column="2" Text="DESTINACIJA" HorizontalOptions="CenterAndExpand" FontAttributes="Bold"/>
+                        <Label Grid.Row="0" Grid.Column="3" HorizontalOptions="CenterAndExpand"/>
+                    </Grid>
+                    </StackLayout>
                     <ListView ItemsSource="{Binding PonudeneVoznjeList}" ItemTapped="ItemVoznjaTapped" >
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
                                     <StackLayout Padding="10">
                                         <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="30" />
+                                            </Grid.RowDefinitions>
+
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="*" />
                                                 <ColumnDefinition Width="Auto" />
                                             </Grid.ColumnDefinitions>
-                                            <Label Grid.Column="0" Text="{Binding PolaznaLokacija}" HorizontalOptions="CenterAndExpand"></Label>
-                                            <Label Grid.Column="1" Text="->" HorizontalOptions="CenterAndExpand"></Label>
-                                            <Label Grid.Column="2" Text="{Binding Destinacija}" HorizontalOptions="CenterAndExpand"></Label>
 
-                                            <Label Grid.Column="3" Text="{Binding DatumVoznje}" HorizontalOptions="CenterAndExpand" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="16" />
+                                            <Label Grid.Column="0" Text="{Binding PolaznaLokacija}" VerticalOptions="Center"  HorizontalOptions="CenterAndExpand"></Label>
+                                            <Label Grid.Column="1" VerticalOptions="Center"  HorizontalOptions="CenterAndExpand"></Label>
+                                            <Label Grid.Column="2" Text="{Binding Destinacija}" VerticalOptions="Center" HorizontalOptions="CenterAndExpand"></Label>
+                                            <Label Grid.Column="3" Text="{Binding DatumVoznje}" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="16" />
                                         </Grid>
                                     </StackLayout>
                                 </ViewCell>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
-                    <StackLayout Padding="20" >
+                    <StackLayout Padding="10" >
                         <Line HeightRequest="2" BackgroundColor="LightGreen" WidthRequest="20000"></Line>
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -51,8 +69,25 @@
                     </StackLayout>
                 </StackLayout>
                 <Line HeightRequest="2" BackgroundColor="White" WidthRequest="20000"></Line>
-                <Label Text="Lista rezervisanih vožnji" FontSize="12" HorizontalOptions="Start"></Label>
+                <Label Text="LISTA REZERVISANIH VOŽNJI" HorizontalOptions="CenterAndExpand" FontAttributes="Bold"></Label>
                 <Line HeightRequest="2" BackgroundColor="White" WidthRequest="20000"></Line>
+                <StackLayout Padding="10">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Grid.Row="0" Grid.Column="0" Text="POLAZNA LOKACIJA" HorizontalOptions="CenterAndExpand" FontAttributes="Bold"/>
+                        <Label Grid.Row="0" Grid.Column="1"  HorizontalOptions="CenterAndExpand"></Label>
+                        <Label Grid.Row="0" Grid.Column="2" Text="DESTINACIJA" HorizontalOptions="CenterAndExpand" FontAttributes="Bold"/>
+                        <Label Grid.Row="0" Grid.Column="3" HorizontalOptions="CenterAndExpand"/>
+                    </Grid>
+                </StackLayout>
                 <ListView ItemsSource="{Binding RezervisaneVoznjeList}" ItemTapped="ItemVoznjaTapped" >
                     <ListView.ItemTemplate>
                         <DataTemplate>
@@ -64,9 +99,8 @@
                                         <ColumnDefinition Width="Auto" />
                                     </Grid.ColumnDefinitions>
                                     <Label Grid.Column="0" Text="{Binding PolaznaLokacija}" HorizontalOptions="CenterAndExpand"></Label>
-                                    <Label Grid.Column="1" Text="->" HorizontalOptions="CenterAndExpand"></Label>
+                                    <Label Grid.Column="1" HorizontalOptions="CenterAndExpand"></Label>
                                     <Label Grid.Column="2" Text="{Binding Destinacija}" HorizontalOptions="CenterAndExpand"></Label>
-
                                     <Label Grid.Column="3" Text="{Binding DatumVoznje}" HorizontalOptions="CenterAndExpand" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="16" />
                                 </Grid>
                                 </StackLayout>
