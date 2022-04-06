@@ -20,17 +20,6 @@ namespace Prevoz.MobileApp.Views
             InitializeComponent();
             BindingContext = model = new HomeViewModel();
         }
-
-        private async void Button_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new TraziVoznjuPage());
-        }
-
-        private async void Button_Clicked_1(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new PonudiVoznjuPage());
-        }
-
         protected async override void OnAppearing()
         {
             base.OnAppearing();
@@ -47,6 +36,16 @@ namespace Prevoz.MobileApp.Views
         {
             var content = e.Item as Voznja;
             Navigation.PushAsync(new VoznjaDetailsPage(content));
+        }
+
+        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new TraziVoznjuPage());
+        }
+
+        private async void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new PonudiVoznjuPage());
         }
     }
 }

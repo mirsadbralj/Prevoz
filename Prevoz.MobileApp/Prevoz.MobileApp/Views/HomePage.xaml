@@ -9,28 +9,49 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout >
-                <StackLayout Padding="20">
-                <Button Text="Traži vožnju" 
-                            HorizontalOptions="CenterAndExpand" 
-                            VerticalOptions="CenterAndExpand" 
-                            Clicked="Button_Clicked"
-                            HeightRequest="50" 
-                            WidthRequest="150"/>
+                <StackLayout>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="250" />
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <ContentView     HorizontalOptions="FillAndExpand"
+                                         VerticalOptions="FillAndExpand"
+                                         Grid.Row="0"
+                                         Grid.Column="0"
+                                         Grid.ColumnSpan="2"
+                                         BackgroundColor="Blue">
+                            <Label Text="TRAŽI VOŽNJU" VerticalOptions="CenterAndExpand" FontAttributes="Bold" TextColor="White" HorizontalOptions="CenterAndExpand"></Label>
+                            <ContentView.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                            </ContentView.GestureRecognizers>
+                        </ContentView>
+
+
+                        <ContentView     HorizontalOptions="FillAndExpand"
+                                         VerticalOptions="FillAndExpand"
+                                         Grid.Row="0"
+                                         Grid.Column="1"
+                                         Grid.ColumnSpan="2"
+                                         BackgroundColor="DarkBlue">
+                            <Label Text="PONUDI VOŽNJU" VerticalOptions="CenterAndExpand" FontAttributes="Bold" TextColor="White" HorizontalOptions="CenterAndExpand"></Label>
+
+                            <ContentView.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"/>
+                            </ContentView.GestureRecognizers>
+                        </ContentView>
+                    </Grid>
+                    <Label Margin="0, 20, 0, 0" Text="Preporuka vožnji po ranije korištenim relacijama" FontSize="14" HorizontalOptions="CenterAndExpand"></Label>
+
+                    <Label x:Name="VoznjeLabelZamjena" Margin="0, 50, 0, 0" Text="Trenutno nema ponuđenih vožnji na relacijama koje ste koristili ranije..." FontSize="14" IsVisible="false" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
                 </StackLayout>
                 
-                <StackLayout Padding="20">
-                    <Button Text="Ponudi vožnju"
-                            HorizontalOptions="CenterAndExpand" 
-                            VerticalOptions="CenterAndExpand" 
-                            Clicked="Button_Clicked_1"
-                            HeightRequest="50" 
-                            WidthRequest="150"/>
-                </StackLayout>
-                
-                <Line HeightRequest="2" BackgroundColor="White" WidthRequest="20000"></Line>
-                <Label Text="Vožnje na relacijama koje ste ranije rezervisali" FontSize="14" HorizontalOptions="CenterAndExpand"></Label>
-                <Line HeightRequest="2" BackgroundColor="White" WidthRequest="20000"></Line>
-                <Label x:Name="VoznjeLabelZamjena"  Text="Trenutno nema ponuđenih vožnji na relacijama koje ste koristili ranije" FontSize="14" IsVisible="false" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
+
 
                 <StackLayout Padding="20">
                     <ListView ItemsSource="{Binding listaVoznji}" ItemTapped="ListView_ItemTapped">
