@@ -16,9 +16,9 @@
 
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout Padding="5">
+            <StackLayout Padding="10">
                 <Image Source="{Binding UserImage,Converter={StaticResource imgConv}}" HeightRequest="175" WidthRequest="175"></Image>
-                <Button Text="Dodaj Sliku" Clicked="Button_Clicked" WidthRequest="175" HorizontalOptions="CenterAndExpand"></Button>
+                <Button Text="Dodaj Sliku" Clicked="Button_Clicked" WidthRequest="175" CornerRadius="15" HorizontalOptions="CenterAndExpand"></Button>
 
                 <StackLayout>
                     <Label Text="Korisničko ime"/>
@@ -71,11 +71,12 @@
                 </StackLayout>
 
                 <Label Text="Datum rođenja"></Label>
-                <DatePicker x:Name="DatumRodjenjaxaml" Date="{Binding Datum}" ></DatePicker>
+                <DatePicker x:Name="DatumRodjenjaxaml" Date="{Binding Datum}"></DatePicker>
 
-                <Label x:Name="ErrorLabelPasswordAndConfirm" IsVisible="false" TextColor="Red" FontSize="13"></Label>
-                <Button x:Name="SaveButton" Text="Sačuvaj" HorizontalOptions="End" WidthRequest="100" Command="{Binding SaveCommand}"></Button>
-
+                <StackLayout>
+                    <Label x:Name="ErrorLabelPasswordAndConfirm" IsVisible="false" TextColor="Red" FontSize="13"></Label>
+                    <Button x:Name="SaveButton" Text="Sačuvaj" CornerRadius="15" HorizontalOptions="End" WidthRequest="100" Command="{Binding SaveCommand}" Padding="5" Margin="0,15,0,0"></Button>
+                </StackLayout>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

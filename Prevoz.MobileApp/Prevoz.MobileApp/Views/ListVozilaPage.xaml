@@ -41,7 +41,9 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Button Text="Dodaj novo vozilo" HorizontalOptions="End" Clicked="Button_Clicked"></Button>
+            <ContentView Padding="10">
+            <Button Text="Dodaj novo vozilo" HorizontalOptions="End" Padding="10" CornerRadius="15" Clicked="Button_Clicked"></Button>
+            </ContentView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

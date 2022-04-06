@@ -13,11 +13,11 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout Padding="10">
             <Label Text="Dodaj novo vozilo" HorizontalOptions="CenterAndExpand" />
             <Image Source="{Binding SlikaK, Converter={StaticResource imgConv}}" HeightRequest="50" WidthRequest="50" HorizontalOptions="Center"></Image>
             <Label></Label>
-            <Button Text="Dodaj sliku" Clicked="Button_Clicked_1" Padding="5" ></Button>
+            <Button Text="Dodaj sliku" Clicked="Button_Clicked_1" Padding="5" CornerRadius="15"></Button>
 
             <StackLayout>
                 <Label Text="Naziv automobila"></Label>
@@ -26,7 +26,7 @@
             </StackLayout>
             <Picker Title="Boja" ItemsSource="{Binding BojaAutomobilaList}" SelectedItem="{Binding BojaAutomobila}"></Picker>
             <Picker Title="Marka" ItemsSource="{Binding MarkaAutomobilaList}" SelectedItem="{Binding MarkaAutomobila}"></Picker>
-            <Button x:Name="SacuvajVoziloButton" Text="Sačuvaj" Clicked="Button_Clicked"></Button>
+            <Button x:Name="SacuvajVoziloButton" Text="Sačuvaj" Clicked="Button_Clicked" CornerRadius="15"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
