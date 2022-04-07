@@ -16,8 +16,8 @@
             <Entry Text="{Binding Username}"></Entry>
             <Label Text="Password" ></Label>
             <Entry Text="{Binding Password}" IsPassword="True"></Entry>
-            <Button Text="Login" Command="{Binding LoginCommand}"/>
-            <Button Text="Registracija" Clicked="Button_Clicked"></Button>
+            <Button Text="Login" Command="{Binding LoginCommand}" CornerRadius="15" />
+            <Button Text="Registracija" Clicked="Button_Clicked" CornerRadius="15" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

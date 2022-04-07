@@ -29,7 +29,7 @@
             </StackLayout>
             <Label x:Name="ErrorLabelPasswordAndCOnfirm" IsVisible="false" TextColor="Red" FontSize="13"></Label>
 
-            <Button x:Name="ButtonRegistracija" Text="Registracija" Command="{Binding RegistrationCommand}"></Button>
+            <Button x:Name="ButtonRegistracija" Text="Registracija" Command="{Binding RegistrationCommand}" CornerRadius="15"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
